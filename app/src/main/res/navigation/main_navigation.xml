@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@+id/navigation_area">
+
+    <fixFragment
+        android:id="@+id/navigation_area"
+        android:name="com.dream.miniboss.job.JobMainFragment"
+        android:label="@string/title_area"
+        tools:layout="@layout/fragment_job" />
+
+    <fixFragment
+        android:id="@+id/navigation_square"
+        android:name="com.dream.miniboss.publish.PublishFragment"
+        android:label="@string/title_square"
+        tools:layout="@layout/fragment_publish" />
+    <fixFragment
+        android:id="@+id/navigation_message"
+        android:name="com.dream.miniboss.message.MessageFragment"
+        android:label="@string/title_message"
+        tools:layout="@layout/fragment_message" />
+
+    <fixFragment
+        android:id="@+id/navigation_mine"
+        android:name="com.dream.miniboss.mine.MineFragment"
+        android:label="@string/title_mine"
+        tools:layout="@layout/fragment_mine" />
+</navigation>
