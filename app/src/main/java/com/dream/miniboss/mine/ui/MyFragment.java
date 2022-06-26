@@ -22,7 +22,7 @@ import com.dream.miniboss.main.MainActivity;
 
 /**
  * 创建日期：2022-06-21 on 0:58
- * 描述:衣带渐宽终不悔、为伊消得人憔悴
+ * 描述:我的页面
  * 作者:HeGuiCun Administrator
  */
 public class MyFragment extends BaseFragment {

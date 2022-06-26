@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.dream.miniboss.databinding.FragmentMineBinding
 import com.dream.miniboss.mine.vm.MineViewModel
 import com.tcl.base.common.ui.BaseFragment
+import com.tcl.base.kt.ktClick
 
 /**
  *@author tiaozi
@@ -12,6 +13,8 @@ import com.tcl.base.common.ui.BaseFragment
  */
 class MineFragment : BaseFragment<MineViewModel,FragmentMineBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
+        mBinding.title.ktClick {
 
+        }
     }
 }

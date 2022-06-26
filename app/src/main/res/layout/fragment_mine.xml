@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:gravity="center"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center">
 
-    <TextView
+    <com.ruffian.library.widget.RTextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/dp_22"
+        android:paddingTop="@dimen/dp_7"
+        android:paddingEnd="@dimen/dp_22"
+        android:paddingBottom="@dimen/dp_7"
         android:text="我的fra"
-        android:layout_height="wrap_content"/>
+        app:background_normal="@color/grey_dark"
+        app:background_unable="@color/green"
+        app:corner_radius="@dimen/dp_4"
+        app:text_color_normal="@color/white" />
 </LinearLayout>

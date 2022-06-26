@@ -60,7 +60,12 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
         mBinding.etGender.setOnClickListener(this);
         mBinding.etBirthTime.setOnClickListener(this);
         mBinding.etEmil.setOnClickListener(this);
-        mBinding.ivBack.setOnClickListener(this);
+        mBinding.titleBar.getLeftView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         mBinding.scviewIv.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -138,9 +143,6 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.iv_back:
-                onBackPressed();
-                break;
             case R.id.icon_user:
                 //这里上传头像
                 break;
