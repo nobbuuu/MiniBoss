@@ -447,13 +447,6 @@
         <item name="android:paddingEnd">10dp</item>
     </style>
 
-    <!-- 默认水平分割线样式 -->
-    <style name="HorizontalLineStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/line_size</item>
-        <item name="android:background">@color/list_divider</item>
-    </style>
-
     <!-- 默认圆角按钮样式 -->
     <style name="BlackStyle" parent="Widget.AppCompat.Button.Borderless">
         <item name="android:paddingStart">20dp</item>

@@ -1,5 +1,6 @@
-rootProject.name = "Xiaobei"
+rootProject.name = "miniBoss"
 include ':app'
 includeBuild("version")
 include ':base'
 include ':launcher'
+include ':mypicker'

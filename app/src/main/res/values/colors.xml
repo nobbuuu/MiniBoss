@@ -14,11 +14,11 @@
 
     <!--以下为公共颜色属性    -->
     <!-- 应用的主要色调，actionBar默认使用该颜色，Toolbar导航栏的底色-->
-    <color name="colorPrimary">#E33E2E</color>
+    <color name="colorPrimary">#436DFF</color>
     <!--状态栏颜色-->
-    <color name="colorPrimaryDark">#E64C3D</color>
+    <color name="colorPrimaryDark">#436DFF</color>
     <!--一般控件的选中效果默认采用该颜色-->
-    <color name="colorAccent">#E64C3D</color>
+    <color name="colorAccent">#D81B60</color>
     <color name="colorControlNormal">#9a9a9a</color>
     <color name="color_transparent">#00000000</color>
 
@@ -51,7 +51,6 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="white_20">#33FFFFFF</color>
     <color name="white_40">#66FFFFFF</color>
     <color name="white_50">#80FFFFFF</color>
@@ -153,4 +152,16 @@
     <color name="color_A4">#A4A1A1</color>
 
     <color name="color_pure_black_50">#80000000</color>
+
+    <color name="blue_light">#436DFF</color>
+    <color name="grey_dark">#AFAFAF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dark">#323233</color>
+    <color name="green">#05C160</color>
+    <color name="qian_green">#E5F0F7</color>
+    <color name="red">#FF3A3A</color>
+    <color name="pink">#FFEBEB</color>
+    <color name="qian_blue">#D1FBC6</color>
+    <color name="blue">#05C160</color>
+
 </resources>

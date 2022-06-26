@@ -24,7 +24,7 @@
 
     <fixFragment
         android:id="@+id/navigation_mine"
-        android:name="com.dream.miniboss.mine.MineFragment"
+        android:name="com.dream.miniboss.mine.ui.MyFragment"
         android:label="@string/title_mine"
-        tools:layout="@layout/fragment_mine" />
+        tools:layout="@layout/fragment_my" />
 </navigation>
