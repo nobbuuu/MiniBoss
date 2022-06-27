@@ -80,7 +80,7 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Log.d(TAG, "onCheckedChanged: "+"-----------");
-                if (!isEnabled&&mRemindSwitch.isChecked()) {
+                if (!isEnabled) {
                     Log.d(TAG, "onCheckedChanged: "+"打开了权限");
                     //未打开通知
                     AlertDialog alertDialog = new AlertDialog.Builder(SystemSettingActivity.this)

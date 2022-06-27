@@ -43,7 +43,8 @@ public class PermissionSettingActivity extends BaseActivity implements CompoundB
         deviceSwitch = fvbi(R.id.switch_permission_device);
         albumSwitch = fvbi(R.id.switch_permission_album);
         //两个日历权限和一个数据读写权限
-        permissionsLocal = new String[]{Manifest.permission.LOCATION_HARDWARE,Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        permissionsLocal = new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION
+        };
         permissionsCamera=new String[]{Manifest.permission.CAMERA};
         permissionsVoice=new String[]{ Manifest.permission.ADD_VOICEMAIL};
         permissionsCalendar=new String[]{Manifest.permission.WRITE_CALENDAR,Manifest.permission.READ_CALENDAR};
@@ -113,16 +114,40 @@ public class PermissionSettingActivity extends BaseActivity implements CompoundB
                 }
                 break;
             case R.id.switch_permission_camera:
+                if (cameraSwitch.isChecked()) {
+                    Log.d(TAG, "onCheckedChanged: " + "日历权限" +permissionsCamera);
+                    PermissionsUtils.getInstance().chekPermissions(this, permissionsCamera, permissionsResult);
+                }else {
+                    Toast.makeText(PermissionSettingActivity.this, "请滑动按钮申请权限!", Toast.LENGTH_SHORT).show();
 
+                }
                 break;
             case R.id.switch_permission_voice:
+                if (voiceSwitch.isChecked()) {
+                    Log.d(TAG, "onCheckedChanged: " + "日历权限" +permissionsVoice);
+                    PermissionsUtils.getInstance().chekPermissions(this, permissionsVoice, permissionsResult);
+                }else {
+                    Toast.makeText(PermissionSettingActivity.this, "请滑动按钮申请权限!", Toast.LENGTH_SHORT).show();
 
+                }
                 break;
             case R.id.switch_permission_device:
+                if (deviceSwitch.isChecked()) {
+                    Log.d(TAG, "onCheckedChanged: " + "日历权限" +permissionsDevice);
+                    PermissionsUtils.getInstance().chekPermissions(this, permissionsDevice, permissionsResult);
+                }else {
+                    Toast.makeText(PermissionSettingActivity.this, "请滑动按钮申请权限!", Toast.LENGTH_SHORT).show();
 
+                }
                 break;
             case R.id.switch_permission_album:
+                if (albumSwitch.isChecked()) {
+                    Log.d(TAG, "onCheckedChanged: " + "日历权限" +permissionsCamera);
+                    PermissionsUtils.getInstance().chekPermissions(this, permissionsCamera, permissionsResult);
+                }else {
+                    Toast.makeText(PermissionSettingActivity.this, "请滑动按钮申请权限!", Toast.LENGTH_SHORT).show();
 
+                }
                 break;
             default:
         }
