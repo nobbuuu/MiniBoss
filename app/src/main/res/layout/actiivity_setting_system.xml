@@ -33,6 +33,7 @@
             android:text="通知与提醒" />
 
         <Switch
+            android:id="@+id/switch_remind_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dp_16"
