@@ -132,7 +132,7 @@ public class PermissionSettingActivity extends BaseActivity implements CompoundB
     PermissionsUtils.IPermissionsResult permissionsResult = new PermissionsUtils.IPermissionsResult() {
         @Override
         public void passPermissons() {
-            Toast.makeText(PermissionSettingActivity.this, "权限通过，可以做其他事情!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PermissionSettingActivity.this, "权限通过！", Toast.LENGTH_SHORT).show();
         }
 
         @Override
