@@ -102,6 +102,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/lv_black_list"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_54"
         android:layout_marginLeft="8dp"
@@ -128,6 +129,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/lv_feed_back"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_54"
         android:layout_marginLeft="8dp"

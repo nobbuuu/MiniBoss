@@ -29,7 +29,7 @@ import com.hjq.bar.TitleBar;
  */
 public class SystemSettingActivity extends BaseActivity implements View.OnClickListener {
     TitleBar mTitleBar;
-    LinearLayout mLayoutPermission;
+    LinearLayout mLayoutPermission,mBlackListLinear,mFeedbackLinear;
     Switch mRemindSwitch;
     boolean isEnabled;
 
@@ -43,6 +43,8 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
         mTitleBar = fvbi(R.id.system_setting_titleBar);
         mLayoutPermission = fvbi(R.id.lv_permission);
         mRemindSwitch = fvbi(R.id.switch_remind_message);
+        mBlackListLinear=fvbi(R.id.lv_black_list);
+        mFeedbackLinear=fvbi(R.id.lv_feed_back);
         //设置通知消息提醒时候的状态
         NotificationManagerCompat notification = NotificationManagerCompat.from(this);
         isEnabled = notification.areNotificationsEnabled();
@@ -50,8 +52,10 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
 
     @Override
     protected void initData() {
-
+        mBlackListLinear.setOnClickListener(this);
         mLayoutPermission.setOnClickListener(this);
+        mFeedbackLinear.setOnClickListener(this);
+        //titlebar的内容设置
         mTitleBar.setOnTitleBarListener(new OnTitleBarListener() {
             @Override
             public void onLeftClick(View view) {
@@ -68,6 +72,7 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
 
             }
         });
+
         event();
     }
 
@@ -129,6 +134,10 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
         });
     }
 
+    /**
+     * 点击事件的设置
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -139,7 +148,17 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
                 mIntent.setClass(this, PermissionSettingActivity.class);
                 startActivity(mIntent);
                 break;
+            case R.id.lv_black_list:
+                Intent mBlackIntent = new Intent();
+                mBlackIntent.setClass(this, BlackListActivity.class);
+                startActivity(mBlackIntent);
+                break;
+            case R.id.lv_feed_back:
+                Intent mFeedIntent = new Intent();
+                mFeedIntent.setClass(this, FeedbackActivity.class);
+                startActivity(mFeedIntent);
 
+                break;
 
         }
     }
