@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/title_permission_setting"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        app:title="权限设置" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/lv_shape"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:text="位置权限" />
+
+        <Switch
+            android:id="@+id/switch_permission_local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_weight="1"
+            android:checked="false"
+            android:theme="@style/SwitchStyle" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/iv_online_chat"-->
+        <!--            android:layout_width="@dimen/dp_12"-->
+        <!--            android:layout_height="@dimen/dp_12"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:src="@mipmap/goin" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/lv_shape"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:text="日历权限" />
+
+        <Switch
+            android:id="@+id/switch_permission_canlder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_weight="1"
+            android:checked="false"
+            android:theme="@style/SwitchStyle" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/iv_online_chat"-->
+        <!--            android:layout_width="@dimen/dp_12"-->
+        <!--            android:layout_height="@dimen/dp_12"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:src="@mipmap/goin" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/lv_shape"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:text="相机权限" />
+
+        <Switch
+            android:id="@+id/switch_permission_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_weight="1"
+            android:checked="false"
+            android:theme="@style/SwitchStyle" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/iv_online_chat"-->
+        <!--            android:layout_width="@dimen/dp_12"-->
+        <!--            android:layout_height="@dimen/dp_12"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:src="@mipmap/goin" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/lv_shape"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:text="麦克风权限" />
+
+        <Switch
+            android:id="@+id/switch_permission_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_weight="1"
+            android:checked="false"
+            android:theme="@style/SwitchStyle" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/iv_online_chat"-->
+        <!--            android:layout_width="@dimen/dp_12"-->
+        <!--            android:layout_height="@dimen/dp_12"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:src="@mipmap/goin" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/lv_shape"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:text="设备权限" />
+
+        <Switch
+            android:id="@+id/switch_permission_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_weight="1"
+            android:checked="false"
+            android:theme="@style/SwitchStyle" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/iv_online_chat"-->
+        <!--            android:layout_width="@dimen/dp_12"-->
+        <!--            android:layout_height="@dimen/dp_12"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:src="@mipmap/goin" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/lv_shape"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:text="相册权限" />
+
+        <Switch
+            android:id="@+id/switch_permission_album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_weight="1"
+            android:checked="false"
+            android:theme="@style/SwitchStyle" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/iv_online_chat"-->
+        <!--            android:layout_width="@dimen/dp_12"-->
+        <!--            android:layout_height="@dimen/dp_12"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:src="@mipmap/goin" />-->
+    </LinearLayout>
+</LinearLayout>

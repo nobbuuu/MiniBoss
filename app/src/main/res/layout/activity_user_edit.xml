@@ -14,7 +14,7 @@
         <com.hjq.bar.TitleBar
             android:id="@+id/titleBar"
             android:layout_width="match_parent"
-            app:title="基本信息"
+            app:title="@string/user_message"
             android:layout_height="@dimen/dp_44"/>
 
         <RelativeLayout

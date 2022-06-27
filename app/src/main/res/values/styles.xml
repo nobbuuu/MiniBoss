@@ -651,4 +651,12 @@
         <item name="android:maxLines">2</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <!--给Switch按钮更换颜色 (name自定义)-->
+    <style name="SwitchStyle" parent="Theme.AppCompat.Light">
+        <!--未选中时的颜色 (灰色)-->
+        <item name="colorControlNormal">#A5A5A5</item>
+        <!--选中时的颜色 (蓝色)-->
+        <item name="colorControlActivated">#01C560</item>
+    </style>
+
 </resources>

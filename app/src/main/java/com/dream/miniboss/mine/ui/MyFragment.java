@@ -31,7 +31,7 @@ public class MyFragment extends BaseFragment {
     ImageView onLineChat;
     TextView mPhoneNumber;
     LinearLayout mLinearLayout;
-
+    LinearLayout mSystemSetting;
     @Override
     protected int setLayout() {
         return R.layout.fragment_my;
@@ -39,6 +39,7 @@ public class MyFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        mSystemSetting=fvbyid(R.id.lv_setting_system);
         mImageEdit = fvbyid(R.id.image_edit);
         onLineChat = fvbyid(R.id.iv_online_chat);
         mPhoneNumber=fvbyid(R.id.tv_phone_number);
@@ -74,6 +75,15 @@ public class MyFragment extends BaseFragment {
             public void onClick(View v) {
                 Intent mIntent = new Intent();
                 mIntent.setClass(getContext(), MainActivity.class);
+                startActivity(mIntent);
+            }
+        });
+
+        mSystemSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent();
+                mIntent.setClass(getContext(), SystemSettingActivity.class);
                 startActivity(mIntent);
             }
         });

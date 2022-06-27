@@ -8,4 +8,20 @@
         <item>男</item>
         <item>女</item>
     </string-array>
+    <string name="system_setting">
+
+        <item>系统设置</item>
+
+    </string>
+    <string name="user_message">
+
+        <item>基本信息</item>
+
+    </string>
+    <string name="permission_setting">
+
+        <item>权限设置</item>
+
+    </string>
+
 </resources>
