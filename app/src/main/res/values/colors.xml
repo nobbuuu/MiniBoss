@@ -155,6 +155,7 @@
 
     <color name="blue_light">#436DFF</color>
     <color name="grey_dark">#AFAFAF</color>
+    <color name="color_default_img">#C4C4C4</color>
     <color name="white">#FFFFFF</color>
     <color name="dark">#323233</color>
     <color name="green">#05C160</color>
