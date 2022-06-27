@@ -15,6 +15,10 @@ import com.dream.miniboss.utils.PermissionsUtils;
 import com.hjq.bar.OnTitleBarListener;
 import com.hjq.bar.TitleBar;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 创建日期：2022-06-27 on 1:42
  * 描述:衣带渐宽终不悔、为伊消得人憔悴
@@ -23,8 +27,7 @@ import com.hjq.bar.TitleBar;
 public class PermissionSettingActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener {
     TitleBar mTitleBar;
     Switch localSwitch, calendarSwitch, cameraSwitch, voiceSwitch, deviceSwitch, albumSwitch;
-    String[] permissions;
-
+    String[] permissionsLocal,permissionsCamera,permissionsVoice,permissionsCalendar,permissionsDevice;
     @Override
     protected int initLayout() {
         return R.layout.activity_setting_permission;
@@ -40,11 +43,13 @@ public class PermissionSettingActivity extends BaseActivity implements CompoundB
         deviceSwitch = fvbi(R.id.switch_permission_device);
         albumSwitch = fvbi(R.id.switch_permission_album);
         //两个日历权限和一个数据读写权限
-         permissions = new String[]{Manifest.permission.LOCATION_HARDWARE, Manifest.permission.CAMERA, Manifest.permission.ADD_VOICEMAIL,Manifest.permission.READ_CALENDAR,Manifest.permission.WRITE_CALENDAR,Manifest.permission.READ_PHONE_STATE,Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        permissionsLocal = new String[]{Manifest.permission.LOCATION_HARDWARE,Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        permissionsCamera=new String[]{Manifest.permission.CAMERA};
+        permissionsVoice=new String[]{ Manifest.permission.ADD_VOICEMAIL};
+        permissionsCalendar=new String[]{Manifest.permission.WRITE_CALENDAR,Manifest.permission.READ_CALENDAR};
+        permissionsDevice=new String[]{Manifest.permission.READ_PHONE_STATE};
          PermissionsUtils.showSystemSetting = false;//是否支持显示系统设置权限设置窗口跳转
         //这里的this不是上下文，是Activity对象！
-
-
 
     }
 
@@ -90,11 +95,22 @@ public class PermissionSettingActivity extends BaseActivity implements CompoundB
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         switch (buttonView.getId()){
             case R.id.switch_permission_local:
-                Log.d(TAG, "onCheckedChanged: "+"这是位置权限");
-                PermissionsUtils.getInstance().chekPermissions(this, permissions= new String[0], permissionsResult);
+                if (localSwitch.isChecked()) {
+                Log.d(TAG, "onCheckedChanged: " + "这是位置权限" +permissionsLocal);
+                PermissionsUtils.getInstance().chekPermissions(this, permissionsLocal, permissionsResult);
+                }else {
+                    Toast.makeText(PermissionSettingActivity.this, "请滑动按钮申请权限!", Toast.LENGTH_SHORT).show();
+
+                }
                 break;
             case R.id.switch_permission_canlder:
+                if (calendarSwitch.isChecked()) {
+                    Log.d(TAG, "onCheckedChanged: " + "日历权限" +permissionsCalendar);
+                    PermissionsUtils.getInstance().chekPermissions(this, permissionsCalendar, permissionsResult);
+                }else {
+                    Toast.makeText(PermissionSettingActivity.this, "请滑动按钮申请权限!", Toast.LENGTH_SHORT).show();
 
+                }
                 break;
             case R.id.switch_permission_camera:
 
@@ -116,7 +132,7 @@ public class PermissionSettingActivity extends BaseActivity implements CompoundB
     PermissionsUtils.IPermissionsResult permissionsResult = new PermissionsUtils.IPermissionsResult() {
         @Override
         public void passPermissons() {
-            Toast.makeText(PermissionSettingActivity.this, "权限通过，可以做其他事情!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PermissionSettingActivity.this, "权限通过！", Toast.LENGTH_SHORT).show();
         }
 
         @Override

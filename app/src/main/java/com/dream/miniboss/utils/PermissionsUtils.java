@@ -43,6 +43,7 @@ public class PermissionsUtils {
         return permissionsUtils;
     }
 
+    //同时检查多个权限调用
     public void chekPermissions(Activity context, String[] permissions, @NonNull IPermissionsResult permissionsResult) {
         mPermissionsResult = permissionsResult;
 
