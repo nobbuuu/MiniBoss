@@ -119,4 +119,5 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(){
     override fun initDataOnResume() {
 
     }
+
 }
