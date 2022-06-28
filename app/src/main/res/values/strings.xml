@@ -3,6 +3,7 @@
     <string name="title_square">发布</string>
     <string name="title_message">消息</string>
     <string name="title_mine">我的</string>
+    <string name="nationwide">全国</string>
 
     <string-array name="list">
         <item>男</item>

@@ -10,9 +10,10 @@ import com.tcl.base.common.ui.BaseFragment
  *@date   2022/1/26
  *description
  */
-class JobsFragment : BaseFragment<JobViewModel, FragmentJobsBinding> (){
+class JobsFragment(val type:Int) : BaseFragment<JobViewModel, FragmentJobsBinding> (){
 
     override fun initView(savedInstanceState: Bundle?) {
+
 
     }
 }
