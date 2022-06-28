@@ -130,7 +130,13 @@
         android:layout_width="@dimen/dp_64"
         android:layout_height="@dimen/dp_22"
         android:layout_marginLeft="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_24"
         android:text="详细描述"
         android:textSize="@dimen/sp_16" />
+    <com.ruffian.library.widget.REditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_144"
+        android:background="@drawable/edit_shap"
+       android:layout_marginTop="@dimen/dp_16"
+        />
 </LinearLayout>
