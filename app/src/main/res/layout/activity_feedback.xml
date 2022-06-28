@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -133,10 +137,26 @@
         android:layout_marginTop="@dimen/dp_24"
         android:text="详细描述"
         android:textSize="@dimen/sp_16" />
-    <com.ruffian.library.widget.REditText
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_144"
-        android:background="@drawable/edit_shap"
-       android:layout_marginTop="@dimen/dp_16"
+        android:background="@color/white"
+        android:hint="描述一下您在使用过程中遇到的问题"
+        android:gravity="start"
+        android:inputType="textAutoComplete"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_8"
+        android:layout_marginLeft="@dimen/dp_8"
+        app:text_color_normal="@color/grey_dark"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:text="确定"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_32"
+       />
         />
 </LinearLayout>
+</ScrollView>
