@@ -3,8 +3,10 @@ package com.dream.miniboss.job.ui
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.isVisible
 import coil.load
 import com.dream.miniboss.R
 import com.ruffian.library.widget.RImageView

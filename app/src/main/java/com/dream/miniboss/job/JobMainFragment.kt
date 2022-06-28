@@ -23,12 +23,16 @@ class JobMainFragment : BaseFragment<JobViewModel, FragmentJobMainBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         BarUtils.addMarginTopEqualStatusBarHeight(mBinding.appNameTv)
-        mBinding.topBg.setPadding(0,BarUtils.getStatusBarHeight(),0,0)
+        mBinding.topBg.setPadding(0, BarUtils.getStatusBarHeight(), 0, 0)
+        initTabAndVp()
+    }
+
+    private fun initTabAndVp() {
         val fragments = arrayListOf<Fragment>()
         val jobTypeData = arrayListOf<JobTypeBean>()
         tabTitles.forEachIndexed { index, s ->
             mBinding.tabLayout.addTab(mBinding.tabLayout.newTab())
-            fragments.add(JobsFragment())
+            fragments.add(JobsFragment(index + 1))
             jobTypeData.add(JobTypeBean(index + 1, name = s))
         }
         mBinding.homeVp.adapter = MyFragmentPagerAdapter(requireActivity(), fragments)
@@ -41,7 +45,7 @@ class JobMainFragment : BaseFragment<JobViewModel, FragmentJobMainBinding>() {
 
         repeat(mBinding.tabLayout.tabCount) {
             val tab = mBinding.tabLayout.getTabAt(it)
-            tab?.customView = JobTypeView(requireContext()).setData(jobTypeData[it].img,jobTypeData[it].name)
+            tab?.customView = JobTypeView(requireContext()).setData(jobTypeData[it].img, jobTypeData[it].name)
         }
         mBinding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {

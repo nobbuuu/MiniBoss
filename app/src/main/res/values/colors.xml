@@ -164,5 +164,7 @@
     <color name="pink">#FFEBEB</color>
     <color name="qian_blue">#D1FBC6</color>
     <color name="blue">#05C160</color>
+    <color name="main_text_color">#323232</color>
+    <color name="rv_default_bg">#F7F7F7</color>
 
 </resources>
