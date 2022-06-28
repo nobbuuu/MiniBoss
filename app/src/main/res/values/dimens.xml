@@ -43,6 +43,7 @@
 
     <dimen name="dp_192">192dp</dimen>
     <dimen name="dp_200">200dp</dimen>
+    <dimen name="dp_284">284dp</dimen>
     <dimen name="bg_norm_radius">8dp</dimen>
     <dimen name="bg_norm_radius_12">12dp</dimen>
     <dimen name="title_bar_icon_size">24dp</dimen>

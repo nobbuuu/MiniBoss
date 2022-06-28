@@ -4,11 +4,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray_bg"
     android:orientation="vertical"
     tools:context=".mine.ui.FeedbackActivity">
-<com.hjq.bar.TitleBar
-    android:id="@+id/title_feed_back"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_44"
-    app:title="意见反馈"/>
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/title_feed_back"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        app:title="意见反馈" />
+
+    <com.ruffian.library.widget.RTextView
+        android:id="@+id/tv_roast"
+        android:layout_width="@dimen/dp_64"
+        android:layout_height="@dimen/dp_22"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="吐槽一下"
+        android:textSize="@dimen/sp_16" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="284dp"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_8"
+        android:background="@drawable/lv_shape"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:drawableRight="@mipmap/selected"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/sp_16"
+                android:text="软件不好用" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:drawableRight="@mipmap/selected"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/sp_16"
+                android:text="功能太复杂" />
+
+        </LinearLayout>  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_16"
+            android:drawableRight="@mipmap/selected"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/sp_16"
+            android:text="界面不好看" />
+
+    </LinearLayout>  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_16"
+            android:drawableRight="@mipmap/selected"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/sp_16"
+            android:text="岗位/求职者太少" />
+
+    </LinearLayout>  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_16"
+            android:drawableRight="@mipmap/selected"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/sp_16"
+            android:text="职位不真实" />
+
+    </LinearLayout>  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_16"
+            android:drawableRight="@mipmap/selected"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/sp_16"
+            android:text="其他问题" />
+
+    </LinearLayout>
+    </LinearLayout>
+    <com.ruffian.library.widget.RTextView
+        android:id="@+id/tv_detail"
+        android:layout_width="@dimen/dp_64"
+        android:layout_height="@dimen/dp_22"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="详细描述"
+        android:textSize="@dimen/sp_16" />
 </LinearLayout>
