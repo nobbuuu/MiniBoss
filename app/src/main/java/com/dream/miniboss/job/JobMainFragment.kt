@@ -22,7 +22,7 @@ class JobMainFragment : BaseFragment<JobViewModel, FragmentJobMainBinding>() {
     private val tabTitles = arrayOf("普工技工", "兼职注册师", "技术服务", "经营管理")
 
     override fun initView(savedInstanceState: Bundle?) {
-        BarUtils.addMarginTopEqualStatusBarHeight(mBinding.appNameTv)
+        mBinding.appNameTv.setPadding(0, BarUtils.getStatusBarHeight(), 0, 0)
         mBinding.topBg.setPadding(0, BarUtils.getStatusBarHeight(), 0, 0)
         initTabAndVp()
     }
@@ -45,7 +45,8 @@ class JobMainFragment : BaseFragment<JobViewModel, FragmentJobMainBinding>() {
 
         repeat(mBinding.tabLayout.tabCount) {
             val tab = mBinding.tabLayout.getTabAt(it)
-            tab?.customView = JobTypeView(requireContext()).setData(jobTypeData[it].img, jobTypeData[it].name)
+            tab?.customView =
+                JobTypeView(requireContext()).setData(jobTypeData[it].img, jobTypeData[it].name)
         }
         mBinding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
