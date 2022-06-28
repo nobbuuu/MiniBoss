@@ -7,8 +7,13 @@
     android:orientation="vertical"
     tools:context=".mine.ui.BlackListActivity">
 <com.hjq.bar.TitleBar
+    android:id="@+id/title_black_list"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_44"
     app:title="黑名单"/>
-
+<com.jcodecraeer.xrecyclerview.XRecyclerView
+    android:id="@+id/rv_black_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 </LinearLayout>

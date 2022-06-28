@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80">
+
+        <ImageView
+            android:id="@+id/iv_black_list_icon"
+            android:layout_width="@dimen/dp_54"
+            android:layout_height="@dimen/dp_54"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:scaleType="fitXY"
+            android:src="@mipmap/blackicon" />
+           <TextView
+               android:id="@+id/tv_black_list_name"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+              android:layout_toRightOf="@id/iv_black_list_icon"
+               android:layout_marginTop="@dimen/dp_16"
+               android:layout_marginLeft="@dimen/dp_8"
+               android:textSize="@dimen/sp_20"
+               android:text="饶小姐"/>
+        <TextView
+            android:id="@+id/tv_black_list_introduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_black_list_icon"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_below="@id/tv_black_list_name"
+            android:textSize="@dimen/sp_15"
+            android:text="个人招聘"/>
+        <ImageView
+            android:id="@+id/iv_black_list_remove"
+            android:layout_width="@dimen/dp_68"
+            android:layout_height="@dimen/dp_33"
+            android:src="@mipmap/remove"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dp_27"
+            android:layout_marginRight="@dimen/dp_16"
+            />
+
+    </RelativeLayout>
+</LinearLayout>
