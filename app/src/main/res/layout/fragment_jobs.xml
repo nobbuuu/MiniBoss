@@ -39,7 +39,6 @@
                 app:layout_constraintStart_toEndOf="@+id/locationTv"
                 app:layout_constraintEnd_toStartOf="@+id/filterTv"
                 android:hint="搜索/岗位/公司名称"
-                android:drawableRight=""
                 android:layout_width="0dp"
                 android:layout_height="@dimen/dp_32"/>
             <TextView

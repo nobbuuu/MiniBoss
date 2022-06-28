@@ -203,7 +203,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param context
      * @param clazz
      */
-    protected void toClass(Context context,Class<? extends BaseActivity> clazz){
+    public void toClass(Context context,Class<? extends BaseActivity> clazz){
         toClass(context,clazz,null);
     }    /**
      * Intent带值跳转
@@ -211,7 +211,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param clazz
      * @param bundle
      */
-    protected void toClass(Context context, Class<? extends BaseActivity> clazz, Bundle bundle){
+    public void toClass(Context context, Class<? extends BaseActivity> clazz, Bundle bundle){
         Intent intent = new Intent(context,clazz);
         intent.putExtras(bundle);
         startActivity(intent);
@@ -222,7 +222,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param bundle
      * @param reuqestCode
      */
-    protected void toClass(Context context,Class<? extends BaseActivity> clazz,Bundle bundle,int reuqestCode){
+    public void toClass(Context context,Class<? extends BaseActivity> clazz,Bundle bundle,int reuqestCode){
         Intent intent = new Intent(context,clazz);
         intent.putExtras(bundle);
         startActivityForResult(intent,reuqestCode);

@@ -33,6 +33,7 @@
             android:text="通知与提醒" />
 
         <Switch
+            android:id="@+id/switch_remind_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dp_16"
@@ -101,6 +102,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/lv_black_list"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_54"
         android:layout_marginLeft="8dp"
@@ -127,6 +129,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/lv_feed_back"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_54"
         android:layout_marginLeft="8dp"
