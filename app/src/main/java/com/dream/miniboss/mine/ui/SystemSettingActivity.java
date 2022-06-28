@@ -1,7 +1,9 @@
 package com.dream.miniboss.mine.ui;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -32,7 +34,8 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
     LinearLayout mLayoutPermission,mBlackListLinear,mFeedbackLinear;
     Switch mRemindSwitch;
     boolean isEnabled;
-
+    final boolean falg = true;
+    SharedPreferences preferences;
     @Override
     protected int initLayout() {
         return R.layout.actiivity_setting_system;
@@ -48,6 +51,14 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
         //设置通知消息提醒时候的状态
         NotificationManagerCompat notification = NotificationManagerCompat.from(this);
         isEnabled = notification.areNotificationsEnabled();
+        //接入界面时候
+        // 从SharedPreferences获取数据:
+        preferences = getSharedPreferences("remind", Context.MODE_PRIVATE);
+        if (preferences != null) {
+            boolean name = preferences.getBoolean("flag", falg);
+            mRemindSwitch.setChecked(name);
+        }
+
     }
 
     @Override
@@ -85,8 +96,13 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Log.d(TAG, "onCheckedChanged: "+"-----------");
-                if (!isEnabled) {
+                if (!isEnabled||isChecked) {
                     Log.d(TAG, "onCheckedChanged: "+"打开了权限");
+                        //将数据保存至SharedPreferences:
+                        SharedPreferences preferences = getSharedPreferences("remind", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putBoolean("flag", true);
+                        editor.commit();
                     //未打开通知
                     AlertDialog alertDialog = new AlertDialog.Builder(SystemSettingActivity.this)
                             .setTitle("提示")
@@ -128,6 +144,11 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
                     alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
                     alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
                 }else {
+                    //将数据保存至SharedPreferences:
+                    SharedPreferences preferences = getSharedPreferences("remind", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean("flag", false);
+                    editor.commit();
                     Log.d(TAG, "onCheckedChanged: "+"这是已经打开通知消息了");
                 }
             }
@@ -143,7 +164,7 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.lv_permission:
                 Log.d(TAG, "onClick: " + "---------");
-//                toClass(this,PermissionSettingActivity.class);
+               // toClass(SystemSettingActivity.this,PermissionSettingActivity.class,null);
                 Intent mIntent = new Intent();
                 mIntent.setClass(this, PermissionSettingActivity.class);
                 startActivity(mIntent);

@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".mine.ui.FeedbackActivity">
 <com.hjq.bar.TitleBar
+    android:id="@+id/title_feed_back"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_44"
     app:title="意见反馈"/>
