@@ -163,8 +163,8 @@
     <color name="red">#FF3A3A</color>
     <color name="pink">#FFEBEB</color>
     <color name="qian_blue">#D1FBC6</color>
-    <color name="blue">#05C160</color>
     <color name="main_text_color">#323232</color>
-    <color name="rv_default_bg">#F7F7F7</color>
+    <color name="default_bg">#F7F7F7</color>
+    <color name="color_787878">#787878</color>
 
 </resources>

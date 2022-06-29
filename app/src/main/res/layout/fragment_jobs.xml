@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/rv_default_bg"
+    android:background="@color/transparent"
     android:gravity="center"
+    android:paddingStart="@dimen/dp_8"
+    android:paddingEnd="@dimen/dp_8"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/searchLay"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_75"
-        android:layout_marginStart="@dimen/dp_8"
-        android:layout_marginEnd="@dimen/dp_8"
         android:background="@mipmap/indicator1">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_height="56dp">
+            android:layout_height="56dp"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
                 android:id="@+id/locationTv"
@@ -29,42 +29,101 @@
                 android:drawablePadding="@dimen/dp_4"
                 android:text="@string/nationwide"
                 android:textColor="@color/main_text_color"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.ruffian.library.widget.REditText
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/locationTv"
-                app:layout_constraintEnd_toStartOf="@+id/filterTv"
-                android:hint="搜索/岗位/公司名称"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/dp_32"/>
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_30"
+                android:drawableRight="@mipmap/ic_search"
+                android:hint="搜索/岗位/公司名称"
+                android:paddingStart="@dimen/dp_12"
+                android:paddingTop="@dimen/dp_6"
+                android:paddingEnd="@dimen/dp_12"
+                android:paddingBottom="@dimen/dp_6"
+                android:textColor="@color/main_text_color"
+                android:textSize="@dimen/sp_14"
+                app:background_normal="@color/default_bg"
+                app:corner_radius="47dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/filterTv"
+                app:layout_constraintStart_toEndOf="@+id/locationTv"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/filterTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_3"
                 android:text="筛选"
                 android:textColor="@color/main_text_color"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginEnd="@dimen/dp_3"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/filterIv" />
+                app:layout_constraintEnd_toStartOf="@+id/filterIv"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 android:id="@+id/filterIv"
                 android:layout_width="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/filterTv"
-                android:src="@mipmap/ic_filtrate"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp_16"
                 android:layout_marginBottom="@dimen/dp_4"
-                android:layout_height="wrap_content"/>
+                android:src="@mipmap/ic_filtrate"
+                app:layout_constraintBottom_toBottomOf="@+id/filterTv"
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/commonRv"
+    <com.tcl.base.weiget.ConsecutiveScrollerLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <net.lucode.hackware.magicindicator.MagicIndicator
+                android:id="@+id/magicIndicator"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/dp_8"
+                android:paddingEnd="@dimen/dp_8"
+                app:layout_isSticky="false" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingStart="@dimen/dp_12"
+                android:paddingTop="@dimen/dp_4"
+                android:paddingEnd="@dimen/dp_12"
+                android:paddingBottom="@dimen/dp_4"
+                android:text="清空"
+                android:gravity="center"
+                app:background_normal="@color/white"
+                android:textColor="@color/main_text_color"
+                app:corner_radius="@dimen/dp_4" />
+        </LinearLayout>
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/commonRv"
+                android:layout_width="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:overScrollMode="never"
+                android:layout_height="match_parent" />
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+    </com.tcl.base.weiget.ConsecutiveScrollerLayout>
+
+
 </LinearLayout>

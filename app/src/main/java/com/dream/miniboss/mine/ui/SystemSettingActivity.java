@@ -31,7 +31,7 @@ import com.hjq.bar.TitleBar;
  */
 public class SystemSettingActivity extends BaseActivity implements View.OnClickListener {
     TitleBar mTitleBar;
-    LinearLayout mLayoutPermission,mBlackListLinear,mFeedbackLinear;
+    LinearLayout mLayoutPermission,mBlackListLinear,mFeedbackLinear,mUserNumberLinear;
     Switch mRemindSwitch;
     boolean isEnabled;
     final boolean falg = true;
@@ -48,6 +48,7 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
         mRemindSwitch = fvbi(R.id.switch_remind_message);
         mBlackListLinear=fvbi(R.id.lv_black_list);
         mFeedbackLinear=fvbi(R.id.lv_feed_back);
+        mUserNumberLinear=fvbi(R.id.lv_user_number);
         //设置通知消息提醒时候的状态
         NotificationManagerCompat notification = NotificationManagerCompat.from(this);
         isEnabled = notification.areNotificationsEnabled();
@@ -66,6 +67,7 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
         mBlackListLinear.setOnClickListener(this);
         mLayoutPermission.setOnClickListener(this);
         mFeedbackLinear.setOnClickListener(this);
+        mUserNumberLinear.setOnClickListener(this);
         //titlebar的内容设置
         mTitleBar.setOnTitleBarListener(new OnTitleBarListener() {
             @Override
@@ -178,9 +180,12 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
                 Intent mFeedIntent = new Intent();
                 mFeedIntent.setClass(this, FeedbackActivity.class);
                 startActivity(mFeedIntent);
-
+            case R.id.lv_user_number:
+                Intent mPhoneNumberIntent = new Intent();
+                mPhoneNumberIntent.setClass(this, PhoneNumberActivity.class);
+                startActivity(mPhoneNumberIntent);
                 break;
-
+            default:
         }
     }
 }
