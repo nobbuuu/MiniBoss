@@ -11,7 +11,9 @@
     <com.hjq.bar.TitleBar
         android:id="@+id/title_user_number"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_44" />
+        android:layout_height="@dimen/dp_44"
+        android:onClick="GoBack"
+        />
     <com.ruffian.library.widget.RTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,6 +54,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/button_verify_code"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_44"
         android:text="获取验证码"
@@ -61,5 +64,6 @@
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16"
         android:background="@color/green"
+        android:onClick="GetVerifyCode"
         />
 </LinearLayout>

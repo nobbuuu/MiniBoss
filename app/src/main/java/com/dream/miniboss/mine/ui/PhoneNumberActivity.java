@@ -2,6 +2,7 @@ package com.dream.miniboss.mine.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -35,4 +36,25 @@ public class PhoneNumberActivity extends BaseActivity {
             }
         });
     }
+
+    /**
+     * 获取验证码
+     * @param view
+     */
+    public void GetVerifyCode(View view) {
+        Intent mIntent=new Intent();
+        mIntent.setClass(this,VerificationCodeActivity.class);
+        startActivity(mIntent);
+    }
+
+    /**
+     * 返回按钮
+     * @param view
+     */
+    public void GoBack(View view) {
+        onBackPressed();
+    }
+
+
+
 }

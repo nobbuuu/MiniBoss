@@ -11,7 +11,9 @@
     <com.hjq.bar.TitleBar
         android:id="@+id/title_user_number"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_44" />
+        android:layout_height="@dimen/dp_44"
+        android:onClick="GoBackActivity"
+        />
 
     <com.ruffian.library.widget.RTextView
         android:layout_width="wrap_content"
