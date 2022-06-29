@@ -1,16 +1,24 @@
 package com.dream.miniboss.mine.ui;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.util.Log;
+import android.view.Display;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -19,6 +27,7 @@ import static android.content.ContentValues.TAG;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseFragment;
 import com.dream.miniboss.main.MainActivity;
+import com.dream.miniboss.message.MessageFragment;
 
 /**
  * 创建日期：2022-06-21 on 0:58
@@ -58,7 +67,7 @@ public class MyFragment extends BaseFragment {
             }
         });
         //设置打电话
-        onLineChat.setOnClickListener(new View.OnClickListener() {
+        mPhoneNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Intent mIntent=new Intent(Intent.ACTION_CALL);
@@ -85,6 +94,16 @@ public class MyFragment extends BaseFragment {
                 Intent mIntent = new Intent();
                 mIntent.setClass(getContext(), SystemSettingActivity.class);
                 startActivity(mIntent);
+            }
+        });
+        //设置到聊天界面
+        onLineChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "onClick: "+"----------");
+//                Intent mIntent=new Intent();
+//                mIntent.setClass(v.getContext(), MessageFragment.class);
+//                v.getContext().startActivity(mIntent);
             }
         });
     }
@@ -141,14 +160,46 @@ public class MyFragment extends BaseFragment {
     }
 
     private void callUp() {
-        Intent intent = new Intent();
-        // 设置要执行的一般操作
-        // action：操作名称。特定与应用程序的操作应以供应商的包名为前缀
-        intent.setAction(Intent.ACTION_CALL);
-        // 设置意图正在操作的数据
-        // tel:是必须要添加的参数，后面拼接的字符串为电话号
-        intent.setData(Uri.parse("tel:" + mPhoneNumber.getText()));
-        startActivity(intent);
+        Log.i(TAG, "callUp: "+mPhoneNumber.getText());
+        AlertDialog alertDialog = new AlertDialog.Builder(getContext())
+                .setMessage(mPhoneNumber.getText())
+                .setTitle("呼叫")
+
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .setPositiveButton("确定拨打", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                        Intent intent = new Intent();
+                        // 设置要执行的一般操作
+                        // action：操作名称。特定与应用程序的操作应以供应商的包名为前缀
+                        intent.setAction(Intent.ACTION_CALL);
+                        // 设置意图正在操作的数据
+                        // tel:是必须要添加的参数，后面拼接的字符串为电话号
+                        intent.setData(Uri.parse("tel:" + mPhoneNumber.getText()));
+                        startActivity(intent);
+
+                    }
+                }).create();
+
+          alertDialog.show();
+        alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+        // 设置对话框的位置偏下
+//        Window window = alertDialog.getWindow();
+//        window.setBackgroundDrawable(null); // 重设background
+//        WindowManager.LayoutParams wlp = window.getAttributes();
+//        wlp.gravity = Gravity.BOTTOM;
+////        WindowManager wm = (WindowManager) ContextCompat.getSystemService(getContext().WINDOW_SERVICE);
+////        Display display = wm.getDefaultDisplay();
+////        wlp.width = display.getWidth();
+//        window.setAttributes(wlp);
+
 
     }
 }

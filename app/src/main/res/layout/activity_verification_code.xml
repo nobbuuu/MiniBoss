@@ -82,4 +82,12 @@
         android:text="确定"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16" />
+    <com.ruffian.library.widget.RTextView
+        android:id="@+id/tv_count_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_8"
+        android:text="59S后重新获取"
+        android:textSize="@dimen/sp_16" />
 </LinearLayout>
