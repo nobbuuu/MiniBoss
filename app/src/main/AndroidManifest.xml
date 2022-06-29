@@ -54,7 +54,8 @@
             android:name=".mine.ui.BlackListActivity"
             android:exported="false" />
         <activity android:name=".mine.ui.FeedbackActivity" />
-        <activity android:name=".mine.ui.PhoneNumberActivity"/>
+        <activity android:name=".mine.ui.PhoneNumberActivity" />
+        <activity android:name=".mine.ui.VerificationCodeActivity"/>
     </application>
 
 </manifest>
