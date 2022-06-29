@@ -180,6 +180,7 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
                 Intent mFeedIntent = new Intent();
                 mFeedIntent.setClass(this, FeedbackActivity.class);
                 startActivity(mFeedIntent);
+                break;
             case R.id.lv_user_number:
                 Intent mPhoneNumberIntent = new Intent();
                 mPhoneNumberIntent.setClass(this, PhoneNumberActivity.class);
