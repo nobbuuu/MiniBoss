@@ -30,7 +30,7 @@
                 android:layout_height="@dimen/dp_60"
                 android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_8"
-                android:src="@mipmap/cicleicon" />
+                android:src="@mipmap/usericon_grey" />
 
             <TextView
                 android:id="@+id/user_name"
@@ -39,7 +39,7 @@
                 android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_8"
                 android:layout_toRightOf="@id/user_icon"
-                android:text="童甜甜"
+                android:text="未登录/注册"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/sp_20" />
 
@@ -51,9 +51,9 @@
                 android:layout_alignLeft="@id/user_name"
                 android:layout_marginTop="@dimen/dp_4"
                 android:layout_toRightOf="@id/user_icon"
-                android:text="贵州旦光科技有限责任公司"
+                android:text="点击头像可登录/注册"
                 android:textColor="#ffffff"
-                android:textSize="@dimen/sp_16" />
+                android:textSize="@dimen/sp_12" />
 
             <LinearLayout
 
