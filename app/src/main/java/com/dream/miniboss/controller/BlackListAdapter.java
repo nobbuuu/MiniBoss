@@ -52,7 +52,7 @@ public class BlackListAdapter extends RecyclerView.Adapter<BlackListAdapter.View
                    public void onClick(View v) {
                        Log.d("TAG", "onClick: "+"这是删除条目点击"+position);
                        mList.remove(position);
-                       notifyItemMoved(position,position);
+                      notifyItemRemoved(position);
                        notifyDataSetChanged();
                    }
                });
