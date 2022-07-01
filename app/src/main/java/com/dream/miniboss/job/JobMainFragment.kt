@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.blankj.utilcode.util.BarUtils
+import com.dream.miniboss.R
 import com.dream.miniboss.databinding.FragmentJobMainBinding
 import com.dream.miniboss.job.bean.JobTypeBean
 import com.dream.miniboss.job.ui.JobTypeView
@@ -20,6 +21,7 @@ import com.tcl.base.common.ui.BaseFragment
  */
 class JobMainFragment : BaseFragment<JobViewModel, FragmentJobMainBinding>() {
     private val tabTitles = arrayOf("普工技工", "兼职注册师", "技术服务", "经营管理")
+    private val tabImgRes = arrayOf(R.mipmap.machainic, R.mipmap.ic_registrar, R.mipmap.tech_service, R.mipmap.opera_manage)
 
     override fun initView(savedInstanceState: Bundle?) {
         mBinding.appNameTv.setPadding(0, BarUtils.getStatusBarHeight(), 0, 0)
@@ -33,7 +35,7 @@ class JobMainFragment : BaseFragment<JobViewModel, FragmentJobMainBinding>() {
         tabTitles.forEachIndexed { index, s ->
             mBinding.tabLayout.addTab(mBinding.tabLayout.newTab())
             fragments.add(JobsFragment(index + 1))
-            jobTypeData.add(JobTypeBean(index + 1, name = s))
+            jobTypeData.add(JobTypeBean(index + 1, imgRes = tabImgRes[index],name = s))
         }
         mBinding.homeVp.adapter = MyFragmentPagerAdapter(requireActivity(), fragments)
         mBinding.homeVp.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -46,7 +48,7 @@ class JobMainFragment : BaseFragment<JobViewModel, FragmentJobMainBinding>() {
         repeat(mBinding.tabLayout.tabCount) {
             val tab = mBinding.tabLayout.getTabAt(it)
             tab?.customView =
-                JobTypeView(requireContext()).setData(jobTypeData[it].img, jobTypeData[it].name)
+                JobTypeView(requireContext()).setData(jobTypeData[it].imgRes, jobTypeData[it].name)
         }
         mBinding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {

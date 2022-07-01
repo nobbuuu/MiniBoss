@@ -25,7 +25,18 @@ class JobTypeView @JvmOverloads constructor(
     fun setData(imgUrl: String? = "", name: String? = ""): JobTypeView {
         val imgIv = findViewById<RImageView>(R.id.imgIv)
         val nameTv = findViewById<TextView>(R.id.nameTv)
-        imgIv.load(imgUrl)
+        if (!imgUrl.isNullOrEmpty()){
+            imgIv.load(imgUrl)
+        }
+        nameTv.text = name
+        return this
+    }
+    fun setData(imgRes: Int? = 0, name: String? = ""): JobTypeView {
+        val imgIv = findViewById<RImageView>(R.id.imgIv)
+        val nameTv = findViewById<TextView>(R.id.nameTv)
+        imgRes?.let {
+            imgIv.load(it)
+        }
         nameTv.text = name
         return this
     }
