@@ -2,12 +2,16 @@ package com.dream.miniboss.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseActivity;
+import com.dream.miniboss.login.utils.SMSBroadcastReceiver;
 import com.hjq.bar.TitleBar;
 import com.ruffian.library.widget.RTextView;
 
@@ -15,7 +19,7 @@ public class LoginCodeNumActivity extends BaseActivity {
     RTextView mRTextView;
     CountDownTimer mCountDownTimer;
     TitleBar mTitleBar;
-
+     SMSBroadcastReceiver mSMSBroadcastReceiver = new SMSBroadcastReceiver();
     @Override
     protected int initLayout() {
         return R.layout.activity_login_code_num;
@@ -23,9 +27,31 @@ public class LoginCodeNumActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        requestSendSms();
+        requestSendSms();//请求短信倒计时时间
         mRTextView = fvbi(R.id.tv_countDown_timer);
         mTitleBar = fvbi(R.id.title_login_code);
+        initReceiver();
+    }
+
+    /**
+     * 动态初始化注册广播
+     */
+    private void initReceiver() {
+
+        // 动态注册广播接收短信验证码
+        IntentFilter intentFilter = new IntentFilter(SMSBroadcastReceiver.SMS_RECEIVED_ACTION);
+        // 设置广播优先级
+        intentFilter.setPriority(Integer.MAX_VALUE);
+        registerReceiver(mSMSBroadcastReceiver, intentFilter);
+        mSMSBroadcastReceiver.setOnReceiveSMSListener(new SMSBroadcastReceiver.OnReceiveSMSListener() {
+            @Override
+            public void onReceived(String message) {
+               if (message!=null){
+                   Toast.makeText(LoginCodeNumActivity.this,message,Toast.LENGTH_LONG).show();
+               }
+
+            }
+        });
     }
 
     @Override
@@ -65,5 +91,11 @@ public class LoginCodeNumActivity extends BaseActivity {
             };
         }
         mCountDownTimer.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mSMSBroadcastReceiver);
     }
 }
