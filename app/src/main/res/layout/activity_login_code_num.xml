@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".mine.ui.PhoneNumberActivity">
+
+    <com.hjq.bar.TitleBar
+
+        android:id="@+id/title_login_code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        />
+
+    <com.ruffian.library.widget.RTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="输入验证码"
+        android:textColor="@color/dark"
+        android:textSize="@dimen/sp_32" />
+
+    <com.ruffian.library.widget.RTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_4"
+        android:text="已发送4位验证码至13984698001"
+        android:textSize="@dimen/sp_16" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_56"
+        android:layout_marginLeft="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_48"
+        android:orientation="horizontal"
+
+        >
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/num_one"
+            android:layout_width="@dimen/dp_56"
+            android:layout_height="@dimen/dp_56"
+            android:layout_weight="1"
+            android:background="@mipmap/phonecode"
+
+            />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/num_two"
+            android:layout_width="@dimen/dp_56"
+            android:layout_height="@dimen/dp_56"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:layout_weight="1"
+            android:background="@mipmap/phonecode" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/num_three"
+            android:layout_width="@dimen/dp_56"
+            android:layout_height="@dimen/dp_56"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:layout_weight="1"
+            android:background="@mipmap/phonecode" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/four"
+            android:layout_width="@dimen/dp_56"
+            android:layout_height="@dimen/dp_56"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:layout_marginRight="@dimen/dp_24"
+            android:layout_weight="1"
+            android:background="@mipmap/phonecode" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginLeft="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_marginRight="@dimen/dp_24"
+        android:background="@color/green"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16" />
+
+    <com.ruffian.library.widget.RTextView
+        android:id="@+id/tv_countDown_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_8"
+        android:text="59S后重新获取"
+        android:textSize="@dimen/sp_16" />
+</LinearLayout>

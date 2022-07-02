@@ -26,6 +26,7 @@ import static android.content.ContentValues.TAG;
 
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseFragment;
+import com.dream.miniboss.login.LoginPhoneActivity;
 import com.dream.miniboss.main.MainActivity;
 import com.dream.miniboss.message.MessageFragment;
 
@@ -35,7 +36,7 @@ import com.dream.miniboss.message.MessageFragment;
  * 作者:HeGuiCun Administrator
  */
 public class MyFragment extends BaseFragment {
-
+     ImageView userIcon;
     ImageView mImageEdit;
     ImageView onLineChat;
     TextView mPhoneNumber;
@@ -53,6 +54,8 @@ public class MyFragment extends BaseFragment {
         onLineChat = fvbyid(R.id.iv_online_chat);
         mPhoneNumber=fvbyid(R.id.tv_phone_number);
         mLinearLayout=fvbyid(R.id.lv_qianhuan_zhaopin);
+        userIcon=fvbyid(R.id.user_icon);
+
     }
 
     @Override
@@ -106,6 +109,14 @@ public class MyFragment extends BaseFragment {
 //                v.getContext().startActivity(mIntent);
             }
         });
+        //点击头像进入手机号码一键登录
+        userIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), LoginPhoneActivity.class));
+            }
+        });
+
     }
 
 

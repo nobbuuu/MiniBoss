@@ -27,10 +27,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.CbgBase">
         <activity
-            android:name=".LoginPhoneActivity"
+            android:name=".login.LoginCodeNumActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginCodeActivity"
+            android:name=".login.LoginPhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.LoginCodeActivity"
             android:exported="false" />
 
         <meta-data
