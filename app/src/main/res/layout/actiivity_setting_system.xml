@@ -163,6 +163,7 @@
         android:layout_marginLeft="@dimen/dp_32"
         android:layout_marginTop="@dimen/dp_146"
         android:layout_marginRight="@dimen/dp_32"
+        android:layout_marginBottom="@dimen/dp_16"
         android:background="@drawable/shap_button_radius"
         android:text="确定" />
 

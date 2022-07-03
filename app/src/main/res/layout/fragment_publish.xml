@@ -1,87 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#f7f7f7"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <com.hjq.bar.TitleBar
-        android:id="@+id/title_Publish"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_44"
-        app:title="求职信息"
-        app:titleColor="@color/black"
-        app:titleSize="@dimen/sp_18" />
+        android:layout_height="match_parent"
+        android:background="#f7f7f7"
+        android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_166"
-        android:layout_marginLeft="@dimen/dp_8"
-        android:layout_marginTop="@dimen/dp_16"
-        android:layout_marginRight="@dimen/dp_8"
-        android:background="@drawable/lv_shape">
+        <com.hjq.bar.TitleBar
+            android:id="@+id/title_Publish"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            app:title="求职信息"
+            app:titleColor="@color/black"
+            app:titleSize="@dimen/sp_18" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_16"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_166"
+            android:layout_marginLeft="@dimen/dp_8"
             android:layout_marginTop="@dimen/dp_16"
-            android:text="发布求职意向"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_18" />
+            android:layout_marginRight="@dimen/dp_8"
+            android:background="@drawable/lv_shape">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="发布求职意向"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_43"
+                android:text="可发布多个求职意向,找工作更方便"
+                android:textSize="@dimen/sp_12" />
+
+            <View
+                android:layout_width="@dimen/dp_312"
+                android:layout_height="@dimen/dp_1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_76"
+                android:background="#f7f7f7" />
+
+            <com.ruffian.library.widget.RTextView
+                android:id="@+id/textView_publish"
+                android:layout_width="@dimen/dp_312"
+                android:layout_height="@dimen/dp_50"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="92dp"
+                android:background="@mipmap/publishbg"
+                android:text="发布求职意向"
+                android:textColor="@color/green"
+                app:icon_src_normal="@mipmap/add"
+                app:icon_with_text="true" />
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_683"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_8"
+            android:background="@drawable/lv_shape">
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="简历基本信息"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_43"
+                android:text="完善您的基本信息，有利于找到更好的工作"
+                android:textSize="@dimen/sp_12" />
+
+            <View
+                android:layout_width="@dimen/dp_312"
+                android:layout_height="@dimen/dp_1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_76"
+                android:background="#f7f7f7" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_92"
+                android:text="技能证书"
+                android:textSize="@dimen/sp_18" />
+
+            <com.ruffian.library.widget.REditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="133dp"
+                android:layout_marginRight="@dimen/dp_19"
+                android:background="@color/transparent"
+                android:hint="请填写技能证书名称"
+                android:textSize="@dimen/sp_12"
+                app:icon_normal_right="@mipmap/write" />
+
+            <View
+                android:layout_width="@dimen/dp_312"
+                android:layout_height="@dimen/dp_1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_169"
+                android:background="#f7f7f7" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_185"
+                android:text="专业熟练度"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_226"
+                android:orientation="horizontal">
+
+                <com.ruffian.library.widget.RTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_weight="1"
+                    android:text="不熟练"
+                    android:background="#D6D6D6"
+                    app:background_normal="@color/gray_bg"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/sp_14"
+                    app:background_pressed="@color/green"
+                    app:corner_radius="@dimen/dp_4"
+                    app:text_color_pressed="@color/white" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_weight="1"
+                    android:text="一般"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/sp_14"
+                    app:background_pressed="@color/green"
+                    app:corner_radius="@dimen/dp_4"
+                    app:text_color_pressed="@color/white" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_weight="1"
+                    android:text="熟练"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/sp_14"
+                    app:background_pressed="@color/green"
+                    app:corner_radius="@dimen/dp_4"
+                    app:text_color_pressed="@color/white" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_weight="1"
+                    android:text="精通"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/sp_14"
+                    app:background_pressed="@color/green"
+                    app:corner_radius="@dimen/dp_4"
+                    app:text_color_pressed="@color/white"
+                    android:layout_marginRight="@dimen/dp_16"
+                    />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_43"
-            android:text="可发布多个求职意向,找工作更方便"
-            android:textSize="@dimen/sp_12" />
-
-        <View
-            android:layout_width="@dimen/dp_312"
-            android:layout_height="@dimen/dp_1"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_76" />
-
-        <com.ruffian.library.widget.RTextView
-            android:id="@+id/textView_publish"
-            android:layout_width="@dimen/dp_312"
-            android:layout_height="@dimen/dp_50"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="92dp"
-            android:background="@mipmap/publishbg"
-            android:text="发布求职意向"
-            android:textColor="@color/green"
-            app:icon_src_normal="@mipmap/add"
-            app:icon_with_text="true" />
-
-
-    </FrameLayout>
-   <FrameLayout
-       android:layout_width="match_parent"
-       android:layout_height="@dimen/dp_683"
-       android:background="@drawable/lv_shape"
-       android:layout_marginLeft="@dimen/dp_8"
-       android:layout_marginRight="@dimen/dp_8"
-       android:layout_marginTop="@dimen/dp_16"
-       />
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="确定"
-    android:textColor="@color/white"
-    android:textSize="@dimen/sp_16"
-    android:layout_marginLeft="@dimen/dp_16"
-    android:layout_marginRight="@dimen/dp_16"
-    android:layout_marginBottom="@dimen/dp_16"
-    android:layout_marginTop="@dimen/dp_17"
-    android:background="@drawable/shap_button_radius"
-    />
-</LinearLayout>
+            android:layout_marginTop="@dimen/dp_17"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:background="@drawable/shap_button_radius"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16" />
+    </LinearLayout>
 </ScrollView>
