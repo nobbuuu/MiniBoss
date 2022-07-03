@@ -154,6 +154,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="不熟练"
+                    app:enabled="true"
                     android:textSize="@dimen/sp_14"
                     app:background_normal="@color/gray_bg"
                     app:background_pressed="@color/green"
