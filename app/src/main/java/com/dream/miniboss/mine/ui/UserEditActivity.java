@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.example.liangmutian.mypicker.DateUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 创建日期：2022-06-24 on 1:05
@@ -48,10 +51,10 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
         //取出存储数据显示在界面上
         mPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
 
-        mBinding.etName.setText(mPreferences.getString("et_name", "null"));
-        mBinding.etGender.setText(mPreferences.getString("et_gender", "null"));
-        mBinding.etBirthTime.setText(mPreferences.getString("et_birth_time", "null"));
-        mBinding.etEmil.setText(mPreferences.getString("et_emil", "null"));
+        mBinding.etName.setText(mPreferences.getString("et_name", ""));
+        mBinding.etGender.setText(mPreferences.getString("et_gender", ""));
+        mBinding.etBirthTime.setText(mPreferences.getString("et_birth_time", ""));
+        mBinding.etEmil.setText(mPreferences.getString("et_emil", ""));
 
     }
 
@@ -105,6 +108,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
 //                        mTextView.setText(itemValue);
                         //设置数据源
                         mBinding.etGender.setText(itemValue);
+
                     }
 
                     @Override
@@ -160,6 +164,8 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                 mBinding.etName.setFocusable(true);
                 mBinding.etName.setFocusableInTouchMode(true);
 
+                mBinding.etName.requestFocus();
+                mBinding.etName.setSelection(mBinding.etName.getText().length());
 
                 break;
             case R.id.et_gender:
@@ -173,8 +179,10 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
             case R.id.et_emil:
                 mBinding.etEmil.setFocusable(true);
                 mBinding.etEmil.setFocusableInTouchMode(true);
+                mBinding.etEmil.requestFocus();
                 //临时存储数据
-
+                  mBinding.etEmil.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+                  mBinding.etEmil.setSelection(mBinding.etEmil.getText().length());
                 break;
             case R.id.buttonPull:
                 //临时存储,名字数据
@@ -190,15 +198,62 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                 SharedPreferences.Editor birthEditor = mPreferences.edit();
                 birthEditor.putString("et_birth_time", mBinding.etBirthTime.getText().toString());
                 birthEditor.commit();
-                //临时存储邮箱数据
-                SharedPreferences.Editor emailEditor = mPreferences.edit();
-                emailEditor.putString("et_emil", mBinding.etEmil.getText().toString());
-                emailEditor.commit();
-                onBackPressed();
+
+                //验证邮箱格式
+                if (isEmailValid(mBinding.etEmil.getText().toString())){
+                    //临时存储邮箱数据
+                    SharedPreferences.Editor emailEditor = mPreferences.edit();
+                    emailEditor.putString("et_emil", mBinding.etEmil.getText().toString());
+                    emailEditor.commit();
+                    onBackPressed();
+            }else {
+                    ToastUtils.showShort("请输入正确的邮箱格式");
+                }
+
+
                 break;
 
             default:
 
         }
+    }
+
+    /**
+     * 验证邮箱格式
+     * @param email
+     * @return
+     */
+    public boolean isEmailValid(String email)
+
+    {
+
+        String regExpn =
+
+                "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+
+                        +"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+
+                        +"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+
+                        +"([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
+
+        CharSequence inputStr = email;
+
+        Pattern pattern = Pattern.compile(regExpn,Pattern.CASE_INSENSITIVE);
+
+        Matcher matcher = pattern.matcher(inputStr);
+
+        if(matcher.matches())
+
+            return true;
+
+        else
+
+            return false;
+
     }
 }
