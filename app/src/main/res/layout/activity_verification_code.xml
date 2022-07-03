@@ -78,7 +78,7 @@
         android:layout_marginLeft="@dimen/dp_24"
         android:layout_marginTop="@dimen/dp_24"
         android:layout_marginRight="@dimen/dp_24"
-        android:background="@color/green"
+        android:background="@drawable/shap_button_radius"
         android:text="确定"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16" />

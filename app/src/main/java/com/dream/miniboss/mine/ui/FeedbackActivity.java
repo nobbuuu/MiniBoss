@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.dream.miniboss.R;
@@ -16,6 +17,7 @@ import com.ruffian.library.widget.RTextView;
 public class FeedbackActivity extends BaseActivity {
     TitleBar mTitleBar;
     RTextView mTextViewSoftNoUse;
+    EditText feedEdittext;
     boolean flag=false;
     @Override
     protected int initLayout() {
@@ -26,10 +28,12 @@ public class FeedbackActivity extends BaseActivity {
     protected void initView() {
         mTitleBar = fvbi(R.id.title_feed_back);
         mTextViewSoftNoUse=fvbi(R.id.rtv_soft_notUse);
+        feedEdittext=fvbi(R.id.edittext_feed_back);
     }
 
     @Override
     protected void initData() {
+        feedEdittext.setSelection(feedEdittext.getText().length());
         event();
     }
 

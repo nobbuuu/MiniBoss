@@ -1,11 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:gravity="center"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f7f7f7"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="发布fra"
-        android:layout_height="wrap_content"/>
+    <com.hjq.bar.TitleBar
+        android:id="@+id/title_Publish"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        app:title="求职信息"
+        app:titleColor="@color/black"
+        app:titleSize="@dimen/sp_18" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_166"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_8"
+        android:background="@drawable/lv_shape">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="发布求职意向"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_43"
+            android:text="可发布多个求职意向,找工作更方便"
+            android:textSize="@dimen/sp_12" />
+
+        <View
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_76" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/textView_publish"
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_50"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="92dp"
+            android:background="@mipmap/publishbg"
+            android:text="发布求职意向"
+            android:textColor="@color/green"
+            app:icon_src_normal="@mipmap/add"
+            app:icon_with_text="true" />
+
+
+    </FrameLayout>
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/dp_683"
+       android:background="@drawable/lv_shape"
+       android:layout_marginLeft="@dimen/dp_8"
+       android:layout_marginRight="@dimen/dp_8"
+       android:layout_marginTop="@dimen/dp_16"
+       />
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="确定"
+    android:textColor="@color/white"
+    android:textSize="@dimen/sp_16"
+    android:layout_marginLeft="@dimen/dp_16"
+    android:layout_marginRight="@dimen/dp_16"
+    android:layout_marginBottom="@dimen/dp_16"
+    android:layout_marginTop="@dimen/dp_17"
+    android:background="@drawable/shap_button_radius"
+    />
 </LinearLayout>
+</ScrollView>

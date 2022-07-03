@@ -11,5 +11,6 @@
     android:layout_height="wrap_content"
     android:text="其他方式登录"
     android:onClick="OtherLogin"
+    android:background="@drawable/shap_button_radius"
     />
 </LinearLayout>

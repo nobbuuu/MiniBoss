@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -67,7 +68,7 @@ public class BlackListAdapter extends RecyclerView.Adapter<BlackListAdapter.View
          ImageView iconImage;
          TextView name;
          TextView introduce;
-         ImageView removeImage;
+         Button removeImage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
            iconImage=itemView.findViewById(R.id.iv_black_list_icon);
