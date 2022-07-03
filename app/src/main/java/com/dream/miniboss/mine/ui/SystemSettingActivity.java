@@ -97,9 +97,7 @@ public class SystemSettingActivity extends BaseActivity implements View.OnClickL
         mRemindSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Log.d(TAG, "onCheckedChanged: "+"-----------");
                 if (!isEnabled||isChecked) {
-                    Log.d(TAG, "onCheckedChanged: "+"打开了权限");
                         //将数据保存至SharedPreferences:
                         SharedPreferences preferences = getSharedPreferences("remind", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();

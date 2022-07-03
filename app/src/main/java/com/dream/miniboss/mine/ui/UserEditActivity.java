@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseActivity;
 import com.dream.miniboss.databinding.ActivityUserEditBinding;
@@ -30,7 +31,6 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
     private List<String> list = new ArrayList<>();
     private ActivityUserEditBinding mBinding;
     private SharedPreferences mPreferences;
-
     @Override
     protected int initLayout() {
         return R.layout.activity_user_edit;
@@ -46,15 +46,12 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
             list.add(str);
         }
         //取出存储数据显示在界面上
-        mPreferences = getSharedPreferences("et_name", Context.MODE_PRIVATE);
-        mPreferences = getSharedPreferences("et_gender", Context.MODE_PRIVATE);
-        mPreferences = getSharedPreferences("et_birth_time", Context.MODE_PRIVATE);
-        mPreferences = getSharedPreferences("et_emil", Context.MODE_PRIVATE);
+        mPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
 
-        mBinding.etName.setText(mPreferences.getString("et_name", ""));
-        mBinding.etGender.setText(mPreferences.getString("et_gender", ""));
-        mBinding.etBirthTime.setText(mPreferences.getString("et_birth_time", ""));
-        mBinding.etEmil.setText(mPreferences.getString("et_emil", ""));
+        mBinding.etName.setText(mPreferences.getString("et_name", "null"));
+        mBinding.etGender.setText(mPreferences.getString("et_gender", "null"));
+        mBinding.etBirthTime.setText(mPreferences.getString("et_birth_time", "null"));
+        mBinding.etEmil.setText(mPreferences.getString("et_emil", "null"));
 
     }
 
@@ -70,6 +67,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
         mBinding.etBirthTime.setOnClickListener(this);
         mBinding.etEmil.setOnClickListener(this);
         mBinding.buttonPull.setOnClickListener(this);
+        //返回按钮的监听事件
         mBinding.titleBar.getLeftView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,7 +134,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
 
                     @Override
                     public void onCancel() {
-
+                        ToastUtils.showShort("请选择你的出生年月");
                     }
                 })
 
@@ -180,31 +178,22 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.buttonPull:
                 //临时存储,名字数据
-                mPreferences = getSharedPreferences("et_name", MODE_PRIVATE);
+
                 SharedPreferences.Editor etNameEditor = mPreferences.edit();
                 etNameEditor.putString("et_name", mBinding.etName.getText().toString());
                 etNameEditor.commit();
                 //临时存储,性别数据
-                mPreferences = getSharedPreferences("et_gender", MODE_PRIVATE);
                 SharedPreferences.Editor genderEditor = mPreferences.edit();
                 genderEditor.putString("et_gender", mBinding.etGender.getText().toString());
                 genderEditor.commit();
                 //临时存储出生年月数据
-                mPreferences = getSharedPreferences("et_birth_time", MODE_PRIVATE);
                 SharedPreferences.Editor birthEditor = mPreferences.edit();
                 birthEditor.putString("et_birth_time", mBinding.etBirthTime.getText().toString());
                 birthEditor.commit();
                 //临时存储邮箱数据
-                mPreferences = getSharedPreferences("et_emil", MODE_PRIVATE);
                 SharedPreferences.Editor emailEditor = mPreferences.edit();
                 emailEditor.putString("et_emil", mBinding.etEmil.getText().toString());
                 emailEditor.commit();
-                Log.i(TAG, "onClick: "+"----------");
-                Log.i(TAG, "onClick: "+mPreferences.getString("et_name", ""));
-                Log.i(TAG, "onClick: "+mPreferences.getString("et_gender", ""));
-                Log.i(TAG, "onClick: "+mPreferences.getString("et_birth_time", ""));
-                Log.i(TAG, "onClick: "+mPreferences.getString("et_emil", ""));
-
                 onBackPressed();
                 break;
 
