@@ -31,6 +31,7 @@
     <dimen name="dp_30">30dp</dimen>
     <dimen name="dp_32">32dp</dimen>
     <dimen name="dp_33">33dp</dimen>
+    <dimen name="dp_34">34dp</dimen>
     <dimen name="dp_43">43dp</dimen>
     <dimen name="dp_44">44dp</dimen>
     <dimen name="dp_45">45dp</dimen>
@@ -65,8 +66,19 @@
     <dimen name="dp_192">192dp</dimen>
     <dimen name="dp_200">200dp</dimen>
     <dimen name="dp_226">226dp</dimen>
+    <dimen name="dp_276">276dp</dimen>
     <dimen name="dp_284">284dp</dimen>
+    <dimen name="dp_292">292dp</dimen>
     <dimen name="dp_312">312dp</dimen>
+    <dimen name="dp_333">333dp</dimen>
+    <dimen name="dp_383">383dp</dimen>
+    <dimen name="dp_433">433dp</dimen>
+    <dimen name="dp_443">443dp</dimen>
+    <dimen name="dp_490">490dp</dimen>
+    <dimen name="dp_540">540dp</dimen>
+    <dimen name="dp_590">590dp</dimen>
+    <dimen name="dp_606">606dp</dimen>
+    <dimen name="dp_647">647dp</dimen>
     <dimen name="dp_683">683dp</dimen>
     <dimen name="bg_norm_radius">8dp</dimen>
     <dimen name="bg_norm_radius_12">12dp</dimen>
