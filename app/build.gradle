@@ -31,16 +31,16 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfigs {
             release {
-//                storeFile file('./xb_sign.jks')
-//                keyAlias 'xb'
-//                keyPassword 'xb888888'
-//                storePassword 'xb888888'
+                storeFile file('./miniboss.jks')
+                keyAlias 'key0'
+                keyPassword 'hgc787878'
+                storePassword 'hgc787878'
             }
             debug {
-//                storeFile file('./xb_sign.jks')
-//                keyAlias 'xb'
-//                keyPassword 'xb888888'
-//                storePassword 'xb888888'
+                storeFile file('./miniboss.jks')
+                keyAlias 'key0'
+                keyPassword 'hgc787878'
+                storePassword 'hgc787878'
             }
         }
         flavorDimensions "env"

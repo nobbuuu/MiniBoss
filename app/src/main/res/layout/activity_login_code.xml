@@ -12,10 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_70"
         android:gravity="end"
-        android:orientation="horizontal"
-
-        >
-
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
