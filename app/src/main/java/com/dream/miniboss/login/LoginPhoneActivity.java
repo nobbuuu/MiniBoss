@@ -14,6 +14,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseActivity;
 import com.dream.miniboss.main.MainActivity;
+import com.dream.miniboss.mine.ui.UserEditActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,9 +55,6 @@ public class LoginPhoneActivity extends BaseActivity {
             public void onResult(int code, String msg) {
                 if (code == 8000) {
                     preLogin();
-                    Log.d("tag", "code = " + code + " msg = " + msg);
-                    Log.i(TAG, "onResult: "+"这是初始化界面");
-
                 }
             }
         });
@@ -71,8 +69,7 @@ public class LoginPhoneActivity extends BaseActivity {
             public void onResult(final int code, final String content) {
                 if (code == 7000) {
                     loginAuth();
-                    Log.d("tag", "[" + code + "]message=" + content);
-                    Log.i(TAG, "onResult: "+"这是预取号界面");
+
                 }
 
             }
@@ -90,7 +87,8 @@ public class LoginPhoneActivity extends BaseActivity {
         JVerifyUIConfig jVerifyUIConfig = new JVerifyUIConfig.Builder()
                 .setPrivacyOffsetX(20)
                 .setPrivacyState(true)
-                .setNavColor(R.color.green)
+                .setNavColor(R.color.blue_light)
+
                 //.setLogoImgPath("ic_launcher_background")
                 .setPrivacyNameAndUrlBeanList(list)
                 .enableHintToast(true, Toast.makeText(this, "请先同意页面底部的隐私条款", Toast.LENGTH_LONG))
@@ -111,9 +109,8 @@ public class LoginPhoneActivity extends BaseActivity {
             @Override
             public void onResult(int code, String content, String operator) {
                 if (code == 6000){
-                    Log.i(TAG, "onResult: "+"这是登录界面");
-                    Log.i("tag", "onResult: "+"这个是登录的方法");
-                    startActivity(new Intent(LoginPhoneActivity.this, MainActivity.class));
+
+                    startActivity(new Intent(LoginPhoneActivity.this, UserEditActivity.class));
                     ToastUtils.showShort("登录成功");
 
                 }else{
