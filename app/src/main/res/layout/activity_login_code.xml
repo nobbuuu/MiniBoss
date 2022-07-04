@@ -12,10 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_70"
         android:gravity="end"
-        android:orientation="horizontal"
-
-        >
-
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,7 +65,7 @@
             android:layout_marginLeft="@dimen/dp_8"
             android:layout_marginTop="@dimen/dp_95" />
 
-        <EditText
+        <com.ruffian.library.widget.REditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_98"
