@@ -7,6 +7,20 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('E:\\workspace\\MiniBoss\\app\\miniboss.jks')
+            keyAlias 'miniboss'
+            storePassword '123456'
+            keyPassword '123456'
+        }
+        release {
+            storeFile file('E:\\workspace\\MiniBoss\\app\\miniboss.jks')
+            storePassword '123456'
+            keyAlias 'miniboss'
+            keyPassword '123456'
+        }
+    }
     compileSdkVersion BuildConfig.compileSdkVersion
     buildToolsVersion BuildConfig.buildToolsVersion
 
@@ -19,7 +33,7 @@ android {
         }
         manifestPlaceholders = [
                 JPUSH_PKGNAME : applicationId,
-                JPUSH_APPKEY : "075a19df769b335a8a99143e", //Portal上注册的包名对应的 appKey.
+                JPUSH_APPKEY : "b156742e731deb0439484c82", //Portal上注册的包名对应的 appKey.
                 JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
         ]
         applicationId "com.dream.miniBoss"
@@ -31,16 +45,16 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfigs {
             release {
-//                storeFile file('./xb_sign.jks')
-//                keyAlias 'xb'
-//                keyPassword 'xb888888'
-//                storePassword 'xb888888'
+                storeFile file("miniboss.jks")
+                keyAlias "miniboss"
+                keyPassword "123456"
+                storePassword "123456"
             }
             debug {
-//                storeFile file('./xb_sign.jks')
-//                keyAlias 'xb'
-//                keyPassword 'xb888888'
-//                storePassword 'xb888888'
+                storeFile file("miniBoss.jks")
+                keyAlias "miniboss"
+                keyPassword "123456"
+                storePassword "123456"
             }
         }
         flavorDimensions "env"
