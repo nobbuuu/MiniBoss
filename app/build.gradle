@@ -7,6 +7,20 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('E:\\workspace\\MiniBoss\\app\\miniboss.jks')
+            storePassword '123456'
+            keyAlias 'miniboss'
+            keyPassword '123456'
+        }
+        release {
+            storeFile file('E:\\workspace\\MiniBoss\\app\\miniboss.jks')
+            storePassword '123456'
+            keyAlias 'miniboss'
+            keyPassword '123456'
+        }
+    }
     compileSdkVersion BuildConfig.compileSdkVersion
     buildToolsVersion BuildConfig.buildToolsVersion
 
@@ -31,16 +45,16 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfigs {
             release {
-                storeFile file('./miniboss.jks')
-                keyAlias 'key0'
-                keyPassword 'hgc787878'
-                storePassword 'hgc787878'
+                storeFile file("miniboss.jks")
+                keyAlias "miniboss"
+                keyPassword "123456"
+                storePassword "123456"
             }
             debug {
-                storeFile file('./miniboss.jks')
-                keyAlias 'key0'
-                keyPassword 'hgc787878'
-                storePassword 'hgc787878'
+                storeFile file("miniboss.jks")
+                keyAlias "miniboss"
+                keyPassword "123456"
+                storePassword "123456"
             }
         }
         flavorDimensions "env"

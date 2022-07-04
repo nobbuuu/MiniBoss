@@ -4,10 +4,12 @@ import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.ToastUtils;
@@ -15,12 +17,15 @@ import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseActivity;
 import com.dream.miniboss.main.MainActivity;
 import com.dream.miniboss.mine.ui.UserEditActivity;
+import com.dream.miniboss.utils.LoginUIHelper;
+import com.ruffian.library.widget.RTextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.jiguang.verifysdk.api.AuthPageEventListener;
 import cn.jiguang.verifysdk.api.JVerificationInterface;
+import cn.jiguang.verifysdk.api.JVerifyUIClickCallback;
 import cn.jiguang.verifysdk.api.JVerifyUIConfig;
 import cn.jiguang.verifysdk.api.LoginSettings;
 import cn.jiguang.verifysdk.api.PreLoginListener;
@@ -78,7 +83,13 @@ public class LoginPhoneActivity extends BaseActivity {
 
     //尝试登录
     private void loginAuth() {
-
+        //自定义界面
+        RTextView mRTextView = new RTextView(this);
+        mRTextView.setText("其他手机号码登录");
+        RelativeLayout.LayoutParams mLayoutParams1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+        mLayoutParams1.setMargins(LoginUIHelper.dpToPx(124.0f), LoginUIHelper.dpToPx(385.0f),0,0);
+        mRTextView.setLayoutParams(mLayoutParams1);
+        //增加底部隐私条款
         List<PrivacyBean> list = new ArrayList<>();
         PrivacyBean privacyBean1 = new PrivacyBean("用户协议", "https://www.baidu.com", "、");
         PrivacyBean privacyBean2 = new PrivacyBean("隐私政策", "https://www.baidu.com", "、");
@@ -88,13 +99,18 @@ public class LoginPhoneActivity extends BaseActivity {
                 .setPrivacyOffsetX(20)
                 .setPrivacyState(true)
                 .setNavColor(R.color.blue_light)
-
+                .addCustomView(mRTextView, true, new JVerifyUIClickCallback() {
+                    @Override
+                    public void onClicked(Context context, View view) {
+                        startActivity(new Intent(LoginPhoneActivity.this,LoginCodeActivity.class));
+                    }
+                })
                 //.setLogoImgPath("ic_launcher_background")
                 .setPrivacyNameAndUrlBeanList(list)
                 .enableHintToast(true, Toast.makeText(this, "请先同意页面底部的隐私条款", Toast.LENGTH_LONG))
                 .build();
         JVerificationInterface.setCustomUIWithConfig(jVerifyUIConfig);
-
+        //配置登录文件
         LoginSettings settings = new LoginSettings();
         settings.setAutoFinish(true);//设置登录完成后是否自动关闭授权页
         settings.setTimeout(6 * 1000);//设置超时时间，单位毫秒。 合法范围（0，30000],范围以外默认设置为10000
