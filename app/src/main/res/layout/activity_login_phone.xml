@@ -5,12 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".login.LoginPhoneActivity">
-<Button
-    android:id="@+id/other_login"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="其他方式登录"
-    android:onClick="OtherLogin"
-    android:background="@drawable/shap_button_radius"
-    />
+
 </LinearLayout>

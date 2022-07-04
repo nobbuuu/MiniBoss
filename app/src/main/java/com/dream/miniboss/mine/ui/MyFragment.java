@@ -36,7 +36,7 @@ import com.dream.miniboss.message.MessageFragment;
  * 作者:HeGuiCun Administrator
  */
 public class MyFragment extends BaseFragment {
-     ImageView userIcon;
+    ImageView userIcon;
     ImageView mImageEdit;
     ImageView onLineChat;
     TextView mPhoneNumber;

@@ -18,6 +18,7 @@ object ThreeParty {
     //https://github.com/KingSwim404/KingSwimMock#readme
     const val dataMock = "com.github.KingSwim404:KingSwimMock:1.0.1"
 
+
     val rxhttp = RxHttp
     val tencent = Tencent
     val mdDialog = MdDialog
@@ -150,4 +151,6 @@ object ThreeParty {
         const val dokitx = "io.github.didi.dokit:dokitx:${lastversion}"
         const val dokitxNoOp ="io.github.didi.dokit:dokitx-no-op:${lastversion}"
     }
+
+
 }
