@@ -33,7 +33,7 @@ android {
         }
         manifestPlaceholders = [
                 JPUSH_PKGNAME : applicationId,
-                JPUSH_APPKEY : "075a19df769b335a8a99143e", //Portal上注册的包名对应的 appKey.
+                JPUSH_APPKEY : "b156742e731deb0439484c82", //Portal上注册的包名对应的 appKey.
                 JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
         ]
         applicationId "com.dream.miniBoss"
