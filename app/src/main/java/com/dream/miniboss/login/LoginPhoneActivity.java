@@ -81,7 +81,9 @@ public class LoginPhoneActivity extends BaseActivity {
         });
     }
 
-    //尝试登录
+    /**
+     * 尝试一键登陆
+     */
     private void loginAuth() {
         //自定义界面
         RTextView mRTextView = new RTextView(this);
@@ -99,7 +101,6 @@ public class LoginPhoneActivity extends BaseActivity {
                 .setPrivacyOffsetX(20)
                 .setPrivacyState(true)
                 .setNavColor(R.color.blue_light)
-
                 .addCustomView(mRTextView, true, new JVerifyUIClickCallback() {
                     @Override
                     public void onClicked(Context context, View view) {

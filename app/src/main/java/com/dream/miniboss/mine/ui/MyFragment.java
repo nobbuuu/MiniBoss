@@ -1,12 +1,15 @@
 package com.dream.miniboss.mine.ui;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -15,7 +18,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -24,11 +29,27 @@ import androidx.core.content.ContextCompat;
 
 import static android.content.ContentValues.TAG;
 
+import com.blankj.utilcode.util.ToastUtils;
+import com.dream.miniboss.MiniBossApp;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseFragment;
+import com.dream.miniboss.login.LoginCodeActivity;
 import com.dream.miniboss.login.LoginPhoneActivity;
 import com.dream.miniboss.main.MainActivity;
 import com.dream.miniboss.message.MessageFragment;
+import com.dream.miniboss.utils.LoginUIHelper;
+import com.ruffian.library.widget.RTextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.jiguang.verifysdk.api.AuthPageEventListener;
+import cn.jiguang.verifysdk.api.JVerificationInterface;
+import cn.jiguang.verifysdk.api.JVerifyUIClickCallback;
+import cn.jiguang.verifysdk.api.JVerifyUIConfig;
+import cn.jiguang.verifysdk.api.LoginSettings;
+import cn.jiguang.verifysdk.api.PrivacyBean;
+import cn.jiguang.verifysdk.api.VerifyListener;
 
 /**
  * 创建日期：2022-06-21 on 0:58
@@ -42,6 +63,7 @@ public class MyFragment extends BaseFragment {
     TextView mPhoneNumber;
     LinearLayout mLinearLayout;
     LinearLayout mSystemSetting;
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_my;
@@ -49,12 +71,12 @@ public class MyFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        mSystemSetting=fvbyid(R.id.lv_setting_system);
+        mSystemSetting = fvbyid(R.id.lv_setting_system);
         mImageEdit = fvbyid(R.id.image_edit);
         onLineChat = fvbyid(R.id.iv_online_chat);
-        mPhoneNumber=fvbyid(R.id.tv_phone_number);
-        mLinearLayout=fvbyid(R.id.lv_qianhuan_zhaopin);
-        userIcon=fvbyid(R.id.user_icon);
+        mPhoneNumber = fvbyid(R.id.tv_phone_number);
+        mLinearLayout = fvbyid(R.id.lv_qianhuan_zhaopin);
+        userIcon = fvbyid(R.id.user_icon);
 
     }
 
@@ -63,7 +85,6 @@ public class MyFragment extends BaseFragment {
         mImageEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "onClick: " + "测试跳转方法");
                 Intent mIntent = new Intent();
                 mIntent.setClass(getContext(), UserEditActivity.class);
                 startActivity(mIntent);
@@ -103,7 +124,7 @@ public class MyFragment extends BaseFragment {
         onLineChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "onClick: "+"----------");
+                Log.i(TAG, "onClick: " + "----------");
 //                Intent mIntent=new Intent();
 //                mIntent.setClass(v.getContext(), MessageFragment.class);
 //                v.getContext().startActivity(mIntent);
@@ -113,7 +134,58 @@ public class MyFragment extends BaseFragment {
         userIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), LoginPhoneActivity.class));
+                Log.i(TAG, "onClick: "+"点击了用户头像");
+                //自定义界面
+                RTextView mRTextView = new RTextView(getContext());
+                mRTextView.setText("其他手机号码登录");
+                RelativeLayout.LayoutParams mLayoutParams1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                mLayoutParams1.setMargins(LoginUIHelper.dpToPx(124.0f), LoginUIHelper.dpToPx(385.0f), 0, 0);
+                mRTextView.setLayoutParams(mLayoutParams1);
+                //增加底部隐私条款
+                List<PrivacyBean> list = new ArrayList<>();
+                PrivacyBean privacyBean1 = new PrivacyBean("用户协议", "https://www.baidu.com", "、");
+                PrivacyBean privacyBean2 = new PrivacyBean("隐私政策", "https://www.baidu.com", "、");
+                list.add(privacyBean1);
+                list.add(privacyBean2);
+                JVerifyUIConfig jVerifyUIConfig = new JVerifyUIConfig.Builder()
+                        .setPrivacyOffsetX(20)
+                        .setPrivacyState(true)
+                        .setNavColor(R.color.blue_light)
+                        .addCustomView(mRTextView, true, new JVerifyUIClickCallback() {
+                            @Override
+                            public void onClicked(Context context, View view) {
+                                startActivity(new Intent(getContext(), LoginCodeActivity.class));
+                            }
+                        })
+                        //.setLogoImgPath("ic_launcher_background")
+                        .setPrivacyNameAndUrlBeanList(list)
+                        .enableHintToast(true, Toast.makeText(getActivity(), "请先同意页面底部的隐私条款", Toast.LENGTH_LONG))
+                        .build();
+                JVerificationInterface.setCustomUIWithConfig(jVerifyUIConfig);
+                //配置登录文件
+                LoginSettings settings = new LoginSettings();
+                settings.setAutoFinish(true);//设置登录完成后是否自动关闭授权页
+                settings.setTimeout(6 * 1000);//设置超时时间，单位毫秒。 合法范围（0，30000],范围以外默认设置为10000
+                settings.setAuthPageEventListener(new AuthPageEventListener() {
+                    @Override
+                    public void onEvent(int cmd, String msg) {
+                        Log.i(TAG, "onEvent: "+"登陆成功");
+                        //do something...
+                    }
+                });
+                //尝试登陆
+                JVerificationInterface.loginAuth(getActivity(), true, new VerifyListener() {
+                    @Override
+                    public void onResult(int code, String s, String s1) {
+                        if (code==6000){
+                            Log.i(TAG, "onResult: "+"登陆成功");
+                            startActivity(new Intent(getContext(),UserEditActivity.class));
+                            ToastUtils.showShort("登陆成功");
+                        }else {
+
+                        }
+                    }
+                });
             }
         });
 
@@ -125,6 +197,7 @@ public class MyFragment extends BaseFragment {
 
     }
     //动态添加拨打电话的权限
+
     /**
      * 动态请求权限
      */
@@ -139,9 +212,9 @@ public class MyFragment extends BaseFragment {
             // permissions请求的权限
             // requestCode:应用程序特定的请求代码以匹配报告给OnRequestPermissionsResultCallback#onRequestPermissionsResult(int, String[], int[])}
             // 也就是下面回调的OnRequestPermissionResult()方法
-            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.CALL_PHONE},10010);
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE}, 10010);
             Log.d(TAG, "request_permission():正在申请权限！");
-        }else {
+        } else {
             Log.d(TAG, "request_permission():已经拥有权限！");
             callUp();
         }
@@ -149,9 +222,10 @@ public class MyFragment extends BaseFragment {
 
     /**
      * 请求权限结果的回调
-     * @param requestCode   传入的请求代码
-     * @param permissions   请求的权限
-     * @param grantResults  相应权限授予的结果，可以是PERMISSION_GRANTED，或DENIED.从不为空
+     *
+     * @param requestCode  传入的请求代码
+     * @param permissions  请求的权限
+     * @param grantResults 相应权限授予的结果，可以是PERMISSION_GRANTED，或DENIED.从不为空
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -163,7 +237,7 @@ public class MyFragment extends BaseFragment {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     callUp();
                     Log.d(TAG, "onRequestPermissionsResult(): 获取权限，可以拨打电话！");
-                }else {
+                } else {
                     Log.d(TAG, "onRequestPermissionsResult(): 权限已拒绝！");
                 }
                 break;
@@ -171,7 +245,7 @@ public class MyFragment extends BaseFragment {
     }
 
     private void callUp() {
-        Log.i(TAG, "callUp: "+mPhoneNumber.getText());
+        Log.i(TAG, "callUp: " + mPhoneNumber.getText());
         AlertDialog alertDialog = new AlertDialog.Builder(getContext())
                 .setMessage(mPhoneNumber.getText())
                 .setTitle("呼叫")
@@ -198,7 +272,7 @@ public class MyFragment extends BaseFragment {
                     }
                 }).create();
 
-          alertDialog.show();
+        alertDialog.show();
         alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
         // 设置对话框的位置偏下
