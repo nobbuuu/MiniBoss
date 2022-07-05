@@ -25,7 +25,8 @@
     <uses-permission android:name="com.dream.miniboss.permission.JPUSH_MESSAGE" />
 
     <application
-        android:name="com.dream.miniboss.MiniBossApp"
+
+        android:name=".MiniBossApp"
         android:allowBackup="false"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"

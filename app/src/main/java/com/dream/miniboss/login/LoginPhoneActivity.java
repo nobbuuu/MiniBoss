@@ -99,6 +99,7 @@ public class LoginPhoneActivity extends BaseActivity {
                 .setPrivacyOffsetX(20)
                 .setPrivacyState(true)
                 .setNavColor(R.color.blue_light)
+
                 .addCustomView(mRTextView, true, new JVerifyUIClickCallback() {
                     @Override
                     public void onClicked(Context context, View view) {

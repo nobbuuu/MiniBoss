@@ -4,6 +4,8 @@ package com.dream.miniboss
 import android.app.Activity
 import android.app.Application
 import android.os.SystemClock
+import cn.jiguang.verifysdk.api.JVerificationInterface
+import cn.jiguang.verifysdk.api.JVerificationInterface.preLogin
 import com.dream.miniboss.task.CatchCrashTask
 import com.dream.miniboss.task.ExceptionMonitorTask
 import com.dream.miniboss.task.InitHttpClient
@@ -11,7 +13,7 @@ import com.dream.miniboss.task.InitOtherTask
 import com.tcl.base.BaseApplication
 import com.tcl.base.utils.startAppTime
 import com.tcl.launcher.TaskDispatcher
-import com.tcl.tclzjpro.task.*
+import com.tcl.tclzjpro.task.InitEnvironment
 import com.tencent.mmkv.MMKV
 
 
@@ -43,6 +45,7 @@ class MiniBossApp : BaseApplication() {
             .addTask(ExceptionMonitorTask())
             .start()
         startAppTime = SystemClock.currentThreadTimeMillis()
+
     }
 }
 

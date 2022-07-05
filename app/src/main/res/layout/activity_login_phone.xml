@@ -5,5 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".login.LoginPhoneActivity">
-
+<com.hjq.bar.TitleBar
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_44"
+    app:title="登录"/>
 </LinearLayout>
