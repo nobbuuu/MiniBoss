@@ -19,9 +19,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
-
         android:name=".MiniBossApp"
         android:allowBackup="false"
         android:icon="@mipmap/logo"
@@ -29,6 +27,9 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.CbgBase">
+        <activity
+            android:name=".publish.PublishResumeActivity"
+            android:exported="false" />
         <activity
             android:name=".login.LoginCodeNumActivity"
             android:exported="false" />

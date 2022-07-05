@@ -136,7 +136,7 @@ public class MyFragment extends BaseFragment {
             public void onClick(View v) {
                 Log.i(TAG, "onClick: "+"点击了用户头像");
                 //自定义界面
-                RTextView mRTextView = new RTextView(getContext());
+                TextView mRTextView = new TextView(getContext());
                 mRTextView.setText("其他手机号码登录");
                 RelativeLayout.LayoutParams mLayoutParams1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 mLayoutParams1.setMargins(LoginUIHelper.dpToPx(124.0f), LoginUIHelper.dpToPx(385.0f), 0, 0);
@@ -173,7 +173,7 @@ public class MyFragment extends BaseFragment {
                         //do something...
                     }
                 });
-                //尝试登陆
+                //尝试授权登陆
                 JVerificationInterface.loginAuth(getActivity(), true, new VerifyListener() {
                     @Override
                     public void onResult(int code, String s, String s1) {
@@ -182,7 +182,8 @@ public class MyFragment extends BaseFragment {
                             startActivity(new Intent(getContext(),UserEditActivity.class));
                             ToastUtils.showShort("登陆成功");
                         }else {
-
+                            ToastUtils.showShort("当前无法登陆，已转其他方式登陆");
+                            startActivity(new Intent(getContext(),LoginCodeActivity.class));
                         }
                     }
                 });
