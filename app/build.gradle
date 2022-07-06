@@ -36,7 +36,6 @@ android {
                 JPUSH_APPKEY : "b156742e731deb0439484c82", //Portal上注册的包名对应的 appKey.
                 JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
         ]
-        applicationId "com.dream.miniBoss"
         minSdkVersion BuildConfig.minSdkVersion
         targetSdkVersion BuildConfig.targetSdkVersion
         versionCode BuildConfig.versionCode

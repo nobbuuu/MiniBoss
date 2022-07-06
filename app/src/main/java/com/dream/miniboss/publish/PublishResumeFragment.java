@@ -1,6 +1,7 @@
 package com.dream.miniboss.publish;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
@@ -18,7 +19,7 @@ import com.ruffian.library.widget.RTextView;
  */
 public class PublishResumeFragment extends BaseFragment {
     private static final String TAG = "TAG";
-    RTextView rtvUnskilled;
+    RTextView rtvUnskilled,publishResume;
     TitleBar mTitleBar;
     @Override
     protected int setLayout() {
@@ -29,6 +30,7 @@ public class PublishResumeFragment extends BaseFragment {
     protected void initView() {
         mTitleBar=fvbyid(R.id.title_Publish);
         rtvUnskilled=fvbyid(R.id.rtvUnskilled);
+        publishResume=fvbyid(R.id.textView_publish);
     }
 
     @Override
@@ -47,6 +49,7 @@ public class PublishResumeFragment extends BaseFragment {
 
     private void event() {
         rtvUnskilled.setOnClickListener(this);
+        publishResume.setOnClickListener(this);
     }
 
 
@@ -56,6 +59,9 @@ public class PublishResumeFragment extends BaseFragment {
       switch (v.getId()){
           case R.id.rtvUnskilled:
 
+              break;
+          case R.id.textView_publish:
+              startActivity(new Intent(getContext(),PublishResumeActivity.class));
               break;
           default:
 

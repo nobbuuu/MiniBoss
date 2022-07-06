@@ -134,12 +134,11 @@ public class MyFragment extends BaseFragment {
         userIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "onClick: "+"点击了用户头像");
                 //自定义界面
                 TextView mRTextView = new TextView(getContext());
                 mRTextView.setText("其他手机号码登录");
                 RelativeLayout.LayoutParams mLayoutParams1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                mLayoutParams1.setMargins(LoginUIHelper.dpToPx(124.0f), LoginUIHelper.dpToPx(385.0f), 0, 0);
+                mLayoutParams1.setMargins(LoginUIHelper.dpToPx(124.0f), LoginUIHelper.dpToPx(320.0f), 0, 0);
                 mRTextView.setLayoutParams(mLayoutParams1);
                 //增加底部隐私条款
                 List<PrivacyBean> list = new ArrayList<>();
@@ -169,7 +168,7 @@ public class MyFragment extends BaseFragment {
                 settings.setAuthPageEventListener(new AuthPageEventListener() {
                     @Override
                     public void onEvent(int cmd, String msg) {
-                        Log.i(TAG, "onEvent: "+"登陆成功");
+
                         //do something...
                     }
                 });
@@ -178,7 +177,6 @@ public class MyFragment extends BaseFragment {
                     @Override
                     public void onResult(int code, String s, String s1) {
                         if (code==6000){
-                            Log.i(TAG, "onResult: "+"登陆成功");
                             startActivity(new Intent(getContext(),UserEditActivity.class));
                             ToastUtils.showShort("登陆成功");
                         }else {

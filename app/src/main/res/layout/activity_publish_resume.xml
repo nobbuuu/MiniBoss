@@ -4,14 +4,335 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f7f7f7"
     android:orientation="vertical"
     tools:context=".publish.PublishResumeActivity">
-<com.hjq.bar.TitleBar
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_44"
-    app:title="发布求职意向"
-    app:titleSize="@dimen/sp_18"
-    app:titleStyle="bold"
-    app:titleColor="@color/black"/>
+
+    <com.hjq.bar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        app:title="发布求职意向"
+        app:titleColor="@color/black"
+        app:titleSize="@dimen/sp_18"
+        app:titleStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_555"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_8"
+        android:background="@drawable/lv_shape">
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="求职类型"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:icon_normal_right="@mipmap/mustfill" />
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_44"
+            android:text="请选择你的求职类型"
+            android:textSize="@dimen/sp_12" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_77"
+                android:layout_weight="1"
+                android:background="#AAA3A3"
+                android:gravity="center"
+                android:text="普工技工技术管理人员"
+                app:background_pressed="@color/green"
+                app:corner_radius="@dimen/dp_36"
+                app:text_color_pressed="@color/white" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_77"
+                android:layout_marginRight="@dimen/dp_36"
+                android:layout_weight="1"
+                android:background="#AAA3A3"
+                android:gravity="center"
+                android:text="兼职建造/筑师等注册师"
+                app:background_pressed="@color/green"
+                app:corner_radius="@dimen/dp_36"
+                app:text_color_pressed="@color/white" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_129"
+            android:background="#f7f7f7" />
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_145"
+            android:text="岗位名称"
+            android:textSize="@dimen/sp_14"
+            app:icon_normal_right="@mipmap/mustfill" />
+
+        <com.ruffian.library.widget.REditText
+            android:layout_width="@dimen/dp_350"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_173"
+            android:background="@color/transparent"
+            android:hint="请选择岗位名称"
+            android:textSize="@dimen/sp_16"
+            app:icon_normal_right="@mipmap/goin" />
+
+        <View
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_211"
+            android:background="#f7f7f7" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_233"
+                android:text="是否自带班组团队"
+                android:textSize="@dimen/sp_14"
+                app:icon_normal_right="@mipmap/mustfill" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="@dimen/dp_72"
+                android:layout_height="@dimen/dp_31"
+                android:layout_marginLeft="@dimen/dp_40"
+                android:layout_marginTop="@dimen/dp_227"
+                android:layout_weight="1"
+                android:background="#AAA3A3"
+                android:gravity="center"
+                android:text="是"
+                app:background_pressed="@color/green"
+                app:corner_radius="@dimen/dp_36"
+                app:text_color_pressed="@color/white" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="@dimen/dp_72"
+                android:layout_height="@dimen/dp_31"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_227"
+                android:layout_marginRight="@dimen/dp_16"
+                android:layout_weight="1"
+                android:background="#AAA3A3"
+                android:gravity="center"
+                android:text="否"
+                app:background_pressed="@color/green"
+                app:corner_radius="@dimen/dp_36"
+                app:text_color_pressed="@color/white" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_274"
+            android:background="#f7f7f7" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_295"
+                android:text="结算方式"
+                android:textSize="@dimen/sp_14"
+                app:icon_normal_right="@mipmap/mustfill" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="@dimen/dp_72"
+                android:layout_height="@dimen/dp_31"
+                android:layout_marginLeft="@dimen/dp_40"
+                android:layout_marginTop="@dimen/dp_290"
+                android:layout_weight="1"
+                android:background="#AAA3A3"
+                android:gravity="center"
+                android:text="月结"
+                app:background_pressed="@color/green"
+                app:corner_radius="@dimen/dp_36"
+                app:text_color_pressed="@color/white" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="@dimen/dp_72"
+                android:layout_height="@dimen/dp_31"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_290"
+
+                android:layout_weight="1"
+                android:background="#AAA3A3"
+                android:gravity="center"
+                android:text="日结"
+                app:background_pressed="@color/green"
+                app:corner_radius="@dimen/dp_36"
+                app:text_color_pressed="@color/white" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="@dimen/dp_72"
+                android:layout_height="@dimen/dp_31"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_290"
+                android:layout_weight="1"
+                android:background="#AAA3A3"
+                android:gravity="center"
+                android:text="计件"
+                app:background_pressed="@color/green"
+                app:corner_radius="@dimen/dp_36"
+                app:text_color_pressed="@color/white" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="@dimen/dp_72"
+                android:layout_height="@dimen/dp_31"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_290"
+                android:layout_marginRight="@dimen/dp_16"
+                android:layout_weight="1"
+                android:background="#AAA3A3"
+                android:gravity="center"
+                android:text="面议"
+                app:background_pressed="@color/green"
+                app:corner_radius="@dimen/dp_36"
+                app:text_color_pressed="@color/white" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_335"
+            android:background="#f7f7f7" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_353"
+                android:text="期望薪资"
+                android:textSize="@dimen/sp_14"
+                app:icon_normal_right="@mipmap/mustfill" />
+
+            <com.ruffian.library.widget.REditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_69"
+                android:layout_marginTop="@dimen/dp_353"
+                android:background="@color/transparent"
+                android:hint="请选择岗位名称"
+                android:textSize="@dimen/sp_16"
+                app:icon_normal_left="@mipmap/write" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_353"
+                android:text="元/月"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_407"
+            android:text="期望工作地"
+            android:textSize="@dimen/sp_14"
+            app:icon_normal_right="@mipmap/mustfill" />
+
+        <com.ruffian.library.widget.REditText
+            android:layout_width="@dimen/dp_350"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_435"
+            android:background="@color/transparent"
+            android:hint="请选择期望工作地"
+            android:textSize="@dimen/sp_16"
+            app:icon_normal_right="@mipmap/goin" />
+
+        <View
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_473"
+            android:background="#f7f7f7" />
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_489"
+            android:text="个人优势"
+            android:textSize="@dimen/sp_14"
+            app:icon_normal_right="@mipmap/mustfill" />
+
+        <com.ruffian.library.widget.REditText
+            android:layout_width="@dimen/dp_350"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_517"
+            android:background="@color/transparent"
+            android:hint="请填写个人优势"
+            android:textSize="@dimen/sp_16" />
+
+        <View
+            android:layout_width="@dimen/dp_312"
+            android:layout_height="@dimen/dp_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_473"
+            android:background="#f7f7f7" />
+
+    </FrameLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:background="@drawable/shap_button_radius"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        android:layout_margin="@dimen/dp_32"/>
 
 </LinearLayout>
