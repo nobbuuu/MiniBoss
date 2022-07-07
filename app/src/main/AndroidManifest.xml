@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.dream.miniboss">
     <!-- 申请日历权限 -->
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 申请相机权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 申请相机权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.MICROPHONE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -26,8 +29,8 @@
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.CbgBase">
+        android:theme="@style/Theme.CbgBase"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".publish.PublishResumeActivity"
             android:exported="false" />
@@ -40,6 +43,21 @@
         <activity
             android:name=".login.LoginCodeActivity"
             android:exported="false" />
+        <activity
+            android:name=".mine.ui.BlackListActivity"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.dream.miniboss.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path"
+                tools:replace="android:resource" />
+        </provider>
 
         <meta-data
             android:name="design_width_in_dp"
@@ -65,9 +83,7 @@
         <activity android:name=".mine.ui.UserEditActivity" />
         <activity android:name=".mine.ui.SystemSettingActivity" />
         <activity android:name=".mine.ui.PermissionSettingActivity" />
-        <activity
-            android:name=".mine.ui.BlackListActivity"
-            android:exported="false" />
+
         <activity android:name=".mine.ui.FeedbackActivity" />
         <activity android:name=".mine.ui.PhoneNumberActivity" />
         <activity android:name=".mine.ui.VerificationCodeActivity" />
