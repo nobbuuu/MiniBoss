@@ -91,16 +91,20 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
         mBinding.etEmil.setText(mPreferences.getString("et_emil", ""));
         //将存储的图片显示在头像上面
         Bitmap bitmap = null;
-        File outputImage = new File(getExternalCacheDir(), "/sdcard/user_image.jpg");
         try {
-
+            File outputImage = new File(getExternalCacheDir(), "/sdcard/user_image.jpg");
             imageUri = FileProvider.getUriForFile(UserEditActivity.this, "com.dream.miniboss.FileProvider", outputImage);
 
             bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        mBinding.iconUser.setImageBitmap(bitmap);
+        if (bitmap != null) {
+
+            mBinding.iconUser.setImageBitmap(bitmap);
+        } else {
+            mBinding.iconUser.setImageResource(R.mipmap.usericon_grey);
+        }
     }
 
     @Override
@@ -368,7 +372,12 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                     try {
                         // 将拍摄的照片显示出来
                         Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
-                        mBinding.iconUser.setImageBitmap(bitmap);
+                        if (null == bitmap) {
+
+                            mBinding.iconUser.setImageBitmap(bitmap);
+                        } else {
+                            mBinding.iconUser.setImageResource(R.mipmap.usericon_grey);
+                        }
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }

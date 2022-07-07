@@ -94,7 +94,12 @@ public class MyFragment extends BaseFragment {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        if (bitmap==null){
+            userIcon.setImageResource(R.mipmap.usericon_grey);
+        }else {
+
         userIcon.setImageBitmap(bitmap);
+        }
 
     }
 
