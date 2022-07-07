@@ -38,6 +38,7 @@ import com.dream.miniboss.login.LoginPhoneActivity;
 import com.dream.miniboss.main.MainActivity;
 import com.dream.miniboss.message.MessageFragment;
 import com.dream.miniboss.utils.LoginUIHelper;
+import com.ruffian.library.widget.RImageView;
 import com.ruffian.library.widget.RTextView;
 
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ import cn.jiguang.verifysdk.api.VerifyListener;
  * 作者:HeGuiCun Administrator
  */
 public class MyFragment extends BaseFragment {
-    ImageView userIcon;
+    RImageView userIcon;
     ImageView mImageEdit;
     ImageView onLineChat;
     TextView mPhoneNumber;
@@ -138,7 +139,7 @@ public class MyFragment extends BaseFragment {
                 TextView mRTextView = new TextView(getContext());
                 mRTextView.setText("其他手机号码登录");
                 RelativeLayout.LayoutParams mLayoutParams1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                mLayoutParams1.setMargins(LoginUIHelper.dpToPx(124.0f), LoginUIHelper.dpToPx(320.0f), 0, 0);
+                mLayoutParams1.setMargins(LoginUIHelper.dpToPx(124.0f), LoginUIHelper.dpToPx(300.0f), 0, 0);
                 mRTextView.setLayoutParams(mLayoutParams1);
                 //增加底部隐私条款
                 List<PrivacyBean> list = new ArrayList<>();
@@ -149,7 +150,6 @@ public class MyFragment extends BaseFragment {
                 JVerifyUIConfig jVerifyUIConfig = new JVerifyUIConfig.Builder()
                         .setPrivacyOffsetX(20)
                         .setPrivacyState(true)
-                        .setNavColor(R.color.blue_light)
                         .addCustomView(mRTextView, true, new JVerifyUIClickCallback() {
                             @Override
                             public void onClicked(Context context, View view) {
@@ -181,7 +181,7 @@ public class MyFragment extends BaseFragment {
                             ToastUtils.showShort("登陆成功");
                         }else {
                             ToastUtils.showShort("当前无法登陆，已转其他方式登陆");
-                            startActivity(new Intent(getContext(),LoginCodeActivity.class));
+                            //startActivity(new Intent(getContext(),LoginCodeActivity.class));
                         }
                     }
                 });

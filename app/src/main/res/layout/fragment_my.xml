@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
@@ -24,13 +25,15 @@
             android:layout_height="wrap_content"
             android:background="@mipmap/ivbg">
 
-            <ImageView
+            <com.ruffian.library.widget.RImageView
                 android:id="@+id/user_icon"
                 android:layout_width="@dimen/dp_60"
                 android:layout_height="@dimen/dp_60"
                 android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_8"
-                android:src="@mipmap/usericon_grey" />
+                android:src="@mipmap/usericon_grey"
+                app:is_circle="true"
+                />
 
             <TextView
                 android:id="@+id/user_name"

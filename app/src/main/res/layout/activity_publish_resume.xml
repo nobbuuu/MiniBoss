@@ -53,26 +53,25 @@
                 android:layout_height="36dp"
                 android:layout_marginLeft="@dimen/dp_16"
                 android:layout_marginTop="@dimen/dp_77"
-                android:layout_weight="1"
-                android:background="#AAA3A3"
+                app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="普工技工技术管理人员"
                 app:background_pressed="@color/green"
-                app:corner_radius="@dimen/dp_36"
+                app:corner_radius="@dimen/dp_4"
                 app:text_color_pressed="@color/white" />
 
             <com.ruffian.library.widget.RTextView
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
-                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_77"
-                android:layout_marginRight="@dimen/dp_36"
+                android:layout_marginRight="@dimen/dp_16"
                 android:layout_weight="1"
-                android:background="#AAA3A3"
+                app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="兼职建造/筑师等注册师"
                 app:background_pressed="@color/green"
-                app:corner_radius="@dimen/dp_36"
+                app:corner_radius="@dimen/dp_4"
                 app:text_color_pressed="@color/white" />
         </LinearLayout>
 
@@ -131,11 +130,11 @@
                 android:layout_marginLeft="@dimen/dp_40"
                 android:layout_marginTop="@dimen/dp_227"
                 android:layout_weight="1"
-                android:background="#AAA3A3"
+                app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="是"
                 app:background_pressed="@color/green"
-                app:corner_radius="@dimen/dp_36"
+                app:corner_radius="@dimen/dp_4"
                 app:text_color_pressed="@color/white" />
 
             <com.ruffian.library.widget.RTextView
@@ -145,11 +144,11 @@
                 android:layout_marginTop="@dimen/dp_227"
                 android:layout_marginRight="@dimen/dp_16"
                 android:layout_weight="1"
-                android:background="#AAA3A3"
+                app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="否"
                 app:background_pressed="@color/green"
-                app:corner_radius="@dimen/dp_36"
+                app:corner_radius="@dimen/dp_4"
                 app:text_color_pressed="@color/white" />
         </LinearLayout>
 
@@ -178,55 +177,54 @@
             <com.ruffian.library.widget.RTextView
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_31"
-                android:layout_marginLeft="@dimen/dp_40"
+                android:layout_marginLeft="@dimen/dp_16"
                 android:layout_marginTop="@dimen/dp_290"
                 android:layout_weight="1"
-                android:background="#AAA3A3"
+                app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="月结"
                 app:background_pressed="@color/green"
-                app:corner_radius="@dimen/dp_36"
+                app:corner_radius="@dimen/dp_4"
                 app:text_color_pressed="@color/white" />
 
             <com.ruffian.library.widget.RTextView
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_31"
-                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_290"
-
+                app:background_normal="#F0F0F0"
                 android:layout_weight="1"
-                android:background="#AAA3A3"
                 android:gravity="center"
                 android:text="日结"
                 app:background_pressed="@color/green"
-                app:corner_radius="@dimen/dp_36"
+                app:corner_radius="@dimen/dp_4"
                 app:text_color_pressed="@color/white" />
 
             <com.ruffian.library.widget.RTextView
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_31"
-                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_290"
-                android:layout_weight="1"
-                android:background="#AAA3A3"
+                app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="计件"
+                android:layout_weight="1"
                 app:background_pressed="@color/green"
-                app:corner_radius="@dimen/dp_36"
+                app:corner_radius="@dimen/dp_4"
                 app:text_color_pressed="@color/white" />
 
             <com.ruffian.library.widget.RTextView
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_31"
-                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_290"
                 android:layout_marginRight="@dimen/dp_16"
                 android:layout_weight="1"
-                android:background="#AAA3A3"
+                app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="面议"
                 app:background_pressed="@color/green"
-                app:corner_radius="@dimen/dp_36"
+                app:corner_radius="@dimen/dp_4"
                 app:text_color_pressed="@color/white" />
         </LinearLayout>
 
@@ -246,7 +244,7 @@
             <com.ruffian.library.widget.RTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_353"
                 android:text="期望薪资"
                 android:textSize="@dimen/sp_14"
@@ -314,6 +312,7 @@
             android:layout_marginTop="@dimen/dp_517"
             android:background="@color/transparent"
             android:hint="请填写个人优势"
+            app:icon_normal_right="@mipmap/goin"
             android:textSize="@dimen/sp_16" />
 
         <View

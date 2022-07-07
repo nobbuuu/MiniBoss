@@ -40,7 +40,6 @@ public class PublishResumeFragment extends BaseFragment {
         @Override
         public void onClick(View v) {
             getActivity().onBackPressed();
-            Log.i(TAG, "onClick: "+"--------333");
         }
     });
     event();

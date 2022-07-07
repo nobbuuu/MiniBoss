@@ -21,17 +21,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <com.ruffian.library.widget.RImageView
                 android:id="@+id/icon_user"
                 android:layout_width="@dimen/dp_80"
                 android:layout_height="@dimen/dp_80"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dp_32"
+                android:scaleType="fitXY"
+                app:is_circle="true"
                 android:src="@mipmap/usericon_grey" />
 
             <ImageView
-                android:layout_width="@dimen/dp_18"
-                android:layout_height="@dimen/dp_18"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
                 android:layout_alignRight="@id/icon_user"
                 android:layout_alignBottom="@id/icon_user"
                 android:src="@mipmap/camer" />
