@@ -63,7 +63,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
     public static final int TAKE_CAMERA = 101;
     public static final int PICK_PHOTO = 102;
     private Uri imageUri;
-
+    private Bitmap bitmap = null;
     private Dialog dateDialog, chooseDialog;
     private List<String> list = new ArrayList<>();
     private ActivityUserEditBinding mBinding;
@@ -90,7 +90,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
         mBinding.etBirthTime.setText(mPreferences.getString("et_birth_time", ""));
         mBinding.etEmil.setText(mPreferences.getString("et_emil", ""));
         //将存储的图片显示在头像上面
-        Bitmap bitmap = null;
+
         try {
             File outputImage = new File(getExternalCacheDir(), "/sdcard/user_image.jpg");
             imageUri = FileProvider.getUriForFile(UserEditActivity.this, "com.dream.miniboss.FileProvider", outputImage);
@@ -371,7 +371,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                 if (resultCode == RESULT_OK) {
                     try {
                         // 将拍摄的照片显示出来
-                        Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
+                      bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
                         if (null == bitmap) {
 
                             mBinding.iconUser.setImageBitmap(bitmap);
