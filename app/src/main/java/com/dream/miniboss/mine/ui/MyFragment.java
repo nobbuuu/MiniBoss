@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -66,10 +67,12 @@ public class MyFragment extends BaseFragment {
     RImageView userIcon;
     ImageView mImageEdit;
     ImageView onLineChat;
-    TextView mPhoneNumber;
+    TextView mPhoneNumber,userName,desc;
     LinearLayout mLinearLayout;
     LinearLayout mSystemSetting;
     private Uri imageUri;
+    Bitmap bitmap = null;
+    private SharedPreferences mPreferences;
     @Override
     protected int setLayout() {
         return R.layout.fragment_my;
@@ -83,12 +86,14 @@ public class MyFragment extends BaseFragment {
         mPhoneNumber = fvbyid(R.id.tv_phone_number);
         mLinearLayout = fvbyid(R.id.lv_qianhuan_zhaopin);
         userIcon = fvbyid(R.id.user_icon);
+        userName=fvbyid(R.id.user_name);
+        desc=fvbyid(R.id.tv_company);
         //将存储的图片显示在头像上面
-        Bitmap bitmap = null;
-        File outputImage = new File(getContext().getExternalCacheDir(), "/sdcard/user_image.jpg");
-        try {
 
-            imageUri = FileProvider.getUriForFile(getActivity(), "com.dream.miniboss.FileProvider", outputImage);
+        try {
+            File outputImage = new File(getContext().getExternalCacheDir(), "user_images.jpg");
+
+            imageUri = FileProvider.getUriForFile(getContext(), "com.dream.miniboss.FileProvider", outputImage);
 
             bitmap = BitmapFactory.decodeStream(getContext().getContentResolver().openInputStream(imageUri));
         } catch (FileNotFoundException e) {
@@ -100,6 +105,12 @@ public class MyFragment extends BaseFragment {
 
         userIcon.setImageBitmap(bitmap);
         }
+        //将文件里面的名字也存储在上面
+        //取出存储数据显示在界面上
+        mPreferences = getContext().getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        userName.setText(mPreferences.getString("et_name", ""));
+        desc.setText(mPreferences.getString("et_desc",""));
+        //desc.setText(mPreferences.getString("et_desc",""));
 
     }
 

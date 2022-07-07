@@ -92,15 +92,14 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
         //将存储的图片显示在头像上面
 
         try {
-            File outputImage = new File(getExternalCacheDir(), "/sdcard/user_image.jpg");
+            File outputImage = new File(getExternalCacheDir(), "user_images.jpg");
             imageUri = FileProvider.getUriForFile(UserEditActivity.this, "com.dream.miniboss.FileProvider", outputImage);
-
             bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         if (bitmap != null) {
-
+            Log.i(TAG, "initView: "+bitmap);
             mBinding.iconUser.setImageBitmap(bitmap);
         } else {
             mBinding.iconUser.setImageResource(R.mipmap.usericon_grey);
@@ -231,7 +230,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
 
                         // 创建File对象，用于存储拍照后的图片
                         //存放在手机SD卡的应用关联缓存目录下
-                        File outputImage = new File(getExternalCacheDir(), "/sdcard/user_image.jpg");
+                        File outputImage = new File(getExternalCacheDir(), "user_images.jpg");
                    /* 从Android 6.0系统开始，读写SD卡被列为了危险权限，如果将图片存放在SD卡的任何其他目录，
                       都要进行运行时权限处理才行，而使用应用关联 目录则可以跳过这一步
                     */
@@ -251,6 +250,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                             //大于等于版本24（7.0）的场合
                             imageUri = FileProvider.getUriForFile(UserEditActivity.this, "com.dream.miniboss.FileProvider", outputImage);
+                            Log.i(TAG, "--------onClick: "+imageUri);
                         } else {
                             //小于android 版本7.0（24）的场合
                             imageUri = Uri.fromFile(outputImage);
@@ -305,6 +305,10 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                 SharedPreferences.Editor birthEditor = mPreferences.edit();
                 birthEditor.putString("et_birth_time", mBinding.etBirthTime.getText().toString());
                 birthEditor.commit();
+                //临时存储描述数据
+                SharedPreferences.Editor descEditor = mPreferences.edit();
+                descEditor.putString("et_desc", "完善信息找工作更快哦");
+                descEditor.commit();
 
                 //验证邮箱格式
                 if (isEmailValid(mBinding.etEmil.getText().toString())) {
@@ -371,13 +375,9 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                 if (resultCode == RESULT_OK) {
                     try {
                         // 将拍摄的照片显示出来
-                      bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
-                        if (null == bitmap) {
-
-                            mBinding.iconUser.setImageBitmap(bitmap);
-                        } else {
-                            mBinding.iconUser.setImageResource(R.mipmap.usericon_grey);
-                        }
+                     bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
+                        mBinding.iconUser.setImageBitmap(bitmap);
+                        //mBinding.iconUser.setImageResource(R.mipmap.usericon_grey);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
