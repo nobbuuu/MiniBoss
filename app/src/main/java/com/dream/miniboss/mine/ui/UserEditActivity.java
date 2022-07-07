@@ -58,7 +58,7 @@ import java.util.regex.Pattern;
  * 描述:衣带渐宽终不悔、为伊消得人憔悴
  * 作者:HeGuiCun Administrator
  */
-public class UserEditActivity extends BaseActivity implements View.OnClickListener{
+public class UserEditActivity extends BaseActivity implements View.OnClickListener {
 
     public static final int TAKE_CAMERA = 101;
     public static final int PICK_PHOTO = 102;
@@ -89,7 +89,18 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
         mBinding.etGender.setText(mPreferences.getString("et_gender", ""));
         mBinding.etBirthTime.setText(mPreferences.getString("et_birth_time", ""));
         mBinding.etEmil.setText(mPreferences.getString("et_emil", ""));
+        //将存储的图片显示在头像上面
+        Bitmap bitmap = null;
+        File outputImage = new File(getExternalCacheDir(), "/sdcard/user_image.jpg");
+        try {
 
+            imageUri = FileProvider.getUriForFile(UserEditActivity.this, "com.dream.miniboss.FileProvider", outputImage);
+
+            bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        mBinding.iconUser.setImageBitmap(bitmap);
     }
 
     @Override
@@ -216,7 +227,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
 
                         // 创建File对象，用于存储拍照后的图片
                         //存放在手机SD卡的应用关联缓存目录下
-                        File outputImage = new File(getExternalCacheDir(), "user_image.jpg");
+                        File outputImage = new File(getExternalCacheDir(), "/sdcard/user_image.jpg");
                    /* 从Android 6.0系统开始，读写SD卡被列为了危险权限，如果将图片存放在SD卡的任何其他目录，
                       都要进行运行时权限处理才行，而使用应用关联 目录则可以跳过这一步
                     */
@@ -242,11 +253,12 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                         }
 
                         //启动相机程序
+                        ActivityCompat.requestPermissions(UserEditActivity.this, new String[]{Manifest.permission
+                                .WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 200);
                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         //MediaStore.ACTION_IMAGE_CAPTURE = android.media.action.IMAGE_CAPTURE
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                         startActivityForResult(intent, TAKE_CAMERA);
-
                     }
                 });
                 break;
@@ -346,6 +358,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
             return false;
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -407,6 +420,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
 
     /**
      * android 4.4以前的处理方式
+     *
      * @param data
      */
     private void handleImageBeforeKitKat(Intent data) {

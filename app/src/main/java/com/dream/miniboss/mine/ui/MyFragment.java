@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Handler;
@@ -26,6 +28,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import static android.content.ContentValues.TAG;
 
@@ -41,6 +44,8 @@ import com.dream.miniboss.utils.LoginUIHelper;
 import com.ruffian.library.widget.RImageView;
 import com.ruffian.library.widget.RTextView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +69,7 @@ public class MyFragment extends BaseFragment {
     TextView mPhoneNumber;
     LinearLayout mLinearLayout;
     LinearLayout mSystemSetting;
-
+    private Uri imageUri;
     @Override
     protected int setLayout() {
         return R.layout.fragment_my;
@@ -78,6 +83,18 @@ public class MyFragment extends BaseFragment {
         mPhoneNumber = fvbyid(R.id.tv_phone_number);
         mLinearLayout = fvbyid(R.id.lv_qianhuan_zhaopin);
         userIcon = fvbyid(R.id.user_icon);
+        //将存储的图片显示在头像上面
+        Bitmap bitmap = null;
+        File outputImage = new File(getContext().getExternalCacheDir(), "/sdcard/user_image.jpg");
+        try {
+
+            imageUri = FileProvider.getUriForFile(getActivity(), "com.dream.miniboss.FileProvider", outputImage);
+
+            bitmap = BitmapFactory.decodeStream(getContext().getContentResolver().openInputStream(imageUri));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        userIcon.setImageBitmap(bitmap);
 
     }
 
