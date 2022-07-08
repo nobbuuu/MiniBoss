@@ -57,8 +57,7 @@ public class MyFragment extends BaseFragment {
     ImageView mImageEdit;
     ImageView onLineChat;
     TextView mPhoneNumber, userName, desc;
-    LinearLayout mLinearLayout;
-    LinearLayout mSystemSetting;
+    LinearLayout mLinearLayout, mSystemSetting, mAuthyName;
     private Uri imageUri;
     Bitmap bitmap = null;
     private SharedPreferences mPreferences;
@@ -75,6 +74,7 @@ public class MyFragment extends BaseFragment {
         onLineChat = fvbyid(R.id.iv_online_chat);
         mPhoneNumber = fvbyid(R.id.tv_phone_number);
         mLinearLayout = fvbyid(R.id.lv_qianhuan_zhaopin);
+        mAuthyName = fvbyid(R.id.lv_authy_name);
         userIcon = fvbyid(R.id.user_icon);
         userName = fvbyid(R.id.user_name);
         desc = fvbyid(R.id.tv_company);
@@ -214,7 +214,13 @@ public class MyFragment extends BaseFragment {
                 });
             }
         });
-
+    //实名认证
+      mAuthyName.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              startActivity(new Intent(getContext(),AuthNameActivity.class));
+          }
+      });
     }
 
 

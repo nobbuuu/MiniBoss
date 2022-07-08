@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7"
+    android:orientation="vertical"
+    tools:context=".mine.ui.AuthNameActivity">
+<com.hjq.bar.TitleBar
+    android:id="@+id/title_authy_name"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_44"
+    app:title="实名认证"
+    app:titleStyle="bold"
+    app:titleSize="@dimen/sp_16"
+    app:titleColor="@color/black"/>
+<com.ruffian.library.widget.RTextView
+    android:id="@+id/tvAuthyName"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_54"
+    app:background_normal="@color/white"
+    app:corner_radius="@dimen/dp_12"
+    android:text="个人实名"
+    android:textSize="@dimen/sp_16"
+    android:gravity="center_vertical"
+    android:layout_marginLeft="@dimen/dp_16"
+    android:layout_marginRight="@dimen/dp_16"
+    android:layout_marginTop="@dimen/dp_16"
+    app:icon_normal_right="@mipmap/goin"/>
+
+</LinearLayout>
