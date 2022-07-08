@@ -37,9 +37,6 @@
             android:name=".login.LoginCodeNumActivity"
             android:exported="false" />
         <activity
-            android:name=".login.LoginPhoneActivity"
-            android:exported="false" />
-        <activity
             android:name=".login.LoginCodeActivity"
             android:exported="false" />
         <activity

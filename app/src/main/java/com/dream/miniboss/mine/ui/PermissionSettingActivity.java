@@ -154,7 +154,7 @@ public class PermissionSettingActivity extends BaseActivity implements CompoundB
                 break;
             case R.id.switch_permission_canlder:
                 if (calendarSwitch.isChecked()) {
-                    Log.d(TAG, "onCheckedChanged: " + "日历权限" +permissionsCalendar);
+
                     PermissionsUtils.getInstance().chekPermissions(this, permissionsCalendar, permissionsResult);
                     //将数据保存至SharedPreferences:
                     SharedPreferences preferences = getSharedPreferences("calendar", Context.MODE_PRIVATE);

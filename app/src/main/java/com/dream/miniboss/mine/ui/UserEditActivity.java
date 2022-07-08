@@ -36,6 +36,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseActivity;
 import com.dream.miniboss.databinding.ActivityUserEditBinding;
+import com.dream.miniboss.main.MainActivity;
 import com.dream.miniboss.utils.MyDialog;
 import com.dream.miniboss.utils.UploadUtil;
 import com.example.liangmutian.mypicker.DataPickerDialog;
@@ -99,7 +100,6 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
             e.printStackTrace();
         }
         if (bitmap != null) {
-            Log.i(TAG, "initView: "+bitmap);
             mBinding.iconUser.setImageBitmap(bitmap);
         } else {
             mBinding.iconUser.setImageResource(R.mipmap.usericon_grey);
@@ -213,13 +213,14 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                     public void onClick(View v) {
                         if (ContextCompat.checkSelfPermission(UserEditActivity.this,
                                 Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                            ActivityCompat.requestPermissions(UserEditActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
+                            ActivityCompat.requestPermissions(UserEditActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 102);
                         } else {
                             //打开相册
                             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                             //Intent.ACTION_GET_CONTENT = "android.intent.action.GET_CONTENT"
                             intent.setType("image/*");
-                            startActivityForResult(intent, PICK_PHOTO); // 打开相册
+//                            startActivityForResult(intent, PICK_PHOTO); // 打开相册
+                            startActivityIfNeeded(intent, PICK_PHOTO);
                         }
                     }
                 });
@@ -250,19 +251,29 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                             //大于等于版本24（7.0）的场合
                             imageUri = FileProvider.getUriForFile(UserEditActivity.this, "com.dream.miniboss.FileProvider", outputImage);
-                            Log.i(TAG, "--------onClick: "+imageUri);
+                            Log.i(TAG, "--------onClick: " + imageUri);
                         } else {
                             //小于android 版本7.0（24）的场合
                             imageUri = Uri.fromFile(outputImage);
                         }
 
                         //启动相机程序
-                        ActivityCompat.requestPermissions(UserEditActivity.this, new String[]{Manifest.permission
-                                .WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 200);
-                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        //MediaStore.ACTION_IMAGE_CAPTURE = android.media.action.IMAGE_CAPTURE
-                        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                        startActivityForResult(intent, TAKE_CAMERA);
+                        if (ContextCompat.checkSelfPermission(UserEditActivity.this,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            ActivityCompat.requestPermissions(UserEditActivity.this, new String[]{Manifest.permission
+                                    .WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 102);
+//                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                            //MediaStore.ACTION_IMAGE_CAPTURE = android.media.action.IMAGE_CAPTURE
+//                            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+////                        startActivityForResult(intent, TAKE_CAMERA);
+//                            startActivityIfNeeded(intent, TAKE_CAMERA);
+                        } else {
+                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            //MediaStore.ACTION_IMAGE_CAPTURE = android.media.action.IMAGE_CAPTURE
+                            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+//                        startActivityForResult(intent, TAKE_CAMERA);
+                            startActivityIfNeeded(intent, TAKE_CAMERA);
+                        }
                     }
                 });
                 break;
@@ -316,6 +327,10 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                     SharedPreferences.Editor emailEditor = mPreferences.edit();
                     emailEditor.putString("et_emil", mBinding.etEmil.getText().toString());
                     emailEditor.commit();
+//                    Intent mIntent=new Intent();
+//                    mIntent.setClass(UserEditActivity.this, MainActivity.class);
+//                    mIntent.putExtra("id",0);
+//                    startActivity(mIntent);
                     onBackPressed();
                 } else {
                     ToastUtils.showShort("请输入正确的邮箱格式");
@@ -375,7 +390,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                 if (resultCode == RESULT_OK) {
                     try {
                         // 将拍摄的照片显示出来
-                     bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
+                        bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
                         mBinding.iconUser.setImageBitmap(bitmap);
                         //mBinding.iconUser.setImageResource(R.mipmap.usericon_grey);
                     } catch (FileNotFoundException e) {

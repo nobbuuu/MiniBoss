@@ -1,7 +1,6 @@
 package com.dream.miniboss.mine.ui;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,14 +10,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
-import android.view.Display;
-import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -34,16 +27,12 @@ import androidx.core.content.FileProvider;
 import static android.content.ContentValues.TAG;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.dream.miniboss.MiniBossApp;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseFragment;
 import com.dream.miniboss.login.LoginCodeActivity;
-import com.dream.miniboss.login.LoginPhoneActivity;
 import com.dream.miniboss.main.MainActivity;
-import com.dream.miniboss.message.MessageFragment;
 import com.dream.miniboss.utils.LoginUIHelper;
 import com.ruffian.library.widget.RImageView;
-import com.ruffian.library.widget.RTextView;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -67,12 +56,13 @@ public class MyFragment extends BaseFragment {
     RImageView userIcon;
     ImageView mImageEdit;
     ImageView onLineChat;
-    TextView mPhoneNumber,userName,desc;
+    TextView mPhoneNumber, userName, desc;
     LinearLayout mLinearLayout;
     LinearLayout mSystemSetting;
     private Uri imageUri;
     Bitmap bitmap = null;
     private SharedPreferences mPreferences;
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_my;
@@ -86,8 +76,8 @@ public class MyFragment extends BaseFragment {
         mPhoneNumber = fvbyid(R.id.tv_phone_number);
         mLinearLayout = fvbyid(R.id.lv_qianhuan_zhaopin);
         userIcon = fvbyid(R.id.user_icon);
-        userName=fvbyid(R.id.user_name);
-        desc=fvbyid(R.id.tv_company);
+        userName = fvbyid(R.id.user_name);
+        desc = fvbyid(R.id.tv_company);
         //将存储的图片显示在头像上面
 
         try {
@@ -99,18 +89,21 @@ public class MyFragment extends BaseFragment {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        if (bitmap==null){
+        if (bitmap == null) {
             userIcon.setImageResource(R.mipmap.usericon_grey);
-        }else {
+            userName.setText("未注册/登录");
+            desc.setText("点击头像可登录/注册");
+        } else {
 
-        userIcon.setImageBitmap(bitmap);
+            userIcon.setImageBitmap(bitmap);
+            //将文件里面的名字也存储在上面
+            //取出存储数据显示在界面上
+            mPreferences = getContext().getSharedPreferences("UserData", Context.MODE_PRIVATE);
+            userName.setText(mPreferences.getString("et_name", ""));
+            desc.setText(mPreferences.getString("et_desc", ""));
+            //desc.setText(mPreferences.getString("et_desc",""));
         }
-        //将文件里面的名字也存储在上面
-        //取出存储数据显示在界面上
-        mPreferences = getContext().getSharedPreferences("UserData", Context.MODE_PRIVATE);
-        userName.setText(mPreferences.getString("et_name", ""));
-        desc.setText(mPreferences.getString("et_desc",""));
-        //desc.setText(mPreferences.getString("et_desc",""));
+
 
     }
 
@@ -191,6 +184,7 @@ public class MyFragment extends BaseFragment {
                         })
                         //.setLogoImgPath("ic_launcher_background")
                         .setPrivacyNameAndUrlBeanList(list)
+                        .setNavTransparent(false)
                         .enableHintToast(true, Toast.makeText(getActivity(), "请先同意页面底部的隐私条款", Toast.LENGTH_LONG))
                         .build();
                 JVerificationInterface.setCustomUIWithConfig(jVerifyUIConfig);
@@ -209,10 +203,10 @@ public class MyFragment extends BaseFragment {
                 JVerificationInterface.loginAuth(getActivity(), true, new VerifyListener() {
                     @Override
                     public void onResult(int code, String s, String s1) {
-                        if (code==6000){
-                            startActivity(new Intent(getContext(),UserEditActivity.class));
+                        if (code == 6000) {
+                            startActivity(new Intent(getContext(), UserEditActivity.class));
                             ToastUtils.showShort("登陆成功");
-                        }else {
+                        } else {
                             ToastUtils.showShort("当前无法登陆，已转其他方式登陆");
                             //startActivity(new Intent(getContext(),LoginCodeActivity.class));
                         }
