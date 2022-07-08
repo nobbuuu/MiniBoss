@@ -223,7 +223,10 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                             startActivityIfNeeded(intent, PICK_PHOTO);
                         }
                     }
+
                 });
+//                myDialog.dismiss();
+
                 myDialog.mSelectCamera.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -276,6 +279,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                         }
                     }
                 });
+//                myDialog.dismiss();
                 break;
             case R.id.et_name:
 //                Log.i(TAG, "onViewClicked: 这是名字"+mEtName);
