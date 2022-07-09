@@ -7,20 +7,6 @@ plugins {
 }
 
 android {
-    signingConfigs {
-        debug {
-            storeFile file('E:\\workspace\\MiniBoss\\app\\miniboss.jks')
-            storePassword '123456'
-            keyAlias 'miniboss'
-            keyPassword '123456'
-        }
-        release {
-            storeFile file('E:\\workspace\\MiniBoss\\app\\miniboss.jks')
-            storePassword '123456'
-            keyAlias 'miniboss'
-            keyPassword '123456'
-        }
-    }
     compileSdkVersion BuildConfig.compileSdkVersion
     buildToolsVersion BuildConfig.buildToolsVersion
 
@@ -32,9 +18,9 @@ android {
             // 还可以添加 'x86', 'x86_64'
         }
         manifestPlaceholders = [
-                JPUSH_PKGNAME : applicationId,
+                JPUSH_PKGNAME: applicationId,
                 JPUSH_APPKEY : "b156742e731deb0439484c82", //Portal上注册的包名对应的 appKey.
-                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
         minSdkVersion BuildConfig.minSdkVersion
         targetSdkVersion BuildConfig.targetSdkVersion
@@ -44,19 +30,19 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfigs {
             release {
-                storeFile file("miniboss.jks")
-                keyAlias "miniboss"
-                keyPassword "123456"
-                storePassword "123456"
+                keyAlias 'mb'
+                keyPassword '123456'
+                storeFile file('../mb.jks')
+                storePassword '123456'
             }
             debug {
-                storeFile file("miniboss.jks")
-                keyAlias "miniboss"
-                keyPassword "123456"
-                storePassword "123456"
+                keyAlias 'mb'
+                keyPassword '123456'
+                storeFile file('../mb.jks')
+                storePassword '123456'
             }
+            flavorDimensions "versionCode"
         }
-        flavorDimensions "env"
         ndk {
             abiFilters "armeabi", "armeabi-v7a", "x86_64", "x86"
         }
