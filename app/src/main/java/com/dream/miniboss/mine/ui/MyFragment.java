@@ -78,6 +78,11 @@ public class MyFragment extends BaseFragment {
         userIcon = fvbyid(R.id.user_icon);
         userName = fvbyid(R.id.user_name);
         desc = fvbyid(R.id.tv_company);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         //将存储的图片显示在头像上面
 
         try {
@@ -103,8 +108,6 @@ public class MyFragment extends BaseFragment {
             desc.setText(mPreferences.getString("et_desc", ""));
             //desc.setText(mPreferences.getString("et_desc",""));
         }
-
-
     }
 
     @Override
@@ -185,6 +188,9 @@ public class MyFragment extends BaseFragment {
                         //.setLogoImgPath("ic_launcher_background")
                         .setPrivacyNameAndUrlBeanList(list)
                         .setNavTransparent(false)
+                        .setLogBtnText("立即登录")
+                        .setLogBtnHeight(R.dimen.dp_48)
+
                         .enableHintToast(true, Toast.makeText(getActivity(), "请先同意页面底部的隐私条款", Toast.LENGTH_LONG))
                         .build();
                 JVerificationInterface.setCustomUIWithConfig(jVerifyUIConfig);

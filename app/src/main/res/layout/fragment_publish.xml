@@ -147,74 +147,78 @@
                 android:textSize="@dimen/sp_18"
                 android:textStyle="bold" />
 
-            <LinearLayout
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_226"
                 android:orientation="horizontal">
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:id="@+id/rtvUnskilled"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="不熟练"
                     android:textSize="@dimen/sp_14"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
+                    app:background_checked="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:id="@+id/rtvCommonly"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="一般"
                     android:textSize="@dimen/sp_14"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
+                    app:background_checked="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:id="@+id/rtvSkilled"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="熟练"
                     android:textSize="@dimen/sp_14"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
+                    app:background_checked="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:id="@+id/rtvMaster"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_marginRight="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="精通"
                     android:textSize="@dimen/sp_14"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
+                    app:background_checked="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-            </LinearLayout>
+            </RadioGroup>
 
             <View
                 android:layout_width="@dimen/dp_312"
