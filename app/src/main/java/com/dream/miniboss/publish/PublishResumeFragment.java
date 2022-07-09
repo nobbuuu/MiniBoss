@@ -10,6 +10,7 @@ import androidx.annotation.ColorInt;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseFragment;
 import com.hjq.bar.TitleBar;
+import com.ruffian.library.widget.RRadioButton;
 import com.ruffian.library.widget.RTextView;
 
 /**
@@ -19,7 +20,8 @@ import com.ruffian.library.widget.RTextView;
  */
 public class PublishResumeFragment extends BaseFragment {
     private static final String TAG = "TAG";
-    RTextView rtvUnskilled,publishResume;
+    RRadioButton rtvUnskilled;
+    RTextView publishResume;
     TitleBar mTitleBar;
     @Override
     protected int setLayout() {
