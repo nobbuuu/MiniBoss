@@ -241,6 +241,7 @@
 
 
             <RadioGroup
+                android:id="@+id/work_time_group_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_333"
@@ -310,6 +311,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/work_time_group_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_383"

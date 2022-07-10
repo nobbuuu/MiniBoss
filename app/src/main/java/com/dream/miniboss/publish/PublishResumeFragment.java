@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.annotation.ColorInt;
@@ -22,10 +23,10 @@ import com.ruffian.library.widget.RTextView;
  */
 public class PublishResumeFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener {
     private static final String TAG = "TAG";
-    RadioGroup skillSelectGroup;
-    RRadioButton skilledOne,skilledTwo,skilledThree,skilledFour;
+    RadioGroup skillSelectGroup,workTimeSelectGroup;
     RTextView publishResume;
     TitleBar mTitleBar;
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_publish;
@@ -33,30 +34,27 @@ public class PublishResumeFragment extends BaseFragment implements RadioGroup.On
 
     @Override
     protected void initView() {
-        mTitleBar=fvbyid(R.id.title_Publish);
-        skillSelectGroup=fvbyid(R.id.radio_group_skill);
-        skilledOne=fvbyid(R.id.skilled_one);
-        skilledTwo=fvbyid(R.id.skilled_two);
-        skilledThree=fvbyid(R.id.skilled_three);
-        skilledFour=fvbyid(R.id.skilled_four);
-        publishResume=fvbyid(R.id.textView_publish);
+        mTitleBar = fvbyid(R.id.title_Publish);
+        skillSelectGroup = fvbyid(R.id.radio_group_skill);
+        publishResume = fvbyid(R.id.textView_publish);
     }
 
     @Override
     protected void initData() {
 
-    mTitleBar.getLeftView().setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            getActivity().onBackPressed();
-        }
-    });
-    event();
+        mTitleBar.getLeftView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
+        event();
 
     }
 
     private void event() {
-       skillSelectGroup.setOnCheckedChangeListener(this);
+        skillSelectGroup.setOnCheckedChangeListener(this);
+        workTimeSelectGroup.setOnCheckedChangeListener(this);
         publishResume.setOnClickListener(this);
     }
 
@@ -64,22 +62,28 @@ public class PublishResumeFragment extends BaseFragment implements RadioGroup.On
     @SuppressLint("ResourceAsColor")
     @Override
     public void onClick(View v) {
-      switch (v.getId()){
+        switch (v.getId()) {
 
-          case R.id.textView_publish:
-              startActivity(new Intent(getContext(),PublishResumeActivity.class));
-              break;
-          default:
+            case R.id.textView_publish:
+                startActivity(new Intent(getContext(), PublishResumeActivity.class));
+                break;
+            default:
 
-      }
+        }
     }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId){
-            case R.id.skilled_one:
-                ToastUtils.showShort(skilledOne.getText().toString());
+        switch (group.getId()){
+
+        }
+        for (int i = 0; i < 4; i++) {
+            RadioButton mRadioButton = (RadioButton) skillSelectGroup.getChildAt(i);
+            if (mRadioButton.isChecked()) {
+                ToastUtils.showShort(mRadioButton.getText().toString());
                 break;
+
+            }
         }
     }
 }

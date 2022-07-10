@@ -189,8 +189,6 @@ public class MyFragment extends BaseFragment {
                         .setPrivacyNameAndUrlBeanList(list)
                         .setNavTransparent(false)
                         .setLogBtnText("立即登录")
-                        .setLogBtnHeight(R.dimen.dp_48)
-
                         .enableHintToast(true, Toast.makeText(getActivity(), "请先同意页面底部的隐私条款", Toast.LENGTH_LONG))
                         .build();
                 JVerificationInterface.setCustomUIWithConfig(jVerifyUIConfig);
