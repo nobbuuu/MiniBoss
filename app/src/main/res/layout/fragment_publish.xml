@@ -385,6 +385,7 @@
                 android:textStyle="bold" />
 
             <RadioGroup
+                android:id="@+id/education_group_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_490"
@@ -454,6 +455,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/education_group_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_540"
