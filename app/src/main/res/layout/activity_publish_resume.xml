@@ -61,10 +61,12 @@
                     android:layout_marginTop="@dimen/dp_77"
                     android:button="@null"
                     android:gravity="center"
+                    android:layout_weight="1"
                     android:text="普工技工技术管理人员"
                     app:background_checked="@color/green"
                     app:background_normal="#F0F0F0"
                     app:corner_radius="@dimen/dp_4"
+
                     app:text_color_checked="@color/white" />
 
                 <com.ruffian.library.widget.RRadioButton
@@ -214,7 +216,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_90"
-
                 android:orientation="horizontal">
 
                 <com.ruffian.library.widget.RRadioButton
