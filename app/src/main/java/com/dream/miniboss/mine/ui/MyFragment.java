@@ -32,6 +32,7 @@ import com.dream.miniboss.base.BaseFragment;
 import com.dream.miniboss.login.LoginCodeActivity;
 import com.dream.miniboss.main.MainActivity;
 import com.dream.miniboss.utils.LoginUIHelper;
+import com.hjq.bar.TitleBar;
 import com.ruffian.library.widget.RImageView;
 
 import java.io.File;
@@ -168,8 +169,17 @@ public class MyFragment extends BaseFragment {
                 TextView mRTextView = new TextView(getContext());
                 mRTextView.setText("其他手机号码登录");
                 RelativeLayout.LayoutParams mLayoutParams1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                mLayoutParams1.setMargins(LoginUIHelper.dpToPx(124.0f), LoginUIHelper.dpToPx(300.0f), 0, 0);
+                mLayoutParams1.setMargins(LoginUIHelper.dpToPx(130.0f), LoginUIHelper.dpToPx(300.0f), 0, 0);
                 mRTextView.setLayoutParams(mLayoutParams1);
+                //增加一个自定义导航栏
+//                TitleBar mTitleBar = new TitleBar(getContext())
+//                        .setTitle("切换到招聘端")
+//                        .setRightIcon(R.mipmap.goin);
+//
+//                RelativeLayout.LayoutParams navLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+//                navLayoutParams.setMargins(0, 0, 0, 0);
+//                navLayoutParams.height=LoginUIHelper.dpToPx(70.0f);
+//                mTitleBar.setLayoutParams(navLayoutParams);
                 //增加底部隐私条款
                 List<PrivacyBean> list = new ArrayList<>();
                 PrivacyBean privacyBean1 = new PrivacyBean("用户协议", "https://www.baidu.com", "、");
@@ -185,10 +195,12 @@ public class MyFragment extends BaseFragment {
                                 startActivity(new Intent(getContext(), LoginCodeActivity.class));
                             }
                         })
-                        //.setLogoImgPath("ic_launcher_background")
+
                         .setPrivacyNameAndUrlBeanList(list)
-                        .setNavTransparent(false)
+                        .setNavTransparent(true)
                         .setLogBtnText("立即登录")
+                        .setLogoHidden(false)
+                        .setNavText("")
                         .enableHintToast(true, Toast.makeText(getActivity(), "请先同意页面底部的隐私条款", Toast.LENGTH_LONG))
                         .build();
                 JVerificationInterface.setCustomUIWithConfig(jVerifyUIConfig);
@@ -218,13 +230,13 @@ public class MyFragment extends BaseFragment {
                 });
             }
         });
-    //实名认证
-      mAuthyName.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              startActivity(new Intent(getContext(),AuthNameActivity.class));
-          }
-      });
+        //实名认证
+        mAuthyName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), AuthNameActivity.class));
+            }
+        });
     }
 
 
