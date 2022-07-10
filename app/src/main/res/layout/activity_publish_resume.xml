@@ -46,37 +46,39 @@
             android:text="请选择你的求职类型"
             android:textSize="@dimen/sp_12" />
 
-        <LinearLayout
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.ruffian.library.widget.RTextView
+            <com.ruffian.library.widget.RRadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginLeft="@dimen/dp_16"
                 android:layout_marginTop="@dimen/dp_77"
                 app:background_normal="#F0F0F0"
                 android:gravity="center"
+                android:button="@null"
                 android:text="普工技工技术管理人员"
-                app:background_pressed="@color/green"
+                app:background_selected="@color/green"
                 app:corner_radius="@dimen/dp_4"
-                app:text_color_pressed="@color/white" />
+                app:text_color_selected="@color/white" />
 
-            <com.ruffian.library.widget.RTextView
+            <com.ruffian.library.widget.RRadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_77"
                 android:layout_marginRight="@dimen/dp_16"
                 android:layout_weight="1"
+                android:button="@null"
                 app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="兼职建造/筑师等注册师"
-                app:background_pressed="@color/green"
+                app:background_selected="@color/green"
                 app:corner_radius="@dimen/dp_4"
-                app:text_color_pressed="@color/white" />
-        </LinearLayout>
+                app:text_color_selected="@color/white" />
+        </RadioGroup>
 
         <View
             android:layout_width="@dimen/dp_312"
@@ -113,7 +115,7 @@
             android:layout_marginTop="@dimen/dp_211"
             android:background="#f7f7f7" />
 
-        <LinearLayout
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -127,33 +129,35 @@
                 android:textSize="@dimen/sp_14"
                 app:icon_normal_right="@mipmap/mustfill" />
 
-            <com.ruffian.library.widget.RTextView
+            <com.ruffian.library.widget.RRadioButton
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_31"
                 android:layout_marginLeft="@dimen/dp_40"
                 android:layout_marginTop="@dimen/dp_227"
                 android:layout_weight="1"
+                android:button="@null"
                 app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="是"
-                app:background_pressed="@color/green"
+                app:background_selected="@color/green"
                 app:corner_radius="@dimen/dp_4"
-                app:text_color_pressed="@color/white" />
+                app:text_color_selected="@color/white" />
 
-            <com.ruffian.library.widget.RTextView
+            <com.ruffian.library.widget.RRadioButton
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_31"
                 android:layout_marginLeft="@dimen/dp_16"
                 android:layout_marginTop="@dimen/dp_227"
                 android:layout_marginRight="@dimen/dp_16"
                 android:layout_weight="1"
+                android:button="@null"
                 app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="否"
-                app:background_pressed="@color/green"
+                app:background_selected="@color/green"
                 app:corner_radius="@dimen/dp_4"
-                app:text_color_pressed="@color/white" />
-        </LinearLayout>
+                app:text_color_selected="@color/white" />
+        </RadioGroup>
 
         <View
             android:layout_width="@dimen/dp_312"
@@ -164,7 +168,7 @@
             android:background="#f7f7f7" />
 
 
-        <LinearLayout
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -178,7 +182,7 @@
                 android:textSize="@dimen/sp_14"
                 app:icon_normal_right="@mipmap/mustfill" />
 
-            <com.ruffian.library.widget.RTextView
+            <com.ruffian.library.widget.RRadioButton
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_31"
                 android:layout_marginLeft="@dimen/dp_16"
@@ -187,11 +191,12 @@
                 app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="月结"
-                app:background_pressed="@color/green"
+                android:button="@null"
+                app:background_selected="@color/green"
                 app:corner_radius="@dimen/dp_4"
-                app:text_color_pressed="@color/white" />
+                app:text_color_selected="@color/white" />
 
-            <com.ruffian.library.widget.RTextView
+            <com.ruffian.library.widget.RRadioButton
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_31"
                 android:layout_marginLeft="@dimen/dp_8"
@@ -200,11 +205,12 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="日结"
-                app:background_pressed="@color/green"
+                android:button="@null"
+                app:background_selected="@color/green"
                 app:corner_radius="@dimen/dp_4"
-                app:text_color_pressed="@color/white" />
+                app:text_color_selected="@color/white" />
 
-            <com.ruffian.library.widget.RTextView
+            <com.ruffian.library.widget.RRadioButton
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_31"
                 android:layout_marginLeft="@dimen/dp_8"
@@ -212,12 +218,13 @@
                 app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="计件"
+                android:button="@null"
                 android:layout_weight="1"
-                app:background_pressed="@color/green"
+                app:background_selected="@color/green"
                 app:corner_radius="@dimen/dp_4"
-                app:text_color_pressed="@color/white" />
+                app:text_color_selected="@color/white" />
 
-            <com.ruffian.library.widget.RTextView
+            <com.ruffian.library.widget.RRadioButton
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_31"
                 android:layout_marginLeft="@dimen/dp_8"
@@ -227,10 +234,11 @@
                 app:background_normal="#F0F0F0"
                 android:gravity="center"
                 android:text="面议"
-                app:background_pressed="@color/green"
+                android:button="@null"
+                app:background_selected="@color/green"
                 app:corner_radius="@dimen/dp_4"
-                app:text_color_pressed="@color/white" />
-        </LinearLayout>
+                app:text_color_selected="@color/white" />
+        </RadioGroup>
 
         <View
             android:layout_width="@dimen/dp_312"
@@ -240,7 +248,7 @@
             android:layout_marginTop="@dimen/dp_335"
             android:background="#f7f7f7" />
 
-        <LinearLayout
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -271,7 +279,7 @@
                 android:layout_marginTop="@dimen/dp_353"
                 android:text="元/月"
                 android:textSize="@dimen/sp_14" />
-        </LinearLayout>
+        </RadioGroup>
 
         <com.ruffian.library.widget.RTextView
             android:layout_width="wrap_content"

@@ -148,13 +148,14 @@
                 android:textStyle="bold" />
 
             <RadioGroup
+                android:id="@+id/radio_group_skill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_226"
                 android:orientation="horizontal">
 
                 <com.ruffian.library.widget.RRadioButton
-                    android:id="@+id/rtvUnskilled"
+                    android:id="@+id/skilled_one"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_16"
@@ -170,7 +171,7 @@
                     app:text_color_checked="@color/white" />
 
                 <com.ruffian.library.widget.RRadioButton
-                    android:id="@+id/rtvCommonly"
+                    android:id="@+id/skilled_two"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
@@ -186,7 +187,7 @@
                     app:text_color_checked="@color/white" />
 
                 <com.ruffian.library.widget.RRadioButton
-                    android:id="@+id/rtvSkilled"
+                    android:id="@+id/skilled_three"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
@@ -202,7 +203,7 @@
                     app:text_color_checked="@color/white" />
 
                 <com.ruffian.library.widget.RRadioButton
-                    android:id="@+id/rtvMaster"
+                    android:id="@+id/skilled_four"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
@@ -237,7 +238,6 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_18"
                 android:textStyle="bold" />
-
 
 
             <RadioGroup
