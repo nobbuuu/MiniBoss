@@ -57,6 +57,7 @@ public class PublishResumeFragment extends BaseFragment {
     }
 
     private void event() {
+        //技能熟练程度监听
         skillSelectGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -69,6 +70,7 @@ public class PublishResumeFragment extends BaseFragment {
                 }
             }
         });
+        //工作年限监听
         workTimeSelectGroupOne.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -82,7 +84,7 @@ public class PublishResumeFragment extends BaseFragment {
                 }
             }
         });
-
+        //工作年限监听
         workTimeSelectGroupTwo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
