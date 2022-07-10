@@ -147,74 +147,79 @@
                 android:textSize="@dimen/sp_18"
                 android:textStyle="bold" />
 
-            <LinearLayout
+            <RadioGroup
+                android:id="@+id/radio_group_skill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_226"
                 android:orientation="horizontal">
 
-                <com.ruffian.library.widget.RTextView
-                    android:id="@+id/rtvUnskilled"
+                <com.ruffian.library.widget.RRadioButton
+                    android:id="@+id/skilled_one"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="不熟练"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
-                    android:id="@+id/rtvCommonly"
+                <com.ruffian.library.widget.RRadioButton
+                    android:id="@+id/skilled_two"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="一般"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
-                    android:id="@+id/rtvSkilled"
+                <com.ruffian.library.widget.RRadioButton
+                    android:id="@+id/skilled_three"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="熟练"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
-                    android:id="@+id/rtvMaster"
+                <com.ruffian.library.widget.RRadioButton
+                    android:id="@+id/skilled_four"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_marginRight="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="精通"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-            </LinearLayout>
+            </RadioGroup>
 
             <View
                 android:layout_width="@dimen/dp_312"
@@ -234,121 +239,132 @@
                 android:textSize="@dimen/sp_18"
                 android:textStyle="bold" />
 
-            <LinearLayout
+
+            <RadioGroup
+                android:id="@+id/work_time_group_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_333"
                 android:orientation="horizontal">
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="无经验"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="1年内"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="1-3年"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_marginRight="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="3-5年"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-            </LinearLayout>
+            </RadioGroup>
 
-            <LinearLayout
+            <RadioGroup
+                android:id="@+id/work_time_group_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_383"
                 android:orientation="horizontal">
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="5-10年"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="10年以上"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_marginRight="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center" />
 
-            </LinearLayout>
+            </RadioGroup>
 
             <View
                 android:layout_width="@dimen/dp_312"
@@ -368,135 +384,145 @@
                 android:textSize="@dimen/sp_18"
                 android:textStyle="bold" />
 
-            <LinearLayout
+            <RadioGroup
+                android:id="@+id/education_group_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_490"
                 android:orientation="horizontal">
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="初中及以下"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="高中"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="中专"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_marginRight="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="大专"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-            </LinearLayout>
+            </RadioGroup>
 
-            <LinearLayout
+            <RadioGroup
+                android:id="@+id/education_group_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_540"
                 android:orientation="horizontal">
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="本科"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="硕士"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="博士"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_34"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_marginRight="@dimen/dp_16"
                     android:layout_weight="1"
+                    android:button="@null"
                     android:gravity="center"
                     android:text="博士后"
                     android:textSize="@dimen/sp_14"
+                    app:background_checked="@color/green"
                     app:background_normal="@color/gray_bg"
-                    app:background_pressed="@color/green"
                     app:corner_radius="@dimen/dp_4"
                     app:gradient_radius="@dimen/dp_4"
-                    app:text_color_pressed="@color/white" />
+                    app:text_color_checked="@color/white" />
 
-            </LinearLayout>
+            </RadioGroup>
 
             <View
                 android:layout_width="@dimen/dp_312"
