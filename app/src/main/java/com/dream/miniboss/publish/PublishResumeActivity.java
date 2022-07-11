@@ -1,5 +1,8 @@
 package com.dream.miniboss.publish;
+
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -10,7 +13,10 @@ import com.hjq.bar.TitleBar;
 
 public class PublishResumeActivity extends BaseActivity {
     TitleBar mTitleBar;
-    RadioGroup styleResumeGroup,teamMyGroup,moneyStyleGroup;
+    LinearLayout monPersonLayout;
+    FrameLayout mTeamCountLayout,mDayMoneyLayout,mMonthMoneyLayout,mDayNumLayout;
+    RadioGroup styleResumeGroup, teamStyleGroup,moneyStyleGroup;
+
     @Override
     protected int initLayout() {
         return R.layout.activity_publish_resume;
@@ -18,15 +24,22 @@ public class PublishResumeActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mTitleBar=fvbi(R.id.title_bar);
-        styleResumeGroup=fvbi(R.id.style_resume_group);
-        teamMyGroup=fvbi(R.id.team_mine_group);
+        mTitleBar = fvbi(R.id.title_bar);
+        monPersonLayout=fvbi(R.id.mon_person_lv);
+
+        mTeamCountLayout=fvbi(R.id.team_count_fragment);
+        mDayMoneyLayout=fvbi(R.id.money_day_fragment);
+        mMonthMoneyLayout=fvbi(R.id.money_month_fragment);
+        mDayNumLayout=fvbi(R.id.money_number_fragment);
+        styleResumeGroup = fvbi(R.id.style_resume_group);
+        teamStyleGroup = fvbi(R.id.team_mine_group);
         moneyStyleGroup=fvbi(R.id.style_money_group);
+
     }
 
     @Override
     protected void initData() {
-     event();
+        event();
     }
 
     private void event() {
@@ -41,36 +54,70 @@ public class PublishResumeActivity extends BaseActivity {
         styleResumeGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                for (int i = 0; i < 2; i++) {
-                    RadioButton mRadioButton = (RadioButton) styleResumeGroup.getChildAt(i);
-                    if (mRadioButton.isChecked()) {
-                        ToastUtils.showShort(mRadioButton.getText().toString());
-                    }
+                    RadioButton comRadioButton = (RadioButton) styleResumeGroup.getChildAt(0);
+                RadioButton jianRadioButton = (RadioButton) styleResumeGroup.getChildAt(0);
+
+                if (comRadioButton.isChecked()) {
+                        ToastUtils.showShort(comRadioButton.getText().toString());
+                         monPersonLayout.setVisibility(View.VISIBLE);
+                }else {
+                    ToastUtils.showShort(jianRadioButton.getText().toString());
+                    monPersonLayout.setVisibility(View.GONE);
                 }
             }
         });
-        //是否自带班队事件监听
-        teamMyGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        //是否自带班队
+        teamStyleGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                for (int i = 0; i < 2; i++) {
-                    RadioButton mRadioButton = (RadioButton) teamMyGroup.getChildAt(i);
-                    if (mRadioButton.isChecked()) {
-                        ToastUtils.showShort(mRadioButton.getText().toString());
-                    }
+                RadioButton mRadioButton = (RadioButton) teamStyleGroup.getChildAt(0);
+                RadioButton mXRadioButton = (RadioButton) teamStyleGroup.getChildAt(1);
+                if (mRadioButton.isChecked()) {
+                    mTeamCountLayout.setVisibility(View.GONE);
+                    ToastUtils.showShort(mRadioButton.getText().toString());
+                } else {
+                    mTeamCountLayout.setVisibility(View.VISIBLE);
+                    ToastUtils.showShort(mXRadioButton.getText().toString());
+
                 }
+
+
             }
+
         });
-        //结算方式事件监听
         moneyStyleGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                for (int i = 0; i < 4; i++) {
-                    RadioButton mRadioButton = (RadioButton) moneyStyleGroup.getChildAt(i);
-                    if (mRadioButton.isChecked()) {
-                        ToastUtils.showShort(mRadioButton.getText().toString());
-                    }
+                RadioButton mDayRadiobutton = (RadioButton) moneyStyleGroup.getChildAt(0);
+                RadioButton mMonthRadiobutton = (RadioButton) moneyStyleGroup.getChildAt(1);
+                RadioButton mNumRadiobutton = (RadioButton) moneyStyleGroup.getChildAt(2);
+                RadioButton mChatRadiobutton = (RadioButton) moneyStyleGroup.getChildAt(3);
+                if (mDayRadiobutton.isChecked()) {
+                    ToastUtils.showShort(mDayRadiobutton.getText().toString());
+                    mDayMoneyLayout.setVisibility(View.VISIBLE);
+                    mMonthMoneyLayout.setVisibility(View.GONE);
+                    mDayNumLayout.setVisibility(View.GONE);
+
+                } else if (mMonthRadiobutton.isChecked()){
+                    ToastUtils.showShort(mMonthRadiobutton.getText().toString());
+                    mDayMoneyLayout.setVisibility(View.GONE);
+                    mMonthMoneyLayout.setVisibility(View.VISIBLE);
+                    mDayNumLayout.setVisibility(View.GONE);
+
+                }else if (mNumRadiobutton.isChecked()){
+                    ToastUtils.showShort(mNumRadiobutton.getText().toString());
+
+                    mDayMoneyLayout.setVisibility(View.GONE);
+                    mMonthMoneyLayout.setVisibility(View.GONE);
+                    mDayNumLayout.setVisibility(View.VISIBLE);
+                }else if (mChatRadiobutton.isChecked()){
+                    ToastUtils.showShort(mChatRadiobutton.getText().toString());
+                    mDayMoneyLayout.setVisibility(View.GONE);
+                    mMonthMoneyLayout.setVisibility(View.GONE);
+                    mDayNumLayout.setVisibility(View.GONE);
                 }
+
+
             }
         });
     }
