@@ -181,7 +181,7 @@ public class MyFragment extends BaseFragment {
                 RelativeLayout.LayoutParams logViewParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 logViewParam.setMargins(LoginUIHelper.dpToPx(226.0f), LoginUIHelper.dpToPx(24.0f), 0, 0);
                 logView.setLayoutParams(logViewParam);
-                //增加图标
+                //增加切换图标
                 ImageView goImageView = new ImageView(getContext());
                 goImageView.setImageResource(R.mipmap.goin);
                 RelativeLayout.LayoutParams goImageviewParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
