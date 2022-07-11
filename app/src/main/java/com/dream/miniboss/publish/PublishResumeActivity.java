@@ -17,6 +17,7 @@ public class PublishResumeActivity extends BaseActivity {
     FrameLayout mTeamCountLayout,mDayMoneyLayout,mMonthMoneyLayout,mDayNumLayout;
     RadioGroup styleResumeGroup, teamStyleGroup,moneyStyleGroup;
     //这是兼职注册师
+    View oneView,twoView;
     LinearLayout gradCertificateLayout,professionLayout;
     RadioGroup postNameRadioGroup,certificateRadioGroup,gradRadioGroup,safeRadioGroup,socialRadioGroup;
 
@@ -39,6 +40,9 @@ public class PublishResumeActivity extends BaseActivity {
         teamStyleGroup = fvbi(R.id.team_mine_group);
         moneyStyleGroup=fvbi(R.id.style_money_group);
         //这是兼职注册师的初始化group
+        oneView=fvbi(R.id.view_one);
+        twoView=fvbi(R.id.view_two);
+
         postNameRadioGroup=fvbi(R.id.post_name_radioGroup);
         certificateRadioGroup=fvbi(R.id.professional_certificate_radioGroup);
         gradRadioGroup=fvbi(R.id.grade_certificate_radioGroup);
@@ -155,10 +159,14 @@ public class PublishResumeActivity extends BaseActivity {
                 if (noCertificateRadioButton.isChecked()){
                     gradCertificateLayout.setVisibility(View.GONE);
                     professionLayout.setVisibility(View.GONE);
+                    oneView.setVisibility(View.GONE);
+                    twoView.setVisibility(View.GONE);
                     ToastUtils.showShort(noCertificateRadioButton.getText().toString());
                 }else if (CertificateRadioButton.isChecked()){
                     gradCertificateLayout.setVisibility(View.VISIBLE);
                     professionLayout.setVisibility(View.VISIBLE);
+                    oneView.setVisibility(View.VISIBLE);
+                    twoView.setVisibility(View.VISIBLE);
                     ToastUtils.showShort(CertificateRadioButton.getText().toString());
                 }
             }
