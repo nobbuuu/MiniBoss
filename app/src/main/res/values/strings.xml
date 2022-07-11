@@ -5,6 +5,8 @@
     <string name="title_mine">我的</string>
     <string name="nationwide">全国</string>
 
+    <string name="hint_input">请输入</string>
+
     <string-array name="list">
         <item>男</item>
         <item>女</item>

@@ -47,6 +47,7 @@
         <activity
             android:name=".mine.ui.BlackListActivity"
             android:exported="false" />
+        <activity android:name=".job.ui.JobFilterActivity"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

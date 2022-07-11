@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        app:title="筛选" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="年龄要求"
+                android:textColor="@color/main_text_color"
+                android:textSize="@dimen/sp_18" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableStart="@mipmap/ic_edit"
+                    android:hint="@string/hint_input"
+                    android:textSize="@dimen/sp_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="至"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/sp_18"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:background="@null"
+                    android:drawableStart="@mipmap/ic_edit"
+                    android:hint="@string/hint_input"
+                    android:textSize="@dimen/sp_16"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_unit"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="岁"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/sp_18"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_36"
+                android:text="工资薪金要求"
+                android:textColor="@color/main_text_color"
+                android:textSize="@dimen/sp_18" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableStart="@mipmap/ic_edit"
+                    android:hint="@string/hint_input"
+                    android:textSize="@dimen/sp_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="至"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/sp_18"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:background="@null"
+                    android:drawableStart="@mipmap/ic_edit"
+                    android:hint="@string/hint_input"
+                    android:textSize="@dimen/sp_16"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_unit_money"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_unit_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="元"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="@dimen/sp_18"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_36"
+                android:text="班组团队要求"
+                android:textColor="@color/main_text_color"
+                android:textSize="@dimen/sp_18" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/teamAskRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:overScrollMode="never" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_36"
+                android:text="学历要求"
+                android:textColor="@color/main_text_color"
+                android:textSize="@dimen/sp_18" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/educationAskRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:overScrollMode="never" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_36"
+                android:text="工作年限"
+                android:textColor="@color/main_text_color"
+                android:textSize="@dimen/sp_18" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/workYearRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:overScrollMode="never" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
