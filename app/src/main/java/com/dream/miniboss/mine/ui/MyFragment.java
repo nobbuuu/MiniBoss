@@ -9,8 +9,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -169,17 +171,37 @@ public class MyFragment extends BaseFragment {
                 TextView mRTextView = new TextView(getContext());
                 mRTextView.setText("其他手机号码登录");
                 RelativeLayout.LayoutParams mLayoutParams1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                mLayoutParams1.setMargins(LoginUIHelper.dpToPx(130.0f), LoginUIHelper.dpToPx(300.0f), 0, 0);
+                mLayoutParams1.setMargins(LoginUIHelper.dpToPx(130.0f), LoginUIHelper.dpToPx(445.0f), 0, 0);
                 mRTextView.setLayoutParams(mLayoutParams1);
-                //增加一个自定义导航栏
-//                TitleBar mTitleBar = new TitleBar(getContext())
-//                        .setTitle("切换到招聘端")
-//                        .setRightIcon(R.mipmap.goin);
-//
-//                RelativeLayout.LayoutParams navLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-//                navLayoutParams.setMargins(0, 0, 0, 0);
-//                navLayoutParams.height=LoginUIHelper.dpToPx(70.0f);
-//                mTitleBar.setLayoutParams(navLayoutParams);
+                //增加一个自定义导航栏"切换到招聘端"
+                TextView logView = new TextView(getContext());
+                logView.setText("切换到招聘端");
+                logView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                logView.setTypeface(Typeface.DEFAULT_BOLD);
+                RelativeLayout.LayoutParams logViewParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                logViewParam.setMargins(LoginUIHelper.dpToPx(226.0f), LoginUIHelper.dpToPx(24.0f), 0, 0);
+                logView.setLayoutParams(logViewParam);
+                //增加图标
+                ImageView goImageView = new ImageView(getContext());
+                goImageView.setImageResource(R.mipmap.goin);
+                RelativeLayout.LayoutParams goImageviewParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                goImageviewParam.setMargins(LoginUIHelper.dpToPx(327.0f), LoginUIHelper.dpToPx(30.0f), 0, 0);
+                goImageView.setLayoutParams(goImageviewParam);
+                //增加"欢迎使用"
+                TextView helloTextView = new TextView(getContext());
+                helloTextView.setText("欢迎使用");
+                helloTextView.setTypeface(Typeface.DEFAULT_BOLD);
+                helloTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
+                RelativeLayout.LayoutParams helloParams1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                helloParams1.setMargins(LoginUIHelper.dpToPx(16.0f), LoginUIHelper.dpToPx(90.0f), 0, 0);
+                helloTextView.setLayoutParams(helloParams1);
+                //找工作一个旦光就够了
+                TextView resumeTextView = new TextView(getContext());
+                resumeTextView.setText("找工作用旦光工匠，一个就够了");
+                resumeTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                RelativeLayout.LayoutParams resumeParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                resumeParams.setMargins(LoginUIHelper.dpToPx(16.0f), LoginUIHelper.dpToPx(143.0f), 0, 0);
+                resumeTextView.setLayoutParams(resumeParams);
                 //增加底部隐私条款
                 List<PrivacyBean> list = new ArrayList<>();
                 PrivacyBean privacyBean1 = new PrivacyBean("用户协议", "https://www.baidu.com", "、");
@@ -189,6 +211,30 @@ public class MyFragment extends BaseFragment {
                 JVerifyUIConfig jVerifyUIConfig = new JVerifyUIConfig.Builder()
                         .setPrivacyOffsetX(20)
                         .setPrivacyState(true)
+                        .addCustomView(resumeTextView, true, new JVerifyUIClickCallback() {
+                            @Override
+                            public void onClicked(Context context, View view) {
+
+                            }
+                        })
+                        .addCustomView(helloTextView, false, new JVerifyUIClickCallback() {
+                            @Override
+                            public void onClicked(Context context, View view) {
+
+                            }
+                        })
+                        .addCustomView(goImageView, false, new JVerifyUIClickCallback() {
+                            @Override
+                            public void onClicked(Context context, View view) {
+
+                            }
+                        })
+                        .addCustomView(logView, false, new JVerifyUIClickCallback() {
+                            @Override
+                            public void onClicked(Context context, View view) {
+
+                            }
+                        })
                         .addCustomView(mRTextView, true, new JVerifyUIClickCallback() {
                             @Override
                             public void onClicked(Context context, View view) {
@@ -197,10 +243,16 @@ public class MyFragment extends BaseFragment {
                         })
 
                         .setPrivacyNameAndUrlBeanList(list)
-                        .setNavTransparent(true)
                         .setLogBtnText("立即登录")
-                        .setLogoHidden(false)
-                        .setNavText("")
+                        .setLogBtnHeight(48)
+                        .setNumberTextBold(true)
+                        .setNumberSize(24)
+                        .setLogBtnImgPath("buttonbg")
+                        .setNumFieldOffsetY(LoginUIHelper.dpToPx(110.0f))
+                        .setSloganOffsetY(LoginUIHelper.dpToPx(122.0f))
+                        .setLogBtnOffsetY(LoginUIHelper.dpToPx(130.0f))
+                        .setLogoHidden(true)
+                        .setNavHidden(true)
                         .enableHintToast(true, Toast.makeText(getActivity(), "请先同意页面底部的隐私条款", Toast.LENGTH_LONG))
                         .build();
                 JVerificationInterface.setCustomUIWithConfig(jVerifyUIConfig);
