@@ -54,10 +54,12 @@
             android:authorities="com.dream.miniboss.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true"
-            tools:replace="android:authorities">
+            tools:replace="android:authorities"
+
+            >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_path"
+                android:resource="@xml/file_paths"
                 tools:replace="android:resource" />
         </provider>
 

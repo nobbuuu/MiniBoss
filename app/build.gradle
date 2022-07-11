@@ -131,7 +131,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     //极光认证
     implementation 'cn.jiguang.sdk:jverification:2.9.0' // 此处以2.7.1 版本为例。
-    implementation 'cn.jiguang.sdk:jcore:3.2.4'  // 此处以JCore 3.1.0 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:3.2.4'
+    implementation 'com.android.support:support-v4:28.0.0'// 此处以JCore 3.1.0 版本为例。
 
     testImplementation Testing.jUnit
     androidTestImplementation Testing.androidJunit

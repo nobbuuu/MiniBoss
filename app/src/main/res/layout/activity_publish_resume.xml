@@ -122,6 +122,7 @@
                         android:layout_marginLeft="@dimen/dp_16"
                         android:layout_marginTop="@dimen/dp_16"
                         android:text="岗位名称"
+                        android:textColor="#787878"
                         android:textSize="@dimen/sp_14"
                         app:icon_normal_right="@mipmap/mustfill" />
 
@@ -159,6 +160,7 @@
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_104"
                     android:text="是否自带班主团队"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -236,7 +238,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_169"
                         android:background="@color/transparent"
-                        android:hint="人数"
+                        android:hint="请填写队伍人数"
                         android:textSize="@dimen/sp_16"
                         app:icon_normal_left="@mipmap/write" />
 
@@ -269,6 +271,7 @@
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_21"
                     android:text="结算方式"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -339,7 +342,7 @@
                     android:layout_height="@dimen/dp_1"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/dp_16"
-                    android:layout_marginTop="@dimen/dp_70"
+                    android:layout_marginTop="@dimen/dp_60"
                     android:background="#f7f7f7" />
             </FrameLayout>
             <!--日结布局-->
@@ -363,6 +366,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_16"
                         android:text="期望薪资"
+                        android:textColor="#787878"
                         android:textSize="@dimen/sp_14"
                         app:icon_normal_right="@mipmap/mustfill" />
 
@@ -371,15 +375,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_60"
                         android:background="@color/transparent"
-                        android:hint="请选择岗位名称"
+                        android:hint="请填写期望薪资"
                         android:textSize="@dimen/sp_16"
                         app:icon_normal_left="@mipmap/write" />
 
                     <com.ruffian.library.widget.RTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dp_8"
                         android:text="元/日"
+                        app:text_color_normal="@color/black"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_14" />
                 </LinearLayout>
@@ -429,7 +433,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="元/月"
-                        android:textSize="@dimen/sp_16" />
+                        app:text_color_normal="@color/black"
+                        android:textSize="@dimen/sp_14" />
                 </LinearLayout>
 
                 <View
@@ -469,7 +474,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_40"
                         android:background="@color/transparent"
-                        android:hint="请填写金额"
+                        android:hint="填写金额"
                         android:textSize="@dimen/sp_16"
                         app:icon_normal_left="@mipmap/write" />
 
@@ -477,7 +482,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="元/"
-                        android:textSize="@dimen/sp_16" />
+                        app:text_color_normal="@color/black"
+                        android:textSize="@dimen/sp_14" />
 
                     <com.ruffian.library.widget.REditText
                         android:layout_width="wrap_content"
@@ -502,7 +508,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_8"
-
                 android:layout_marginRight="@dimen/dp_8"
                 android:background="@color/white">
 
@@ -519,6 +524,7 @@
                         android:layout_marginTop="@dimen/dp_16"
                         android:text="期望工作地"
                         android:textSize="@dimen/sp_14"
+                        android:textColor="#787878"
                         app:icon_normal_right="@mipmap/mustfill" />
 
                     <com.ruffian.library.widget.RTextView
@@ -539,7 +545,13 @@
                         android:scaleType="fitXY"
                         android:src="@mipmap/goin" />
                 </RelativeLayout>
-
+                <View
+                    android:layout_width="@dimen/dp_312"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_76"
+                    android:background="#f7f7f7" />
             </FrameLayout>
 
             <FrameLayout
@@ -561,6 +573,7 @@
                         android:layout_marginLeft="@dimen/dp_16"
                         android:layout_marginTop="@dimen/dp_16"
                         android:text="个人优势"
+                        android:textColor="#787878"
                         android:textSize="@dimen/sp_14" />
 
                     <com.ruffian.library.widget.RTextView
@@ -595,11 +608,10 @@
             android:background="@color/white"
             android:visibility="gone"
             android:orientation="vertical">
-
+            <!--岗位名称-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_63"
-
                 android:orientation="horizontal">
 
                 <com.ruffian.library.widget.RTextView
@@ -608,6 +620,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:text="岗位名称"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -620,12 +633,13 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
+                        android:layout_height="@dimen/dp_31"
                         android:layout_marginLeft="@dimen/dp_16"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="管理项目"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -635,13 +649,14 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
+                        android:layout_height="@dimen/dp_31"
                         android:layout_marginLeft="@dimen/dp_16"
                         android:layout_marginRight="@dimen/dp_16"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="管理资质"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -654,12 +669,11 @@
                 android:layout_height="@dimen/dp_1"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_16"
                 android:background="#f7f7f7" />
-
+            <!--分类专业-->
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dp_82"
                 android:orientation="vertical">
 
                 <com.ruffian.library.widget.RTextView
@@ -669,6 +683,7 @@
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_16"
                     android:text="分类专业"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -686,7 +701,7 @@
                     android:layout_height="@dimen/dp_12"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_18"
                     android:scaleType="fitXY"
                     android:src="@mipmap/goin" />
             </RelativeLayout>
@@ -696,12 +711,11 @@
                 android:layout_height="@dimen/dp_1"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_16"
                 android:background="#f7f7f7" />
-
+            <!--执业证书注册地-->
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dp_82"
                 android:orientation="vertical">
 
                 <com.ruffian.library.widget.RTextView
@@ -711,6 +725,7 @@
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_16"
                     android:text="执业证书注册地"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -728,7 +743,7 @@
                     android:layout_height="@dimen/dp_12"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_18"
                     android:scaleType="fitXY"
                     android:src="@mipmap/goin" />
             </RelativeLayout>
@@ -738,13 +753,11 @@
                 android:layout_height="@dimen/dp_1"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_16"
                 android:background="#f7f7f7" />
-
+            <!--职称证书-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_63"
-
                 android:orientation="horizontal">
 
                 <com.ruffian.library.widget.RTextView
@@ -754,6 +767,7 @@
                     android:layout_marginLeft="@dimen/dp_16"
                     android:text="职称证书"
                     android:textSize="@dimen/sp_14"
+                    android:textColor="#787878"
                     app:icon_normal_right="@mipmap/mustfill" />
 
                 <RadioGroup
@@ -765,12 +779,13 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
+                        android:layout_height="@dimen/dp_31"
                         android:layout_marginLeft="@dimen/dp_16"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="无"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -780,13 +795,14 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
+                        android:layout_height="@dimen/dp_31"
                         android:layout_marginLeft="@dimen/dp_16"
-                        android:layout_marginRight="@dimen/dp_16"
+                        android:layout_marginRight="@dimen/dp_18"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="有"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -799,8 +815,6 @@
                 android:layout_width="@dimen/dp_312"
                 android:layout_height="@dimen/dp_1"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_16"
                 android:background="#f7f7f7" />
             <!--职称等级-->
             <LinearLayout
@@ -816,6 +830,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:text="职称等级"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -828,12 +843,13 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:layout_marginLeft="@dimen/dp_16"
+                        android:layout_height="@dimen/dp_31"
+                        android:layout_marginLeft="@dimen/dp_40"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="初级"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -843,13 +859,14 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:layout_marginLeft="@dimen/dp_16"
-                        android:layout_marginRight="@dimen/dp_16"
+                        android:layout_height="@dimen/dp_31"
+                        android:layout_marginLeft="@dimen/dp_6"
+                        android:layout_marginRight="@dimen/dp_6"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="中级"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -857,12 +874,13 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:layout_marginRight="@dimen/dp_16"
+                        android:layout_height="@dimen/dp_31"
+                        android:layout_marginRight="@dimen/dp_18"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="高级"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -876,14 +894,13 @@
                 android:layout_height="@dimen/dp_1"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_16"
                 android:background="#f7f7f7" />
 
             <!--职称专业-->
             <LinearLayout
                 android:id="@+id/profier_certificate_ll"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_63"
+                android:layout_height="@dimen/dp_56"
                 android:orientation="horizontal">
 
                 <com.ruffian.library.widget.RTextView
@@ -892,6 +909,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:text="职称专业"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -899,7 +917,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/dp_120"
+                    android:layout_marginLeft="@dimen/dp_188"
                     android:background="@color/transparent"
                     android:hint="请填写专业名称"
                     android:textSize="@dimen/sp_14"
@@ -913,7 +931,6 @@
                 android:layout_height="@dimen/dp_1"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_16"
                 android:background="#f7f7f7" />
             <!--安全员证类型-->
             <LinearLayout
@@ -928,6 +945,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:text="安全员证类型"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -940,12 +958,13 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
+                        android:layout_height="@dimen/dp_31"
                         android:layout_marginLeft="@dimen/dp_16"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="无"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -955,13 +974,14 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
+                        android:layout_height="@dimen/dp_31"
                         android:layout_marginLeft="@dimen/dp_16"
                         android:layout_marginRight="@dimen/dp_16"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="B证"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -969,12 +989,13 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
+                        android:layout_height="@dimen/dp_31"
                         android:layout_marginRight="@dimen/dp_16"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="C证"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -1001,6 +1022,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:text="社保要求"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -1013,12 +1035,13 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
+                        android:layout_height="@dimen/dp_31"
                         android:layout_marginLeft="@dimen/dp_16"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="可缴纳"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -1028,13 +1051,14 @@
 
                     <com.ruffian.library.widget.RRadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
+                        android:layout_height="@dimen/dp_31"
                         android:layout_marginLeft="@dimen/dp_16"
                         android:layout_marginRight="@dimen/dp_16"
                         android:layout_weight="1"
                         android:button="@null"
                         android:gravity="center"
                         android:text="不缴纳"
+                        android:textSize="@dimen/sp_12"
                         app:background_checked="@color/green"
                         app:background_normal="#F0F0F0"
                         app:corner_radius="@dimen/dp_4"
@@ -1047,7 +1071,6 @@
                 android:layout_height="@dimen/dp_1"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_16"
                 android:background="#f7f7f7" />
             <!--兼职年薪-->
             <LinearLayout
@@ -1061,6 +1084,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:text="兼职年薪"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -1068,10 +1092,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/dp_100"
+                    android:layout_marginLeft="@dimen/dp_102"
                     android:background="@color/transparent"
                     android:hint="请填写期望的兼职年薪"
-                    android:textSize="@dimen/sp_14"
+                    android:textSize="@dimen/sp_16"
                     app:icon_normal_right="@mipmap/write" />
 
 
@@ -1082,7 +1106,6 @@
                 android:layout_height="@dimen/dp_1"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_16"
                 android:background="#f7f7f7" />
             <!--其他说明-->
             <RelativeLayout
@@ -1096,6 +1119,7 @@
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_16"
                     android:text="其他说明"
+                    android:textColor="#787878"
                     android:textSize="@dimen/sp_14"
                     app:icon_normal_right="@mipmap/mustfill" />
 
@@ -1114,7 +1138,7 @@
                     android:layout_height="@dimen/dp_12"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_18"
                     android:scaleType="fitXY"
                     android:src="@mipmap/goin" />
             </RelativeLayout>

@@ -61,7 +61,7 @@ public class MyFragment extends BaseFragment {
     ImageView onLineChat;
     TextView mPhoneNumber, userName, desc;
     LinearLayout mLinearLayout, mSystemSetting, mAuthyName;
-    private Uri imageUri;
+    Uri imageUri;
     Bitmap bitmap = null;
     private SharedPreferences mPreferences;
 
@@ -90,9 +90,7 @@ public class MyFragment extends BaseFragment {
 
         try {
             File outputImage = new File(getContext().getExternalCacheDir(), "user_images.jpg");
-
             imageUri = FileProvider.getUriForFile(getContext(), "com.dream.miniboss.FileProvider", outputImage);
-
             bitmap = BitmapFactory.decodeStream(getContext().getContentResolver().openInputStream(imageUri));
         } catch (FileNotFoundException e) {
             e.printStackTrace();

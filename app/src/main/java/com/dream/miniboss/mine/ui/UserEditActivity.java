@@ -63,12 +63,12 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
 
     public static final int TAKE_CAMERA = 101;
     public static final int PICK_PHOTO = 102;
-    private Uri imageUri;
-    private Bitmap bitmap = null;
-    private Dialog dateDialog, chooseDialog;
-    private List<String> list = new ArrayList<>();
-    private ActivityUserEditBinding mBinding;
-    private SharedPreferences mPreferences;
+    Uri imageUri;
+    Bitmap bitmap = null;
+    Dialog dateDialog, chooseDialog;
+    List<String> list = new ArrayList<>();
+    ActivityUserEditBinding mBinding;
+    SharedPreferences mPreferences;
 
     @Override
     protected int initLayout() {
@@ -213,7 +213,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                     public void onClick(View v) {
                         if (ContextCompat.checkSelfPermission(UserEditActivity.this,
                                 Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                            ActivityCompat.requestPermissions(UserEditActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 102);
+                            ActivityCompat.requestPermissions(UserEditActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
                         } else {
                             //打开相册
                             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -254,7 +254,6 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                             //大于等于版本24（7.0）的场合
                             imageUri = FileProvider.getUriForFile(UserEditActivity.this, "com.dream.miniboss.FileProvider", outputImage);
-                            Log.i(TAG, "--------onClick: " + imageUri);
                         } else {
                             //小于android 版本7.0（24）的场合
                             imageUri = Uri.fromFile(outputImage);
@@ -265,11 +264,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                                 Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                             ActivityCompat.requestPermissions(UserEditActivity.this, new String[]{Manifest.permission
                                     .WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 102);
-//                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                            //MediaStore.ACTION_IMAGE_CAPTURE = android.media.action.IMAGE_CAPTURE
-//                            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-////                        startActivityForResult(intent, TAKE_CAMERA);
-//                            startActivityIfNeeded(intent, TAKE_CAMERA);
+
                         } else {
                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                             //MediaStore.ACTION_IMAGE_CAPTURE = android.media.action.IMAGE_CAPTURE
@@ -402,9 +397,11 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                     }
                 }
                 break;
+
             case PICK_PHOTO:
-                if (resultCode == RESULT_OK) { // 判断手机系统版本号
-                    if (Build.VERSION.SDK_INT >= 16) {
+                if (resultCode == RESULT_OK) {
+                        // 判断手机系统版本号
+                    if (Build.VERSION.SDK_INT >= 19) {
                         // 4.4及以上系统使用这个方法处理图片
                         handleImageOnKitKat(data);
                     } else {
@@ -419,7 +416,6 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    @TargetApi(19)
     private void handleImageOnKitKat(Intent data) {
         String imagePath = null;
         Uri uri = data.getData();
@@ -432,7 +428,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
                 String selection = MediaStore.Images.Media._ID + "=" + id;
                 imagePath = getImagePath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, selection);
             } else if ("com.android.providers.downloads.documents".equals(uri.getAuthority())) {
-                Uri contentUri = ContentUris.withAppendedId(Uri.parse("content: //downloads/public_downloads"), Long.valueOf(docId));
+                Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(docId));
                 imagePath = getImagePath(contentUri, null);
             }
         } else if ("content".equalsIgnoreCase(uri.getScheme())) {
@@ -448,7 +444,6 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
 
     /**
      * android 4.4以前的处理方式
-     *
      * @param data
      */
     private void handleImageBeforeKitKat(Intent data) {
@@ -475,7 +470,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
             Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
             mBinding.iconUser.setImageBitmap(bitmap);
         } else {
-            Toast.makeText(this, "获取图片失败", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "获取相册图片失败", Toast.LENGTH_SHORT).show();
         }
     }
 
