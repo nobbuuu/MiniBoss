@@ -104,6 +104,7 @@
                 android:orientation="vertical">
 
                 <com.ruffian.library.widget.RImageView
+                    android:id="@+id/idCard_on"
                     android:layout_width="@dimen/dp_120"
                     android:layout_height="@dimen/dp_90"
                     android:layout_marginLeft="@dimen/dp_16"
@@ -129,6 +130,7 @@
                 android:orientation="vertical">
 
                 <com.ruffian.library.widget.RImageView
+                    android:id="@+id/idCard_off"
                     android:layout_width="@dimen/dp_120"
                     android:layout_height="@dimen/dp_90"
                     android:layout_marginLeft="@dimen/dp_16"
