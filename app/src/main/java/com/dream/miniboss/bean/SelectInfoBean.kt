@@ -1,6 +1,8 @@
 package com.dream.miniboss.bean
 
-data class SelectInfoBean(
-    var isCheck:Boolean,
+import java.io.Serializable
 
-)
+data class SelectInfoBean(
+    var isCheck: Boolean = false,
+    var name: String
+) : Serializable
