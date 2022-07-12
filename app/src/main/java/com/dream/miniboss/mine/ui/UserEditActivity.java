@@ -84,6 +84,7 @@ public class UserEditActivity extends BaseActivity implements View.OnClickListen
         for (String str : data) {
             list.add(str);
         }
+
         //取出存储数据显示在界面上
         mPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
         mBinding.etName.setText(mPreferences.getString("et_name", ""));

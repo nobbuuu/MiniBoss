@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
 
             <FrameLayout
@@ -606,7 +606,7 @@
             android:layout_marginLeft="@dimen/dp_8"
             android:layout_marginRight="@dimen/dp_8"
             android:background="@color/white"
-            android:visibility="gone"
+            android:visibility="visible"
             android:orientation="vertical">
             <!--岗位名称-->
             <LinearLayout
@@ -714,6 +714,7 @@
                 android:background="#f7f7f7" />
             <!--执业证书注册地-->
             <RelativeLayout
+                android:id="@+id/register_address_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp_82"
                 android:orientation="vertical">
@@ -730,6 +731,7 @@
                     app:icon_normal_right="@mipmap/mustfill" />
 
                 <com.ruffian.library.widget.RTextView
+                    android:id="@+id/tv_address_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/certificate_register_adrress"

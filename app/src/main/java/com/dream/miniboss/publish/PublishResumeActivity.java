@@ -1,18 +1,36 @@
 package com.dream.miniboss.publish;
 
+import android.app.Dialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseActivity;
+import com.dream.miniboss.utils.ReadJsonData;
+import com.example.liangmutian.mypicker.DataPickerDialog;
 import com.hjq.bar.TitleBar;
+import com.ruffian.library.widget.RTextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PublishResumeActivity extends BaseActivity {
     TitleBar mTitleBar;
+    Dialog  chooseDialog;
+    RTextView addressTv;
+    List<String> addressList=new ArrayList<>();
+   RelativeLayout registerAddressLayout;
     LinearLayout monPersonLayout,partTimeCertificateLayout;
     FrameLayout mTeamCountLayout,mDayMoneyLayout,mMonthMoneyLayout,mDayNumLayout;
     RadioGroup styleResumeGroup, teamStyleGroup,moneyStyleGroup;
@@ -43,6 +61,10 @@ public class PublishResumeActivity extends BaseActivity {
         oneView=fvbi(R.id.view_one);
         twoView=fvbi(R.id.view_two);
 
+        //
+        registerAddressLayout=fvbi(R.id.register_address_layout);
+        addressTv=fvbi(R.id.tv_address_register);
+
         postNameRadioGroup=fvbi(R.id.post_name_radioGroup);
         certificateRadioGroup=fvbi(R.id.professional_certificate_radioGroup);
         gradRadioGroup=fvbi(R.id.grade_certificate_radioGroup);
@@ -56,6 +78,27 @@ public class PublishResumeActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        //自定义数据里面循环加入数据
+//        String path=ReadJsonData.class.getClassLoader().getResource("city.json").getPath();
+       // Log.i(TAG, "initData: "+path);
+//
+//        String s = null;
+//        try {
+//            s = ReadJsonData.readJsonData(path);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        JSONObject jobj = JSON.parseObject(s);
+//        JSONArray movies = null;//构建JSONArray数组
+//        try {
+//            movies = jobj.getJSONArray("RECORDS");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        for (int i = 0 ; i < movies.size();i++) {
+//            JSONObject key = (JSONObject) movies.get(i);
+//            String name = (String) key.get("name");
+//        }
         event();
     }
 
@@ -171,7 +214,37 @@ public class PublishResumeActivity extends BaseActivity {
                 }
             }
         });
+        //执业注册地
+        registerAddressLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showChooseDialog(addressList);
+            }
+        });
 
+    }
+    /**
+     * 设置性别选择
+     * chooseDialog
+     */
+    private void showChooseDialog(List<String> addressList) {
+        DataPickerDialog.Builder builder = new DataPickerDialog.Builder(this);
+        chooseDialog = builder.setData(addressList).setSelection(1).setTitle("取消")
+                .setOnDataSelectedListener(new DataPickerDialog.OnDataSelectedListener() {
+                    @Override
+                    public void onDataSelected(String itemValue, int position) {
+//                        mTextView.setText(itemValue);
+                        //设置数据源
+                        addressTv.setText(itemValue);
 
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+                }).create();
+
+        chooseDialog.show();
     }
 }
