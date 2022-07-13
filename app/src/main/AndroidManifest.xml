@@ -91,6 +91,7 @@
         <activity android:name=".mine.ui.FeedbackActivity" />
         <activity android:name=".mine.ui.PhoneNumberActivity" />
         <activity android:name=".mine.ui.VerificationCodeActivity" />
+        <activity android:name=".job.ui.ThreeLevelSelectActivity" />
     </application>
 
 </manifest>
