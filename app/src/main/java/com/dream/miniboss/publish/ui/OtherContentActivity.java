@@ -43,12 +43,8 @@ public class OtherContentActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         mPreferences = getSharedPreferences("OtherData", Context.MODE_PRIVATE);
-
         mOtherEdittext.setText(mPreferences.getString("et_content", ""));
-
-
         mNumTextView.setText(String.valueOf(mPreferences.getInt("et_content_length", 0)));
-
         Log.i(TAG, "onResume: " + mPreferences.getInt("et_content_length", 0));
     }
 
@@ -73,13 +69,13 @@ public class OtherContentActivity extends BaseActivity {
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                temp = s;
+
 
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                temp = s;
             }
 
             @Override

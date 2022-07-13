@@ -45,7 +45,7 @@ public class PersonalAdvantagesActivity extends BaseActivity {
         super.onResume();
         mPreferences = getSharedPreferences("PersonData", Context.MODE_PRIVATE);
         mPersonEdittext.setText(mPreferences.getString("et_text", ""));
-        //mNumTextView.setText(String.valueOf(mPreferences.getInt("et_length",0)));
+        mNumTextView.setText(String.valueOf(mPreferences.getInt("et_length",0)));
     }
 
     @Override
@@ -68,13 +68,13 @@ public class PersonalAdvantagesActivity extends BaseActivity {
              int endEdit;
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-               temp=s;
+
 
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                temp=s;
             }
 
             @Override
