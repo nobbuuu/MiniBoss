@@ -1,4 +1,4 @@
-package com.dream.miniboss.publish;
+package com.dream.miniboss.publish.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 

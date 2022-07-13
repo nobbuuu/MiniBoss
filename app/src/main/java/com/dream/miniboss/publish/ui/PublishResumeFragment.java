@@ -1,4 +1,4 @@
-package com.dream.miniboss.publish;
+package com.dream.miniboss.publish.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

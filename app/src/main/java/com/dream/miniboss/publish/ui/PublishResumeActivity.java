@@ -1,10 +1,9 @@
-package com.dream.miniboss.publish;
+package com.dream.miniboss.publish.ui;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -17,7 +16,6 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseActivity;
 import com.dream.miniboss.bean.CityInfoBean;
-import com.dream.miniboss.utils.ReadJsonData;
 import com.example.liangmutian.mypicker.DataPickerDialog;
 import com.google.common.reflect.TypeToken;
 import com.hjq.bar.TitleBar;
@@ -26,7 +24,6 @@ import com.ruffian.library.widget.RTextView;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
