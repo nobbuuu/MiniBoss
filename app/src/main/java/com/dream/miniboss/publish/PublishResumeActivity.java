@@ -1,6 +1,9 @@
 package com.dream.miniboss.publish;
 
 import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -30,11 +33,12 @@ import java.util.List;
 public class PublishResumeActivity extends BaseActivity {
     TitleBar mTitleBar;
     Dialog chooseDialog;
-    RTextView addressTv;
+    RTextView addressTv,personTV;
     List<String> addressList = new ArrayList<>();
     RelativeLayout registerAddressLayout;
+    SharedPreferences mPreferences;
     LinearLayout monPersonLayout, partTimeCertificateLayout;
-    FrameLayout mTeamCountLayout, mDayMoneyLayout, mMonthMoneyLayout, mDayNumLayout;
+    FrameLayout mTeamCountLayout, mDayMoneyLayout, mMonthMoneyLayout, mDayNumLayout,personAdvantageLayout;
     RadioGroup styleResumeGroup, teamStyleGroup, moneyStyleGroup;
     //这是兼职注册师
     View oneView, twoView;
@@ -55,6 +59,9 @@ public class PublishResumeActivity extends BaseActivity {
         mTeamCountLayout = fvbi(R.id.team_count_fragment);
         mDayMoneyLayout = fvbi(R.id.money_day_fragment);
         mMonthMoneyLayout = fvbi(R.id.money_month_fragment);
+        //个人优势
+        personAdvantageLayout=fvbi(R.id.person_advantage_fm);
+        personTV=fvbi(R.id.content_person_tv);
         mDayNumLayout = fvbi(R.id.money_number_fragment);
         styleResumeGroup = fvbi(R.id.style_resume_group);
         teamStyleGroup = fvbi(R.id.team_mine_group);
@@ -76,6 +83,13 @@ public class PublishResumeActivity extends BaseActivity {
         gradCertificateLayout = fvbi(R.id.grade_certificate_ll);
         professionLayout = fvbi(R.id.profier_certificate_ll);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPreferences = getSharedPreferences("PersonData", Context.MODE_PRIVATE);
+        personTV.setText(mPreferences.getString("et_text", ""));
     }
 
     @Override
@@ -218,7 +232,17 @@ public class PublishResumeActivity extends BaseActivity {
                 showChooseDialog(addressList);
             }
         });
-
+       //个人优势
+        personAdvantageLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showShort("这是一个跳转");
+              //startActivity(new Intent(PublishResumeActivity.this,PersonalAdvantagesActivity.class));
+                Intent mIntent=new Intent();
+                mIntent.setClass(PublishResumeActivity.this,PersonalAdvantagesActivity.class);
+                startActivity(mIntent);
+            }
+        });
     }
 
     /**

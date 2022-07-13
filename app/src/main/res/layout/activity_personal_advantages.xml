@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +11,7 @@
     tools:context=".publish.PersonalAdvantagesActivity">
 
     <com.hjq.bar.TitleBar
+        android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_44"
         app:title="个人优势"
@@ -19,6 +23,7 @@
         android:layout_height="wrap_content">
 
         <com.ruffian.library.widget.REditText
+            android:id="@+id/et_person_advantage"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_272"
             android:layout_marginStart="@dimen/dp_8"
@@ -55,10 +60,11 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/person_commit_btn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
         android:layout_marginLeft="@dimen/dp_32"
-        android:layout_marginTop="@dimen/dp_222"
+        android:layout_marginTop="@dimen/dp_188"
         android:layout_marginRight="@dimen/dp_32"
         android:background="@drawable/shap_button_radius"
         android:text="确定"
@@ -67,3 +73,4 @@
 
 
 </LinearLayout>
+</ScrollView>
