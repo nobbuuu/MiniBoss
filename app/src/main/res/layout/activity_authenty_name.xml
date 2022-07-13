@@ -46,6 +46,5 @@
             android:layout_marginRight="@dimen/dp_30"
             android:text="审核中" />
 
-
     </RelativeLayout>
 </LinearLayout>
