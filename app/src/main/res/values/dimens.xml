@@ -91,11 +91,14 @@
     <dimen name="dp_226">226dp</dimen>
     <dimen name="dp_227">227dp</dimen>
     <dimen name="dp_233">233dp</dimen>
+    <dimen name="dp_234">234dp</dimen>
     <dimen name="dp_256">256dp</dimen>
     <dimen name="dp_262">262dp</dimen>
+    <dimen name="dp_272">272dp</dimen>
     <dimen name="dp_274">274dp</dimen>
     <dimen name="dp_276">276dp</dimen>
     <dimen name="dp_284">284dp</dimen>
+    <dimen name="dp_285">285dp</dimen>
     <dimen name="dp_290">290dp</dimen>
     <dimen name="dp_292">292dp</dimen>
     <dimen name="dp_295">295dp</dimen>

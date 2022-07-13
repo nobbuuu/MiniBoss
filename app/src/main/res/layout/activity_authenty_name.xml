@@ -17,7 +17,7 @@
         app:titleSize="@dimen/sp_16"
         app:titleStyle="bold" />
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_54"
         android:layout_marginLeft="@dimen/dp_16"
@@ -41,9 +41,10 @@
         <com.ruffian.library.widget.RTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            android:layout_marginRight="@dimen/dp_20"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_30"
             android:text="审核中" />
 
-    </FrameLayout>
+    </RelativeLayout>
 </LinearLayout>
