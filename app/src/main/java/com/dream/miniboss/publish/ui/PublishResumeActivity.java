@@ -30,9 +30,9 @@ import java.util.List;
 public class PublishResumeActivity extends BaseActivity {
     TitleBar mTitleBar;
     Dialog chooseDialog;
-    RTextView addressTv,personTV;
+    RTextView addressTv,personTV,contentOtherTv;
     List<String> addressList = new ArrayList<>();
-    RelativeLayout registerAddressLayout;
+    RelativeLayout registerAddressLayout,contentOtherLayout;
     SharedPreferences mPreferences;
     LinearLayout monPersonLayout, partTimeCertificateLayout;
     FrameLayout mTeamCountLayout, mDayMoneyLayout, mMonthMoneyLayout, mDayNumLayout,personAdvantageLayout;
@@ -56,9 +56,14 @@ public class PublishResumeActivity extends BaseActivity {
         mTeamCountLayout = fvbi(R.id.team_count_fragment);
         mDayMoneyLayout = fvbi(R.id.money_day_fragment);
         mMonthMoneyLayout = fvbi(R.id.money_month_fragment);
+        //个人说明
+        contentOtherLayout=fvbi(R.id.content_other_rl);
+        contentOtherTv=fvbi(R.id.content_other_work);
+        contentOtherTv.setText("请填写其他说明");
         //个人优势
         personAdvantageLayout=fvbi(R.id.person_advantage_fm);
         personTV=fvbi(R.id.content_person_tv);
+        personTV.setText("请填写个人优势");
         mDayNumLayout = fvbi(R.id.money_number_fragment);
         styleResumeGroup = fvbi(R.id.style_resume_group);
         teamStyleGroup = fvbi(R.id.team_mine_group);
@@ -67,7 +72,7 @@ public class PublishResumeActivity extends BaseActivity {
         oneView = fvbi(R.id.view_one);
         twoView = fvbi(R.id.view_two);
 
-        //
+        //兼职注册师注册地
         registerAddressLayout = fvbi(R.id.register_address_layout);
         addressTv = fvbi(R.id.tv_address_register);
 
@@ -85,8 +90,12 @@ public class PublishResumeActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mPreferences = getSharedPreferences("PersonData", Context.MODE_PRIVATE);
-        personTV.setText(mPreferences.getString("et_text", ""));
+        mPreferences = getSharedPreferences("PersonData", Context.MODE_PRIVATE);//执业证书注册地
+        personTV.setText(mPreferences.getString("et_text", ""));//执业证书注册地
+        mPreferences = getSharedPreferences("OtherData", Context.MODE_PRIVATE);//其他说明
+        contentOtherTv.setText(mPreferences.getString("et_content","请填写其他说明"));//其他说明
+        mPreferences = getSharedPreferences("PersonData", Context.MODE_PRIVATE);//个人优势
+        personTV.setText(mPreferences.getString("et_text", "请填写个人优势"));//个人优势
     }
 
     @Override
@@ -238,6 +247,13 @@ public class PublishResumeActivity extends BaseActivity {
                 Intent mIntent=new Intent();
                 mIntent.setClass(PublishResumeActivity.this,PersonalAdvantagesActivity.class);
                 startActivity(mIntent);
+            }
+        });
+        //其他情况说明
+        contentOtherLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             startActivity(new Intent(PublishResumeActivity.this,OtherContentActivity.class));
             }
         });
     }
