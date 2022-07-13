@@ -140,11 +140,13 @@
                 android:textColor="@color/main_text_color"
                 android:textSize="@dimen/sp_18" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.dream.miniboss.widget.CustomRadioGroup
                 android:id="@+id/teamAskRv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_16"
+                app:columnCount="3"
+                app:arrayText="@array/team_array"
                 android:overScrollMode="never" />
 
             <TextView
@@ -155,11 +157,13 @@
                 android:textColor="@color/main_text_color"
                 android:textSize="@dimen/sp_18" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.dream.miniboss.widget.CustomRadioGroup
                 android:id="@+id/educationAskRv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_16"
+                app:columnCount="3"
+                app:arrayText="@array/education_ask"
                 android:overScrollMode="never" />
 
             <TextView
@@ -170,11 +174,13 @@
                 android:textColor="@color/main_text_color"
                 android:textSize="@dimen/sp_18" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.dream.miniboss.widget.CustomRadioGroup
                 android:id="@+id/workYearRv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_16"
+                app:columnCount="3"
+                app:arrayText="@array/work_rear"
                 android:overScrollMode="never" />
 
         </LinearLayout>

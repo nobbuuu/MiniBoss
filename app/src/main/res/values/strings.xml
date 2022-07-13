@@ -11,6 +11,34 @@
         <item>男</item>
         <item>女</item>
     </string-array>
+
+    <string-array name="team_array">
+        <item>不限</item>
+        <item>需要有团队</item>
+        <item>不需要有团队</item>
+    </string-array>
+
+    <string-array name="education_ask">
+        <item>不限</item>
+        <item>初中及以下</item>
+        <item>高中</item>
+        <item>中专</item>
+        <item>大专</item>
+        <item>本科</item>
+        <item>硕士</item>
+        <item>博士</item>
+        <item>博士后</item>
+    </string-array>
+
+    <string-array name="work_rear">
+        <item>不限</item>
+        <item>1年内</item>
+        <item>1~3年</item>
+        <item>3~5年</item>
+        <item>5~10年</item>
+        <item>10年以上</item>
+    </string-array>
+
     <string name="system_setting">
 
         <item>系统设置</item>

@@ -16,7 +16,9 @@ import com.dream.miniboss.job.bean.JobsItemBean
 import com.dream.miniboss.job.vm.JobViewModel
 import com.tcl.base.common.adapter.MyFragmentPagerAdapter
 import com.tcl.base.common.ui.BaseFragment
+import com.tcl.base.kt.ktClick
 import com.tcl.base.kt.ktDpToPx
+import com.tcl.base.kt.ktStartActivity
 import com.tcl.base.weiget.recylerview.WaterFallItemDecoration
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
@@ -50,6 +52,13 @@ class JobsFragment(val type: Int) : BaseFragment<JobViewModel, FragmentJobsBindi
         initMagicIndicator()
         initRv()
 
+        listener()
+    }
+
+    fun listener() {
+        mBinding.filterTv.ktClick {
+            ktStartActivity(JobFilterActivity::class)
+        }
     }
 
     private fun initRv() {
