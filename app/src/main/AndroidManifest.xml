@@ -19,7 +19,7 @@
     <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION" /> <!-- 申请打电话权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".MiniBossApp"
         android:allowBackup="false"
@@ -80,6 +80,11 @@
             android:name="android.notch_support"
             android:value="true" />
 
+        <meta-data
+            android:name="com.huawei.hms.ml.DEPENDENCY"
+            android:value="icr" /><!-- 华为身份识别使用 -->
+        <!--If multiple models are required,set the parameter as follows:
+        android:value="object,ocr,face,label,icr,bcr,imgseg"-->
         <activity android:name="com.dream.miniboss.other.LaunchActivity" />
         <activity android:name="com.dream.miniboss.main.MainActivity">
             <intent-filter>

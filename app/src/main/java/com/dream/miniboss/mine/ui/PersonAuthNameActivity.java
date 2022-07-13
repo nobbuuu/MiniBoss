@@ -26,6 +26,10 @@ import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseActivity;
 import com.dream.miniboss.utils.MyDialog;
 import com.hjq.bar.TitleBar;
+import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCapture;
+import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCaptureConfig;
+import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCaptureFactory;
+import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCaptureResult;
 import com.ruffian.library.widget.RImageView;
 
 import java.io.File;
@@ -36,7 +40,7 @@ public class PersonAuthNameActivity extends BaseActivity {
     TitleBar mTitleBar;
     RImageView idCardOn, idCardOff;
 
-    MyDialog myDialog;
+    //MyDialog myDialog;
 
     @Override
     protected int initLayout() {
@@ -52,8 +56,48 @@ public class PersonAuthNameActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        myDialog = new MyDialog(PersonAuthNameActivity.this, MyDialog.PICK_AVATAR);
+        //myDialog = new MyDialog(PersonAuthNameActivity.this, MyDialog.PICK_AVATAR);
         event();
+    }
+
+    /**
+     * huawei身份证正反面识别
+     */
+    public MLCnIcrCapture.CallBack idCallback = new MLCnIcrCapture.CallBack() {
+        @Override
+        public void onSuccess(MLCnIcrCaptureResult idCardResult){
+            // 识别成功处理。
+        }
+        @Override
+        public void onCanceled(){
+            // 用户取消处理。
+        }
+        // 识别不到任何文字信息或识别过程发生系统异常的回调方法。
+        // retCode：错误码。
+        // bitmap：检测失败的身份证图片。
+        @Override
+        public void onFailure(int retCode, Bitmap bitmap){
+            // 识别异常处理。
+        }
+        @Override
+        public void onDenied(){
+            // 相机不支持等场景处理。
+        }
+    };
+    
+    private void startCaptureActivity(MLCnIcrCapture.CallBack  callback, boolean isFront, boolean isRemote) {
+        MLCnIcrCaptureConfig config = new MLCnIcrCaptureConfig.Factory()
+                // 设置识别身份证的正反面。
+                // true：正面。
+                // false：反面。
+                .setFront(true)
+                // 设置是否使用云侧能力进行识别。
+                // true：云侧。
+                // false：端侧。
+                .setRemote(false)
+                .create();
+        MLCnIcrCapture icrCapture = MLCnIcrCaptureFactory.getInstance().getIcrCapture(config);
+        icrCapture.capture(callback, this);
     }
 
     private void event() {
@@ -67,20 +111,22 @@ public class PersonAuthNameActivity extends BaseActivity {
         idCardOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myDialog.show();
-
+                //myDialog.show();
+                startCaptureActivity(idCallback, true, false);
             }
         });
         //上传身份证反面
         idCardOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myDialog.show();
-
+                //myDialog.show();
+                startCaptureActivity(idCallback, false, false);
             }
         });
 
     }
+
+
 
 
 
