@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
 
             <FrameLayout
@@ -555,6 +555,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/person_advantage_fm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_8"
@@ -577,6 +578,7 @@
                         android:textSize="@dimen/sp_14" />
 
                     <com.ruffian.library.widget.RTextView
+                        android:id="@+id/content_person_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/strength_person"
@@ -606,7 +608,7 @@
             android:layout_marginLeft="@dimen/dp_8"
             android:layout_marginRight="@dimen/dp_8"
             android:background="@color/white"
-            android:visibility="visible"
+            android:visibility="gone"
             android:orientation="vertical">
             <!--岗位名称-->
             <LinearLayout

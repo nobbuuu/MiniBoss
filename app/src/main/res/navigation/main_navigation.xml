@@ -13,7 +13,7 @@
 
     <fixFragment
         android:id="@+id/navigation_square"
-        android:name="com.dream.miniboss.publish.PublishResumeFragment"
+        android:name="com.dream.miniboss.publish.ui.PublishResumeFragment"
         android:label="@string/title_square"
         tools:layout="@layout/fragment_publish" />
     <fixFragment
