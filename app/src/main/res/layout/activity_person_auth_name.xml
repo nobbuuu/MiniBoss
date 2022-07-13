@@ -103,14 +103,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RImageView
+                    android:id="@+id/idCard_on"
                     android:layout_width="@dimen/dp_120"
                     android:layout_height="@dimen/dp_90"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_54"
                     android:gravity="center"
                     android:text="点击上传"
-                    app:background_normal="@mipmap/autyname"
+                    android:src="@mipmap/upphoto"
                     app:icon_src_normal="@mipmap/add"
                     app:icon_with_text="true" />
 
@@ -128,14 +129,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <com.ruffian.library.widget.RTextView
+                <com.ruffian.library.widget.RImageView
+                    android:id="@+id/idCard_off"
                     android:layout_width="@dimen/dp_120"
                     android:layout_height="@dimen/dp_90"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_54"
                     android:gravity="center"
                     android:text="点击上传"
-                    app:background_normal="@mipmap/autyname"
+                    android:src="@mipmap/upphoto"
                     app:icon_src_normal="@mipmap/add"
                     app:icon_with_text="true" />
 
@@ -157,6 +159,8 @@
         android:background="@drawable/shap_button_radius"
         android:text="确定"
         android:textSize="@dimen/sp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginLeft="@dimen/dp_16"
         android:textColor="@color/white" />
 </LinearLayout>
 </ScrollView>
