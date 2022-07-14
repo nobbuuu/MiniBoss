@@ -36,6 +36,7 @@ import com.dream.miniboss.main.MainActivity;
 import com.dream.miniboss.utils.LoginUIHelper;
 import com.hjq.bar.TitleBar;
 import com.ruffian.library.widget.RImageView;
+import com.ruffian.library.widget.RTextView;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -60,7 +61,10 @@ public class MyFragment extends BaseFragment {
     ImageView mImageEdit;
     ImageView onLineChat;
     TextView mPhoneNumber, userName, desc;
-    LinearLayout mLinearLayout, mSystemSetting, mAuthyName;
+    RTextView changeNameTv;
+    boolean temp=false;
+    LinearLayout mLinearLayout, mSystemSetting, mAuthyName, recruitNameLayout, publishManageLayout,
+            resumeLayout, needPeopleLayput;
     Uri imageUri;
     Bitmap bitmap = null;
     private SharedPreferences mPreferences;
@@ -81,6 +85,13 @@ public class MyFragment extends BaseFragment {
         userIcon = fvbyid(R.id.user_icon);
         userName = fvbyid(R.id.user_name);
         desc = fvbyid(R.id.tv_company);
+        //报名 发布管理
+        recruitNameLayout = fvbyid(R.id.name_recruit_ll);
+        publishManageLayout = fvbyid(R.id.mange_publish_ll);
+        //这是收简历，招聘 管理
+        changeNameTv=fvbyid(R.id.name_change_tv);
+        resumeLayout = fvbyid(R.id.resume_recruit_ll);
+        needPeopleLayput = fvbyid(R.id.need_people_ll);
     }
 
     @Override
@@ -125,11 +136,6 @@ public class MyFragment extends BaseFragment {
         mPhoneNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent mIntent=new Intent(Intent.ACTION_CALL);
-//                Uri mdata= Uri.parse("tel:"+mPhoneNumber.getText());
-//                mIntent.setData(mdata);
-//                Log.i(TAG, "onClick: "+mPhoneNumber.getText());
-//                getActivity().startActivity(mIntent);
                 request_permission();
             }
         });
@@ -137,9 +143,25 @@ public class MyFragment extends BaseFragment {
         mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent();
-                mIntent.setClass(getContext(), MainActivity.class);
-                startActivity(mIntent);
+                if (temp==false){
+                    changeNameTv.setText("切换成应聘端");
+                    recruitNameLayout.setVisibility(View.GONE);
+                    publishManageLayout.setVisibility(View.GONE);
+                    resumeLayout.setVisibility(View.VISIBLE);
+                    needPeopleLayput.setVisibility(View.VISIBLE);
+                    temp=true;
+                }else {
+                    changeNameTv.setText("切换成招聘端");
+                    recruitNameLayout.setVisibility(View.VISIBLE);
+                    publishManageLayout.setVisibility(View.VISIBLE);
+                    resumeLayout.setVisibility(View.GONE);
+                    needPeopleLayput.setVisibility(View.GONE);
+                    temp=false;
+                }
+
+//                Intent mIntent = new Intent();
+//                mIntent.setClass(getContext(), MainActivity.class);
+//                startActivity(mIntent);
             }
         });
 

@@ -18,6 +18,7 @@ import com.dream.miniboss.task.ExceptionMonitorTask
 import com.dream.miniboss.task.InitHttpClient
 import com.dream.miniboss.task.InitOtherTask
 import com.dream.miniboss.utils.LoginUIHelper
+import com.dream.miniboss.utils.Preferences
 import com.ruffian.library.widget.RTextView
 import com.tcl.base.BaseApplication
 import com.tcl.base.utils.startAppTime
@@ -46,6 +47,8 @@ class MiniBossApp : BaseApplication() {
         TaskDispatcher.init(this)
         //启动器进行异步初始化
         MMKV.initialize(this)
+        //Preferences初始化
+        Preferences.init(this);
 
         TaskDispatcher.createInstance()
             .addTask(CatchCrashTask())
