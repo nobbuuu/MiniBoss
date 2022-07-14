@@ -56,6 +56,9 @@ class JobsFragment(val type: Int) : BaseFragment<JobViewModel, FragmentJobsBindi
     }
 
     fun listener() {
+        mBinding.locationTv.ktClick {
+            ktStartActivity(ThreeLevelSelectActivity::class)
+        }
         mBinding.filterTv.ktClick {
             ktStartActivity(JobFilterActivity::class)
         }

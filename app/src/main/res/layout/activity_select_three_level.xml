@@ -21,19 +21,21 @@
             android:id="@+id/oneRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/default_bg"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:overScrollMode="never" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/twoRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:overScrollMode="never" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/threeRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:overScrollMode="never" />
 
     </LinearLayout>

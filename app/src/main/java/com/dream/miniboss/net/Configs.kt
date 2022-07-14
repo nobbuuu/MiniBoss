@@ -1,4 +1,4 @@
-package com.tcl.tclzjpro.app
+package com.dream.miniboss.net
 
 import com.dream.miniboss.BuildConfig
 
@@ -17,10 +17,9 @@ object Configs {
     fun isPackageProductType() = BuildConfig.APP_TYPE == APP_PRODUCT_TYPE
 
     /**后台 的URL链接*/
-    private const val URL_APP_PRODUCT = "https://fxapi.tcl.com"
+    private const val URL_APP_PRODUCT = "http://danguang.com"
     private const val URL_APP_UAT = "https://prepc.tclo2o.cn"
-    //private const val URL_APP_TEST = "http://10.120.40.106:8082"
-    private const val URL_APP_TEST = "https://testpc.tclo2o.cn"
+    private const val URL_APP_TEST = "http://1.14.99.200:8089"
 
     /**HTML 的URL链接*/
     private const val URL_HTML_APP_PRODUCT = "https://m.tcl.com/seller-app-h5"

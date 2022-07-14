@@ -4,7 +4,7 @@ import com.dream.miniboss.BuildConfig
 import com.dream.miniboss.common.MmkvConstant
 import com.tcl.base.utils.MmkvUtil
 import com.tcl.launcher.task.MainTask
-import com.tcl.tclzjpro.app.Configs
+import com.dream.miniboss.net.Configs
 
 /**
  *Author:tiaozi

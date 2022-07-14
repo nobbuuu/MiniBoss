@@ -1,7 +1,7 @@
 package com.dream.miniboss.other.security
 
 import com.tcl.base.utils.encipher.RSAUtil
-import com.tcl.tclzjpro.app.Configs
+import com.dream.miniboss.net.Configs
 import org.json.JSONObject
 
 object EncryptTShopHelper {
