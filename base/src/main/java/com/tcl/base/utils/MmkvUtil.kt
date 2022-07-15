@@ -14,7 +14,8 @@ object MmkvUtil {
     private var mmkv: MMKV? = null
 
     init {
-        mmkv = MMKV.defaultMMKV()
+        val cryptKey = "tcl_global_number_one"
+        mmkv = MMKV.defaultMMKV(MMKV.SINGLE_PROCESS_MODE, cryptKey)
     }
 
     fun encode(key: String, value: Any?) {

@@ -13,10 +13,7 @@ import cn.jiguang.verifysdk.api.JVerificationInterface.preLogin
 import com.blankj.utilcode.util.ToastUtils
 import com.dream.miniboss.login.LoginCodeActivity
 import com.dream.miniboss.mine.ui.UserEditActivity
-import com.dream.miniboss.task.CatchCrashTask
-import com.dream.miniboss.task.ExceptionMonitorTask
-import com.dream.miniboss.task.InitHttpClient
-import com.dream.miniboss.task.InitOtherTask
+import com.dream.miniboss.task.*
 import com.dream.miniboss.utils.LoginUIHelper
 import com.dream.miniboss.utils.Preferences
 import com.ruffian.library.widget.RTextView
@@ -51,6 +48,7 @@ class MiniBossApp : BaseApplication() {
         Preferences.init(this);
 
         TaskDispatcher.createInstance()
+            .addTask(InitTxSeriesTask())
             .addTask(CatchCrashTask())
             .addTask(InitEnvironment())
             .addTask(InitHttpClient())

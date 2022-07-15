@@ -48,16 +48,10 @@ object CategoryDetailConstant {
  *
  * */
 object MmkvConstant {
-    const val IS_AGREE_ENTER_KEY = "IS_AGREE_ENTER_KEY" //同意协议
     const val PROTOCOL = "protocol"//协议内容
-    const val IS_FIRST_LOGIN_KEY = "IS_FIRST_LOGIN_KEY"//初次登录标记key
     const val KEY_USER_INFO = "key_user_info"
 
-    const val KEY_HISTORY_SEARCH_INFO = "key_history_search_info"//历史搜索记录
 
-    const val KEY_SEARCH_FOR_GOODS = 78//历史搜索记录
-    const val KEY_SEARCH_FOR_GOODS_HAVE = 1//历史搜索记录有数据
-    const val KEY_SEARCH_FOR_GOODS_NOT = 0//历史搜索记录无数据
     const val KEY_DEBUG_CURRENT_TYPE = "current_type"
     const val KEY_ACCESS_TOKEN = "accessToken"
     const val KEY_REFRESH_TOKEN = "refreshToken"
@@ -67,12 +61,9 @@ object MmkvConstant {
     const val KEY_VISIBLE_WALLET = "visible_wallet"
     const val KEY_VISIBLE_PROFIT = "visible_profit"
     const val KEY_ACCOUNTID = "accountId"
-    const val KEY_ADDRESS_INFO = "addressInfo"
-    const val KEY_USER_IDCARD = "user_idcard"
-    const val KEY_USER_TYPE = "user_type"
 
-    const val AGREE_PRIVACY_VERSION_KEY = "AGREE_PRIVACY_VERSION_KEY" //隐私协议版本
-    const val TAP_ICON_CHANGE_KEY = "TAP_ICON_CHANGE_KEY" //隐私协议版本
+    const val KEY_ADDRESS = "address"
+
 }
 
 @Deprecated("待废除，禁用SP，相关尽快迁移mmkv")

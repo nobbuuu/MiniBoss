@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.View
 import com.blankj.utilcode.util.ColorUtils
 import com.dream.miniboss.R
+import com.dream.miniboss.common.MmkvConstant.KEY_ADDRESS
 import com.dream.miniboss.databinding.ActivitySelectThreeLevelBinding
 import com.dream.miniboss.job.adapter.OneSelectAdapter
 import com.dream.miniboss.job.adapter.TTSelectAdapter
 import com.dream.miniboss.job.vm.SelectViewModel
 import com.tcl.base.common.ui.BaseActivity
+import com.tcl.base.utils.MmkvUtil
 
 class AddressSelectActivity : BaseActivity<SelectViewModel, ActivitySelectThreeLevelBinding>() {
 
@@ -22,13 +24,18 @@ class AddressSelectActivity : BaseActivity<SelectViewModel, ActivitySelectThreeL
     override fun initView(savedInstanceState: Bundle?) {
         oneAdapter = OneSelectAdapter {
             twoAdapter.setList(it.areaBaseList)
+            if (it.areaBaseList.isNullOrEmpty()){
+                saveAndFinish(it.name)
+            }
         }
         twoAdapter = TTSelectAdapter {
             threeAdapter.setList(it.areaBaseList)
+            if (it.areaBaseList.isNullOrEmpty()){
+                saveAndFinish(it.name)
+            }
         }
         threeAdapter = TTSelectAdapter {
-            //具体的地址
-
+            saveAndFinish(it.name)
         }
         mBinding.oneRv.adapter = oneAdapter
         mBinding.twoRv.adapter = twoAdapter
@@ -36,6 +43,10 @@ class AddressSelectActivity : BaseActivity<SelectViewModel, ActivitySelectThreeL
 
     }
 
+    fun saveAndFinish(address:String){
+        MmkvUtil.encode(KEY_ADDRESS,address)
+        finish()
+    }
     override fun initData() {
 
         viewModel.getAddress()

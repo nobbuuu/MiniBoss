@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.ConvertUtils
 import com.dream.miniboss.R
+import com.dream.miniboss.common.MmkvConstant
 import com.dream.miniboss.databinding.FragmentJobsBinding
 import com.dream.miniboss.job.adapter.JobsAdapter
 import com.dream.miniboss.job.bean.JobsItemBean
@@ -15,6 +16,7 @@ import com.tcl.base.common.ui.BaseFragment
 import com.tcl.base.kt.ktClick
 import com.tcl.base.kt.ktDpToPx
 import com.tcl.base.kt.ktStartActivity
+import com.tcl.base.utils.MmkvUtil
 import com.tcl.base.weiget.recylerview.WaterFallItemDecoration
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
@@ -132,5 +134,11 @@ class JobsFragment(val type: Int) : BaseFragment<JobViewModel, FragmentJobsBindi
         titleContainer.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
         titleContainer.dividerPadding = 18.ktDpToPx
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val address = MmkvUtil.decodeString(MmkvConstant.KEY_ADDRESS)
+        mBinding.locationTv.text = address
     }
 }
