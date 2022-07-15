@@ -143,17 +143,25 @@ public class MyFragment extends BaseFragment {
         publishManageLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //`MiniBossAppKt.getMApplication().startActivity(new Intent(getContext(), PublishFragment.class));
-                FragmentManager fragmentManager = getParentFragmentManager();
-
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                fragmentTransaction.replace(R.id.fragment_mine, new PublishResumeFragment());
-
-                fragmentTransaction.commit();
+                //`.startActivity(new Intent(getContext(), PublishFragment.class));
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//                fragmentTransaction.replace(R.id.publish_resume_ll, new PublishResumeFragment());
+//
+//
+//                fragmentTransaction.commit();
 
             }
         });
+//        public void replaceFragment(Fragment fragment) {
+//            FragmentManager supportFragmentManager =getActivity().getSupportFragmentManager();
+//            FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
+//            fragmentTransaction.replace(R.id.frgment,fragment);
+//            fragmentTransaction.commit();
+//        }
+
 
         //设置打电话
         mPhoneNumber.setOnClickListener(new View.OnClickListener() {
