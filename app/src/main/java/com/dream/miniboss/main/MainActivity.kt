@@ -95,11 +95,11 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(){
         super.onNewIntent(intent)
         intent?.run {
             val position = getIntExtra(KEY_TAB_POSITION, 0)
-//            val id=getIntExtra("id",0)
-//            if (id==0){
-//              switchTab(3)
-//            }
             switchTab(position)
+//            val id=intent.getIntExtra("position",0)
+//            if (id==1){
+//              switchTab(2)
+//            }
 
         }
     }

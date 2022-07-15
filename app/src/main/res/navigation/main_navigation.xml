@@ -18,13 +18,17 @@
         tools:layout="@layout/fragment_publish" />
     <fixFragment
         android:id="@+id/navigation_message"
-        android:name="com.dream.miniboss.message.MessageFragment"
+        android:name="com.dream.miniboss.message.ui.MessageChatFragment"
         android:label="@string/title_message"
-        tools:layout="@layout/fragment_message" />
+        tools:layout="@layout/fragment_chat_message" />
 
     <fixFragment
         android:id="@+id/navigation_mine"
         android:name="com.dream.miniboss.mine.ui.MyFragment"
         android:label="@string/title_mine"
-        tools:layout="@layout/fragment_my" />
+        tools:layout="@layout/fragment_my" >
+        <action
+            android:id="@+id/myFragment_to_navigation_square"
+            app:destination="@id/navigation_square" />
+    </fixFragment>
 </navigation>

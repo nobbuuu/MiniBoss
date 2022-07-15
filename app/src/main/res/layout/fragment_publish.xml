@@ -14,7 +14,7 @@
 
         <com.ruffian.library.widget.RTextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_44"
+            android:layout_height="@dimen/dp_20"
             android:background="@color/white" />
 
         <com.hjq.bar.TitleBar

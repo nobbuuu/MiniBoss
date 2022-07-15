@@ -25,18 +25,22 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.navigation.Navigation;
 
 
 import static android.content.ContentValues.TAG;
 
 import com.blankj.utilcode.util.ToastUtils;
 
+import com.dream.miniboss.MiniBossAppKt;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseFragment;
 import com.dream.miniboss.login.LoginCodeActivity;
+import com.dream.miniboss.main.MainActivity;
 import com.dream.miniboss.utils.LoginUIHelper;
 import com.ruffian.library.widget.RImageView;
 import com.ruffian.library.widget.RTextView;
+import com.tcl.tclzjpro.main.MainManagerKt;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -136,24 +140,10 @@ public class MyFragment extends BaseFragment {
         publishManageLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //`.startActivity(new Intent(getContext(), PublishFragment.class));
-//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//                fragmentTransaction.replace(R.id.publish_resume_ll, new PublishResumeFragment());
-//
-//
-//                fragmentTransaction.commit();
-
+                Navigation.findNavController(v)
+                        .navigate(R.id.myFragment_to_navigation_square);
             }
         });
-//        public void replaceFragment(Fragment fragment) {
-//            FragmentManager supportFragmentManager =getActivity().getSupportFragmentManager();
-//            FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
-//            fragmentTransaction.replace(R.id.frgment,fragment);
-//            fragmentTransaction.commit();
-//        }
 
 
         //设置打电话
