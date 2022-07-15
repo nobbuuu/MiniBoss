@@ -331,6 +331,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/about_us_ll"
                     android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_16"

@@ -7,8 +7,9 @@
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-feature android:name="android.hardware.Camera"/> <!-- 申请相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.Camera" /> <!-- 申请相机权限 -->
     <uses-permission android:name="android.permission.MICROPHONE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE_MESSAGE" /> <!-- 位置权限 -->
@@ -21,6 +22,7 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION" /> <!-- 申请打电话权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MiniBossApp"
         android:allowBackup="false"
@@ -30,6 +32,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.CbgBase"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".mine.ui.AboutUsActivity"
+            android:exported="false" />
         <activity
             android:name=".publish.ui.OtherContentActivity"
             android:exported="false" />
@@ -80,12 +85,13 @@
         <meta-data
             android:name="android.notch_support"
             android:value="true" />
-
         <meta-data
             android:name="com.huawei.hms.ml.DEPENDENCY"
-            android:value="icr" /><!-- 华为身份识别使用 -->
-        <!--If multiple models are required,set the parameter as follows:
-        android:value="object,ocr,face,label,icr,bcr,imgseg"-->
+            android:value="icr" /> <!-- 华为身份识别使用 -->
+        <!--
+If multiple models are required,set the parameter as follows:
+        android:value="object,ocr,face,label,icr,bcr,imgseg"
+        -->
         <activity android:name="com.dream.miniboss.other.LaunchActivity" />
         <activity android:name="com.dream.miniboss.main.MainActivity">
             <intent-filter>

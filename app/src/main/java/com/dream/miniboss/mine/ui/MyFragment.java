@@ -69,7 +69,7 @@ public class MyFragment extends BaseFragment {
     boolean temp=false;
 
     LinearLayout mLinearLayout, mSystemSetting, mAuthyName, recruitNameLayout, publishManageLayout,
-            resumeLayout, needPeopleLayput;
+            resumeLayout, needPeopleLayput,aboutUsLayout;
     Uri imageUri;
     Bitmap bitmap = null;
     private SharedPreferences mPreferences;
@@ -93,6 +93,7 @@ public class MyFragment extends BaseFragment {
         //报名 发布管理
         recruitNameLayout = fvbyid(R.id.name_recruit_ll);
         publishManageLayout = fvbyid(R.id.mange_publish_ll);
+        aboutUsLayout=fvbyid(R.id.about_us_ll);
         //这是收简历，招聘 管理
         changeNameTv=fvbyid(R.id.name_change_tv);
         resumeLayout = fvbyid(R.id.resume_recruit_ll);
@@ -145,7 +146,13 @@ public class MyFragment extends BaseFragment {
             }
         });
 
-
+         //关于我们界面
+        aboutUsLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MiniBossAppKt.getMApplication(),AboutUsActivity.class));
+            }
+        });
         //设置打电话
         mPhoneNumber.setOnClickListener(new View.OnClickListener() {
             @Override
