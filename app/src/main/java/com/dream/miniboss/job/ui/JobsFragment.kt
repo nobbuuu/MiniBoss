@@ -1,20 +1,16 @@
 package com.dream.miniboss.job.ui
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.text.TextPaint
 import android.widget.LinearLayout
 import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.ConvertUtils
-import com.blankj.utilcode.util.ResourceUtils
 import com.dream.miniboss.R
 import com.dream.miniboss.databinding.FragmentJobsBinding
 import com.dream.miniboss.job.adapter.JobsAdapter
-import com.dream.miniboss.job.bean.JobTypeBean
 import com.dream.miniboss.job.bean.JobsItemBean
 import com.dream.miniboss.job.vm.JobViewModel
-import com.tcl.base.common.adapter.MyFragmentPagerAdapter
 import com.tcl.base.common.ui.BaseFragment
 import com.tcl.base.kt.ktClick
 import com.tcl.base.kt.ktDpToPx
@@ -57,7 +53,7 @@ class JobsFragment(val type: Int) : BaseFragment<JobViewModel, FragmentJobsBindi
 
     fun listener() {
         mBinding.locationTv.ktClick {
-            ktStartActivity(ThreeLevelSelectActivity::class)
+            ktStartActivity(AddressSelectActivity::class)
         }
         mBinding.filterTv.ktClick {
             ktStartActivity(JobFilterActivity::class)
