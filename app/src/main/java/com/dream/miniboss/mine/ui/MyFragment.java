@@ -25,14 +25,20 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import static android.content.ContentValues.TAG;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.dream.miniboss.MiniBossApp;
+import com.dream.miniboss.MiniBossAppKt;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseFragment;
 import com.dream.miniboss.login.LoginCodeActivity;
 import com.dream.miniboss.main.MainActivity;
+import com.dream.miniboss.publish.PublishFragment;
+import com.dream.miniboss.publish.ui.PublishResumeFragment;
 import com.dream.miniboss.utils.LoginUIHelper;
 import com.hjq.bar.TitleBar;
 import com.ruffian.library.widget.RImageView;
@@ -63,6 +69,7 @@ public class MyFragment extends BaseFragment {
     TextView mPhoneNumber, userName, desc;
     RTextView changeNameTv;
     boolean temp=false;
+
     LinearLayout mLinearLayout, mSystemSetting, mAuthyName, recruitNameLayout, publishManageLayout,
             resumeLayout, needPeopleLayput;
     Uri imageUri;
@@ -132,6 +139,30 @@ public class MyFragment extends BaseFragment {
                 startActivity(mIntent);
             }
         });
+        //发布管理界面
+        publishManageLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //`.startActivity(new Intent(getContext(), PublishFragment.class));
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//                fragmentTransaction.replace(R.id.publish_resume_ll, new PublishResumeFragment());
+//
+//
+//                fragmentTransaction.commit();
+
+            }
+        });
+//        public void replaceFragment(Fragment fragment) {
+//            FragmentManager supportFragmentManager =getActivity().getSupportFragmentManager();
+//            FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
+//            fragmentTransaction.replace(R.id.frgment,fragment);
+//            fragmentTransaction.commit();
+//        }
+
+
         //设置打电话
         mPhoneNumber.setOnClickListener(new View.OnClickListener() {
             @Override

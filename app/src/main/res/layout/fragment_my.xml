@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+        android:id="@+id/fragment_mine"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#f7f7f7"
@@ -375,8 +375,8 @@
 
             <com.ruffian.library.widget.RImageView
                 android:id="@+id/iv_online_chat"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="@dimen/dp_32"
+                android:layout_height="@dimen/dp_32"
                android:layout_weight="1"
                 android:src="@mipmap/onlinechat" />
             <com.ruffian.library.widget.RTextView
@@ -399,7 +399,7 @@
             android:orientation="horizontal">
 
             <com.ruffian.library.widget.RImageView
-                android:layout_width="@dimen/dp_20"
+                android:layout_width="@dimen/dp_22"
                 android:layout_height="@dimen/dp_20"
                 android:layout_weight="1"
                 android:src="@mipmap/qiehuanshenfen" />
@@ -431,8 +431,8 @@
             android:orientation="horizontal">
 
             <com.ruffian.library.widget.RImageView
-                android:layout_width="@dimen/dp_20"
-                android:layout_height="@dimen/dp_20"
+                android:layout_width="@dimen/dp_22"
+                android:layout_height="@dimen/dp_22"
 
                 android:layout_weight="1"
                 android:src="@mipmap/setting" />

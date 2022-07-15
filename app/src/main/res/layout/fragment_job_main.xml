@@ -10,7 +10,7 @@
         android:id="@+id/topBg"
         android:layout_width="0dp"
         android:layout_height="213dp"
-        app:background_normal="@color/colorPrimary"
+        app:background_normal="@mipmap/headbgr"
         app:corner_radius_bottom_left="@dimen/dp_24"
         app:corner_radius_bottom_right="@dimen/dp_24"
         app:layout_constraintEnd_toEndOf="parent"
