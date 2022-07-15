@@ -25,22 +25,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
 
 import static android.content.ContentValues.TAG;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.dream.miniboss.MiniBossApp;
-import com.dream.miniboss.MiniBossAppKt;
+
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseFragment;
 import com.dream.miniboss.login.LoginCodeActivity;
-import com.dream.miniboss.main.MainActivity;
-import com.dream.miniboss.publish.PublishFragment;
-import com.dream.miniboss.publish.ui.PublishResumeFragment;
 import com.dream.miniboss.utils.LoginUIHelper;
-import com.hjq.bar.TitleBar;
 import com.ruffian.library.widget.RImageView;
 import com.ruffian.library.widget.RTextView;
 
@@ -125,7 +119,6 @@ public class MyFragment extends BaseFragment {
             mPreferences = getContext().getSharedPreferences("UserData", Context.MODE_PRIVATE);
             userName.setText(mPreferences.getString("et_name", ""));
             desc.setText(mPreferences.getString("et_desc", ""));
-            //desc.setText(mPreferences.getString("et_desc",""));
         }
     }
 
