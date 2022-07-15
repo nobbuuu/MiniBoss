@@ -1,6 +1,7 @@
 package com.dream.miniboss.mine.ui;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.View;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseActivity;
@@ -52,6 +53,7 @@ public class PersonAuthNameActivity extends BaseActivity {
                 return;
             }
             if (lastType) {
+                Log.i(TAG, "onSuccess: "+bitmap);
                 idCardOn.setImageBitmap(bitmap);
             } else {
                 idCardOff.setImageBitmap(bitmap);
