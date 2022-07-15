@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+        android:id="@+id/fragment_mine"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#f7f7f7"
