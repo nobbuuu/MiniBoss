@@ -21,8 +21,9 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_message_chat"
-        android:layout_width="@dimen/dp_226"
+        android:layout_width="@dimen/dp_262"
         android:layout_height="@dimen/dp_44"
+        app:tabIndicatorHeight="@dimen/dp_0"
         android:background="#F7F7F7" />
 
     <com.dream.miniboss.message.utils.IndexViewPager

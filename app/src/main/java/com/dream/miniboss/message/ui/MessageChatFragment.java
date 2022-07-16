@@ -1,5 +1,8 @@
 package com.dream.miniboss.message.ui;
 
+import static com.airbnb.lottie.L.TAG;
+
+import android.util.Log;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
@@ -16,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessageChatFragment  extends BaseFragment {
+    private static final String TAG="TAG";
     TitleBar mTitleBar;
     TabLayout mTabLayout;
     IndexViewPager mViewPager;
@@ -35,29 +39,45 @@ public class MessageChatFragment  extends BaseFragment {
 
     @Override
     protected void initData() {
+        event();
         mfragments=new ArrayList<>();
         mfragments.add(new MessagePersonFragment());
         mfragments.add(new InterestedMessageFragment());
         mfragments.add(new CollectionMessageFragment());
-        for (int i = 0; i < mTabLayout.getTabCount(); i++) {
-            TabLayout.Tab tab = mTabLayout.getTabAt(i);
-            if (tab != null) {
-                tab.setCustomView(messageViewPagerAdapter.getTabView(i));
-            }
-        }
         messageViewPagerAdapter=new MessageViewPagerAdapter(getParentFragmentManager(),0,mfragments, MiniBossAppKt.getMApplication());
-//      viewPager.setCurrentItem(1);
-//        mTabLayout.getTabAt(0).getCustomView().setSelected(true);
+        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
+        mViewPager.setScanScroll(false);
 
         mViewPager.setAdapter(messageViewPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
-        mTabLayout.getTabSelectedIndicator().setAlpha(0);
-        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
-          event();
-       mViewPager.setScanScroll(false);
+        for (int i = 0; i < messageViewPagerAdapter.getCount(); i++) {
+            TabLayout.Tab tab = mTabLayout.getTabAt(i);
+            if (tab != null) {
+                tab.setCustomView(messageViewPagerAdapter.getTabView(i));
+            } else if (i==0){
+                // 设置第一个tab的TextView是被选择的样式
+                mTabLayout.getTabAt(0).getCustomView().setSelected(true); //第一个tab被选中
 
-//    mViewPager.setAdapter();
+            }
+        }
 
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                tab.getCustomView().setSelected(true);
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+              tab.getCustomView().setSelected(false);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     private void event() {

@@ -30,11 +30,11 @@ public class MessageViewPagerAdapter extends FragmentPagerAdapter {
     }
 
 
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return tabTitles[position];
-    }
+//    @Nullable
+//    @Override
+//    public CharSequence getPageTitle(int position) {
+//        return tabTitles[position];
+//    }
 
     @NonNull
     @Override
@@ -53,10 +53,10 @@ public class MessageViewPagerAdapter extends FragmentPagerAdapter {
         return fragments.size();
     }
     public View getTabView(int position) {
-        View v = LayoutInflater.from(MiniBossAppKt.getMApplication()).inflate(R.layout.item_viewpager_message, null);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.item_viewpager_message, null);
         RTextView tv = (RTextView) v.findViewById(R.id.message_tv);
-        RImageView imageView=v.findViewById(R.id.red_message_iv);
-        imageView.setImageResource(R.mipmap.redmessage);
+//        RImageView imageView=v.findViewById(R.id.red_message_iv);
+//        imageView.setImageResource(R.mipmap.redmessage);
         tv.setText(tabTitles[position]);
         return v;
     }
