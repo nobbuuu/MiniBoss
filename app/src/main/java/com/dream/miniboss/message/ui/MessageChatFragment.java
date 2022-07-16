@@ -51,6 +51,8 @@ public class MessageChatFragment  extends BaseFragment {
 
         mViewPager.setAdapter(messageViewPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
+        mTabLayout.getTabSelectedIndicator().setAlpha(0);
+        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
           event();
        mViewPager.setScanScroll(false);
 

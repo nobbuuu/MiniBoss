@@ -6,10 +6,12 @@
     android:layout_height="match_parent"
     android:background="#f7f7f7"
     android:orientation="vertical">
+
     <com.ruffian.library.widget.RTextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_20"
         android:background="@color/white" />
+
     <com.hjq.bar.TitleBar
         android:id="@+id/title_bar_message"
         android:layout_width="match_parent"
@@ -17,16 +19,17 @@
         app:title="消息"
         tools:ignore="MissingConstraints" />
 
-<com.google.android.material.tabs.TabLayout
-    android:id="@+id/tab_message_chat"
-    android:layout_width="@dimen/dp_226"
-    android:background="#F7F7F7"
-    android:layout_height="@dimen/dp_44"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_message_chat"
+        android:layout_width="@dimen/dp_226"
+        android:layout_height="@dimen/dp_44"
+        android:background="#F7F7F7" />
+
     <com.dream.miniboss.message.utils.IndexViewPager
         android:id="@+id/message_view_pager"
-        android:background="#F7F7F7"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:background="#F7F7F7" />
 
 </LinearLayout>
