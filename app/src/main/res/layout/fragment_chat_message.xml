@@ -17,10 +17,16 @@
         app:title="消息"
         tools:ignore="MissingConstraints" />
 
-    <com.ruffian.library.widget.RTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="消息聊天界面"
-        tools:ignore="MissingConstraints" />
+<com.google.android.material.tabs.TabLayout
+    android:id="@+id/tab_message_chat"
+    android:layout_width="@dimen/dp_226"
+    android:background="#F7F7F7"
+    android:layout_height="@dimen/dp_44"/>
+    <com.dream.miniboss.message.utils.IndexViewPager
+        android:id="@+id/message_view_pager"
+        android:background="#F7F7F7"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
 </LinearLayout>

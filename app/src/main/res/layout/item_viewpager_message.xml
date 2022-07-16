@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/message_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="消息"
+            android:textSize="@dimen/sp_14" />
+
+        <com.ruffian.library.widget.RImageView
+            android:id="@+id/red_message_iv"
+            android:layout_width="@dimen/dp_8"
+            android:layout_height="@dimen/dp_8"
+            android:src="@mipmap/redmessage"
+            android:layout_toRightOf="@id/message_tv"
+            />
+
+
+    </RelativeLayout>
+</LinearLayout>

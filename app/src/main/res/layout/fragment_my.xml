@@ -14,12 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_20"
             android:background="#436DFF" />
-        <TextView
+        <com.ruffian.library.widget.RTextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_44"
             android:background="#436DFF"
             android:gravity="center"
-            android:text="logo"
+            android:text="我的"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/sp_25" />
 
