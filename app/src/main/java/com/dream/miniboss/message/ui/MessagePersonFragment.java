@@ -54,7 +54,6 @@ public class MessagePersonFragment extends BaseFragment {
 
         event();
         //给recyclerview增加头布局
-
         mHeadView = LayoutInflater.from(MiniBossAppKt.getMApplication()).inflate(R.layout.head_message_person,null);
         mXRecyclerView.addHeaderView(mHeadView);
         //给系统的头布局增加点击事件

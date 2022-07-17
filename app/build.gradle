@@ -56,17 +56,23 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
-            minifyEnabled false
+            minifyEnabled true
             shrinkResources false
             zipAlignEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
+
             signingConfig signingConfigs.debug
             minifyEnabled false
             shrinkResources false
             zipAlignEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            //加快编译速度
+            ext.alwaysUpdateBuildId = true
+            //如果不需要运行 Crashlytics 报告,停用该插件以提高调试 Build 的构建速度：
+            ext.enableCrashlytics = true
         }
     }
 

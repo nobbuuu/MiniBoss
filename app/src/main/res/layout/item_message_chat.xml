@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,4 +58,14 @@
            />
 
     </RelativeLayout>
+    <com.ruffian.library.widget.RTextView
+        android:id="@+id/delete_item_tv"
+        android:layout_width="@dimen/dp_64"
+        android:layout_height="@dimen/dp_72"
+        android:text="删除"
+        android:background="#FFEBEB"
+        android:textSize="@dimen/sp_14"
+        android:textColor="#FF3A3A"/>
+
+
 </LinearLayout>
