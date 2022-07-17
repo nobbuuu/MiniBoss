@@ -1,6 +1,10 @@
 package com.dream.miniboss.message.adapter;
 
+import static com.airbnb.lottie.L.TAG;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,21 +45,20 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
     public MessageChatAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View itemView=LayoutInflater.from(mContext).inflate(R.layout.item_message_chat,null);
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position=v.getId();
-                if (mItemClickListener!=null){
-                    mItemClickListener.OnClick(position);
-                }
-            }
-        });
         return new ViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MessageChatAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MessageChatAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+           holder.itemView.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
 
+                   if (mItemClickListener!=null){
+                       mItemClickListener.OnClick(position);
+                   }
+               }
+           });
     }
 
     @Override

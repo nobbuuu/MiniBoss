@@ -1,6 +1,7 @@
 package com.dream.miniboss.message.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -25,7 +26,7 @@ public class MessagePersonFragment extends BaseFragment {
     XRecyclerView mXRecyclerView;
     MessageChatAdapter mChatAdapter;
     List<MessageChatBean> mChatBeanList;
-
+    View mHeadView;
     public MessagePersonFragment() {
 
 
@@ -49,7 +50,22 @@ public class MessagePersonFragment extends BaseFragment {
         }
         mChatAdapter = new MessageChatAdapter(mChatBeanList, MiniBossAppKt.getMApplication());
         mXRecyclerView.setAdapter(mChatAdapter);
+        mXRecyclerView.setPullRefreshEnabled(false);
+
         event();
+        //给recyclerview增加头布局
+
+        mHeadView = LayoutInflater.from(MiniBossAppKt.getMApplication()).inflate(R.layout.head_message_person,null);
+        mXRecyclerView.addHeaderView(mHeadView);
+        //给系统的头布局增加点击事件
+        mHeadView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MiniBossAppKt.getMApplication(),SystemNotifyActivity.class));
+                ToastUtils.showShort("这是头布局");
+            }
+        });
+
     }
 
     private void event() {
@@ -64,6 +80,8 @@ public class MessagePersonFragment extends BaseFragment {
 
             }
         });
+
+
     }
 
     @Override

@@ -22,7 +22,7 @@ import java.util.List;
 public class MessageViewPagerAdapter extends FragmentPagerAdapter {
     List<Fragment> fragments;
     Context mContext;
-    private String tabTitles[] = new String[]{"消息","赞过我","收藏过我"};
+    private String tabTitles[] = new String[]{"消息","对我感兴趣","收藏过我"};
     public MessageViewPagerAdapter(@NonNull FragmentManager fm, int behavior, List<Fragment> fragments, Context mContext) {
         super(fm, behavior);
         this.fragments = fragments;

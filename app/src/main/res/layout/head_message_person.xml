@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:orientation="horizontal">
+
+        <com.ruffian.library.widget.RImageView
+            android:id="@+id/system_message_icon"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            android:scaleType="fitXY"
+            android:src="@mipmap/voicemessage" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/system_name_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/system_message_icon"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:text="系统通知"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18" />
+
+<!--        <com.ruffian.library.widget.RTextView-->
+<!--            android:id="@+id/message_company_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignBottom="@id/user_name_message"-->
+<!--            android:layout_toRightOf="@id/user_name_message"-->
+<!--            android:text="旦光人才服务"-->
+<!--            android:textSize="@dimen/sp_12" />-->
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/message_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/system_name_message"
+            android:layout_alignLeft="@id/system_name_message"
+            android:text="新版旦光工匠使用教程"
+            android:maxLines="1"
+            android:textSize="@dimen/sp_14" />
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/message_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="刚刚"
+            android:textSize="@dimen/sp_12"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_16"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

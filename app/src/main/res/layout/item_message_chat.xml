@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/user_message_icon"
             android:text="何先生"
+            android:layout_marginLeft="@dimen/dp_8"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_18" />
 

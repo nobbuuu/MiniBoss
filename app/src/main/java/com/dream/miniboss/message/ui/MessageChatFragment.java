@@ -45,9 +45,9 @@ public class MessageChatFragment  extends BaseFragment {
         mfragments.add(new InterestedMessageFragment());
         mfragments.add(new CollectionMessageFragment());
         messageViewPagerAdapter=new MessageViewPagerAdapter(getParentFragmentManager(),0,mfragments, MiniBossAppKt.getMApplication());
-        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
+//        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
         mViewPager.setScanScroll(false);
-
+        mTabLayout.setTabGravity(TabLayout.GRAVITY_START);
         mViewPager.setAdapter(messageViewPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
         for (int i = 0; i < messageViewPagerAdapter.getCount(); i++) {
@@ -78,6 +78,8 @@ public class MessageChatFragment  extends BaseFragment {
 
             }
         });
+        //
+
     }
 
     private void event() {
