@@ -36,6 +36,7 @@
             android:layout_alignBottom="@id/user_name_message"
             android:layout_toRightOf="@id/user_name_message"
             android:text="旦光人才服务"
+            android:textColor="#f7f7f7"
             android:textSize="@dimen/sp_12" />
 
         <com.ruffian.library.widget.RTextView
@@ -46,6 +47,7 @@
             android:layout_alignLeft="@id/user_name_message"
             android:text="没问题的话明天就来上班吧"
             android:maxLines="1"
+            android:textColor="#f7f7f7"
             android:textSize="@dimen/sp_14" />
        <com.ruffian.library.widget.RTextView
            android:id="@+id/message_date_tv"

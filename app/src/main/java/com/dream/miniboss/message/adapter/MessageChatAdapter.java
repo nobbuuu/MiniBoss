@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -81,6 +82,7 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
         RTextView content;
         RTextView date;
         RTextView deleteTv;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             userIcon = itemView.findViewById(R.id.user_message_icon);
@@ -88,7 +90,7 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
             company = itemView.findViewById(R.id.message_company_tv);
             content = itemView.findViewById(R.id.message_content_tv);
             date = itemView.findViewById(R.id.message_date_tv);
-            deleteTv=itemView.findViewById(R.id.delete_item_tv);
+            deleteTv = itemView.findViewById(R.id.delete_item_tv);
         }
     }
 
@@ -99,54 +101,4 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
     }
 
 
-    public static class MovieItemTouchHelper extends ItemTouchHelper.SimpleCallback {
-
-        private MessageChatAdapter adapter;
-
-        public MovieItemTouchHelper(MessageChatAdapter adapter) {
-            super(ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
-            this.adapter = adapter;
-        }
-
-        /**
-         * If you don't support drag & drop, this method will never be called.
-         * 如果不支持拖拽，那么这个方法就不会被执行。
-         *
-         * @param recyclerView The RecyclerView to which ItemTouchHelper is attached to. ItemTouchHelper需要附加到的RecyclerView
-         * @param viewHolder   The ViewHolder which is being dragged by the user. 拖动的ViewHolder
-         * @param target       The ViewHolder over which the currently active item is being dragged. 目标位置的ViewHolder
-         * @return True if the viewHolder has been moved to the adapter position of target. viewHolder是否被移动到目标位置
-         */
-
-        @Override
-        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        /**
-         * Called when a ViewHolder is swiped by the user.
-         * If you don't support swiping, this method will never be called.
-         * 如果不支持滑动，方法不会被执行。
-         *
-         * @param viewHolder The ViewHolder which has been swiped by the user.
-         * @param direction  The direction to which the ViewHolder is swiped.
-         *                   It is one of UP, DOWN, LEFT or RIGHT.
-         *                   If your getMovementFlags(RecyclerView, ViewHolder) method returned relative flags instead of LEFT / RIGHT;
-         *                   `direction` will be relative as well. (START or END).
-         */
-
-        @Override
-        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-            //Remove item
-            viewHolder.itemView.findViewById(R.id.delete_item_tv).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                adapter.remove(viewHolder.getAdapterPosition());
-                MovieItemTouchHelper.this.notify();
-                }
-            });
-
-        }
-
-    }
 }

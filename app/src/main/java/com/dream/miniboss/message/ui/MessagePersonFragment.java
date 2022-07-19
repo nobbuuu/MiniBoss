@@ -53,9 +53,7 @@ public class MessagePersonFragment extends BaseFragment {
         mXRecyclerView.setAdapter(mChatAdapter);
         mXRecyclerView.setPullRefreshEnabled(false);
         //item滑动删除
-        ItemTouchHelper.Callback callback = new MessageChatAdapter.MovieItemTouchHelper(mChatAdapter);
-        ItemTouchHelper helper = new ItemTouchHelper(callback);
-        helper.attachToRecyclerView(mXRecyclerView);
+
 
         event();
         //给recyclerview增加头布局
