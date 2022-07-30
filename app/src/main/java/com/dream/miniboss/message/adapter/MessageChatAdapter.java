@@ -113,6 +113,7 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
 
     public interface ItemClickListener {
         void OnClick(int position);
+
         void LongOnClick(int position);
     }
 
@@ -170,7 +171,18 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
         @Override
         public void onChildDrawOver(@NonNull Canvas c, @NonNull RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
             super.onChildDrawOver(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            RTextView mTextView;
+            if (actionState == ItemTouchHelper.ANIMATION_TYPE_SWIPE_SUCCESS) {
+                ViewGroup viewGroup = (ViewGroup) viewHolder.itemView;
 
+                mTextView = (RTextView) viewGroup.getChildAt(1);
+               mTextView.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       ToastUtils.showShort("000000000");
+                   }
+               });
+            }
         }
 
         @Override
