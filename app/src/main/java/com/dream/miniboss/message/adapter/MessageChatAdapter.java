@@ -4,22 +4,30 @@ import static com.airbnb.lottie.L.TAG;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Canvas;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blankj.utilcode.util.ToastUtils;
+import com.dream.miniboss.MiniBossAppKt;
 import com.dream.miniboss.R;
 import com.dream.miniboss.message.bean.MessageChatBean;
 import com.ruffian.library.widget.RImageView;
 import com.ruffian.library.widget.RTextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,6 +60,14 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MessageChatAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+//        holder.deleteTv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                remove(position);
+//                notifyItemRemoved(position);
+//            }
+//        });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +77,7 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
                 }
             }
         });
+
     }
 
     @Override
@@ -96,9 +113,69 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
 
     public interface ItemClickListener {
         void OnClick(int position);
-
         void LongOnClick(int position);
     }
 
 
+    public static class CallBack extends ItemTouchHelper.Callback {
+        @Override
+        public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+            return makeMovementFlags(0, ItemTouchHelper.LEFT);
+        }
+
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            /**
+             * call max distance start onSwiped call
+             */
+        }
+
+
+        @RequiresApi(api = Build.VERSION_CODES.P)
+        @Override
+        public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+            RTextView mTextView;
+            if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+                /**
+                 * get {@link TextView#getWidth()}
+                 */
+                ViewGroup viewGroup = (ViewGroup) viewHolder.itemView;
+
+                mTextView = (RTextView) viewGroup.getChildAt(1);
+
+                ViewGroup.LayoutParams layoutParams = mTextView.getLayoutParams();
+//                ToastUtils.showShort(layoutParams.width);
+                if (Math.abs(dX) <= layoutParams.width) {
+                    ToastUtils.showShort("-------" + mTextView.getText().toString());
+                    /**
+                     * move {@link RecyclerView.ViewHolder} distance
+                     */
+                    viewHolder.itemView.scrollTo((int) -dX % layoutParams.width, 0);
+                    /**
+                     * callAction or register click bind view
+                     */
+
+                }
+
+
+            }
+
+        }
+
+        @Override
+        public void onChildDrawOver(@NonNull Canvas c, @NonNull RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+            super.onChildDrawOver(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
+        }
+
+        @Override
+        public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
+            super.onSelectedChanged(viewHolder, actionState);
+        }
+    }
 }

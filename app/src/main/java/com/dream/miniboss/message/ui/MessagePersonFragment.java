@@ -18,6 +18,7 @@ import com.dream.miniboss.base.BaseFragment;
 import com.dream.miniboss.message.adapter.MessageChatAdapter;
 import com.dream.miniboss.message.bean.MessageChatBean;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.sdk.base.api.CallBack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,8 @@ public class MessagePersonFragment extends BaseFragment {
         mXRecyclerView.setAdapter(mChatAdapter);
         mXRecyclerView.setPullRefreshEnabled(false);
         //item滑动删除
+        ItemTouchHelper itemTouchHelper=new ItemTouchHelper(new MessageChatAdapter.CallBack());
+        itemTouchHelper.attachToRecyclerView(mXRecyclerView);
 
 
         event();

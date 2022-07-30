@@ -46,6 +46,7 @@
             android:layout_alignLeft="@id/system_name_message"
             android:text="新版旦光工匠使用教程"
             android:maxLines="1"
+            android:textColor="@color/black"
             android:textSize="@dimen/sp_14" />
         <com.ruffian.library.widget.RTextView
             android:id="@+id/message_date_tv"
@@ -53,6 +54,7 @@
             android:layout_height="wrap_content"
             android:text="刚刚"
             android:textSize="@dimen/sp_12"
+            android:textColor="@color/black"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dp_16"
             />
