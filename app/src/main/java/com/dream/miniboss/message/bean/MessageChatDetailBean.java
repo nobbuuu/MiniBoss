@@ -1,25 +1,23 @@
 package com.dream.miniboss.message.bean;
 
 public class MessageChatDetailBean {
-    String sendMessage;
-    String receiveMessage;
+    public static final int TYPE_SEND = 1;
+    public static final int TYPE_RECEIVED = 0;
 
-    public MessageChatDetailBean() {
+
+    public String getMessage() {
+        return message;
     }
 
-    public String getSendMessage() {
-        return sendMessage;
+    public int getType() {
+        return type;
     }
 
-    public void setSendMessage(String sendMessage) {
-        this.sendMessage = sendMessage;
-    }
+    private String message;
+    private int type;
 
-    public String getReceiveMessage() {
-        return receiveMessage;
-    }
-
-    public void setReceiveMessage(String receiveMessage) {
-        this.receiveMessage = receiveMessage;
+    public MessageChatDetailBean(String message, int type) {
+        this.message = message;
+        this.type = type;
     }
 }

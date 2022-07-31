@@ -97,7 +97,8 @@
                     android:textColor="@color/black"></com.ruffian.library.widget.RTextView>
 
                 <com.ruffian.library.widget.REditText
-                    android:layout_width="@dimen/dp_200"
+                    android:id="@+id/chat_message_input_et"
+                    android:layout_width="@dimen/dp_100"
                     android:layout_height="@dimen/dp_40"
                     android:hint="请输入信息内容"
                     android:maxLength="1"
@@ -107,16 +108,27 @@
                     app:background_normal="@drawable/edit_shap" />
 
                 <Button
+                    android:id="@+id/btn_send"
                     android:layout_width="@dimen/dp_60"
                     android:layout_height="@dimen/dp_30"
                     android:background="@color/blue_light"
-                    android:text="确定"
+                    android:text="发送"
                     android:padding="@dimen/dp_4"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_14" />
-
+                <Button
+                    android:id="@+id/btn_receive"
+                    android:layout_width="@dimen/dp_60"
+                    android:layout_height="@dimen/dp_30"
+                    android:background="@color/blue_light"
+                    android:text="接收"
+                    android:padding="@dimen/dp_4"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:textSize="@dimen/sp_14" />
 
             </LinearLayout>
 
