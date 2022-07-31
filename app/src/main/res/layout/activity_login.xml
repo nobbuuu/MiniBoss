@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".login.LoginCodeActivity">
+<com.hjq.bar.TitleBar
+    android:id="@+id/title_login_code"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_44"
+    app:rightIcon="@mipmap/goin"
+    app:rightTitle="切换到找工作"/>
+</LinearLayout>
