@@ -16,52 +16,103 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+
+        >
 
         <com.jcodecraeer.xrecyclerview.XRecyclerView
             android:id="@+id/chat_message_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/gray_bg"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_106"
             android:layout_alignParentBottom="true"
+            android:background="@color/white"
             android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_44"
-            android:orientation="horizontal"
-            >
-            <com.ruffian.library.widget.RTextView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:orientation="horizontal"
+
+                >
+
+                <com.ruffian.library.widget.RTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:padding="@dimen/dp_8"
+                    android:text="投递记录"
+                    android:textColor="@color/blue_light"
+                    android:textSize="@dimen/sp_14"
+                    app:background_normal="@color/qian_green"
+                    app:corner_radius="@dimen/dp_5" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_60"
+                    android:padding="@dimen/dp_8"
+                    android:text="投简历"
+                    android:textColor="@color/blue_light"
+                    android:textSize="@dimen/sp_14"
+                    app:background_normal="@color/qian_green"
+                    app:corner_radius="@dimen/dp_5" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_50"
+                    android:padding="@dimen/dp_8"
+                    android:text="拨打电话"
+                    android:textColor="@color/blue_light"
+                    android:textSize="@dimen/sp_14"
+                    app:background_normal="@color/qian_green"
+                    app:corner_radius="@dimen/dp_5" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/gray_bg" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/sp_14"
-                android:background="@color/qian_green"
-                android:gravity="center"
-                app:corner_radius="@dimen/dp_10"
-                android:text="投递记录"/>
-            <com.ruffian.library.widget.RTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/sp_14"
-                android:background="@color/qian_green"
-                android:gravity="center"
-                app:corner_radius="@dimen/dp_10"
-                android:text="投简历"/>
-            <com.ruffian.library.widget.RTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/sp_14"
-                android:background="@color/qian_green"
-                android:gravity="center"
-                app:corner_radius="@dimen/dp_10"
-                android:text="拨打电话"/>
+                android:orientation="horizontal">
+
+                <com.ruffian.library.widget.RTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:text="常用语"
+                    android:textColor="@color/black"></com.ruffian.library.widget.RTextView>
+
+                <com.ruffian.library.widget.REditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入信息内容"
+                    app:background_normal="@color/gray_bg" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/blue_light"
+                    android:text="确定"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_16" />
 
 
-
-        </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </RelativeLayout>
