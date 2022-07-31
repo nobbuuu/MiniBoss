@@ -78,6 +78,7 @@ public class MessagePersonFragment extends BaseFragment {
             @Override
             public void OnClick(int position) {
                 ToastUtils.showShort("这是第"+position+"行");
+                startActivity(new Intent(MiniBossAppKt.getMApplication(),MessageChatDetailActivity.class));
             }
 
             @Override

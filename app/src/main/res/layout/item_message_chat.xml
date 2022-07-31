@@ -63,14 +63,13 @@
 
     </RelativeLayout>
     <com.ruffian.library.widget.RTextView
-        android:id="@+id/delete_item_tv"
+        android:id="@+id/delete_message_Item_tv"
         android:layout_width="@dimen/dp_64"
         android:layout_height="@dimen/dp_72"
         android:text="删除"
        android:gravity="center"
         android:background="#FFEBEB"
         android:textSize="@dimen/sp_14"
-
         android:textColor="#FF3A3A"/>
 
 

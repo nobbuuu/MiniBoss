@@ -60,14 +60,20 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MessageChatAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-//        holder.deleteTv.setOnClickListener(new View.OnClickListener() {
+//        holder.userIcon.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//
-//                remove(position);
-//                notifyItemRemoved(position);
+//                ToastUtils.showShort("11111111");
 //            }
 //        });
+        holder.deleteTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showShort("222222222");
+                remove(position);
+                notifyItemRemoved(position);
+            }
+        });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +90,7 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
     public int getItemCount() {
         return mList.size() == 0 ? null : mList.size();
     }
+
 
     //删除item条目
     public void remove(int position) {
@@ -107,7 +114,7 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
             company = itemView.findViewById(R.id.message_company_tv);
             content = itemView.findViewById(R.id.message_content_tv);
             date = itemView.findViewById(R.id.message_date_tv);
-            deleteTv = itemView.findViewById(R.id.delete_item_tv);
+            deleteTv = itemView.findViewById(R.id.delete_message_Item_tv);
         }
     }
 
@@ -121,7 +128,17 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
     public static class CallBack extends ItemTouchHelper.Callback {
         @Override
         public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-            return makeMovementFlags(0, ItemTouchHelper.LEFT);
+                    /*
+            设置拖动方向, 此处设置上下拖动事件
+         */
+            int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+        /*
+            设置滑动方向, 此处设置左右侧滑事件
+         */
+            int swipeFlags = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+            // 应用 拖动 和 滑动 设置
+            return makeMovementFlags(dragFlags, swipeFlags);
+
         }
 
         @Override
@@ -136,7 +153,6 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
              */
         }
 
-
         @RequiresApi(api = Build.VERSION_CODES.P)
         @Override
         public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
@@ -146,13 +162,10 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
                  * get {@link TextView#getWidth()}
                  */
                 ViewGroup viewGroup = (ViewGroup) viewHolder.itemView;
-
                 mTextView = (RTextView) viewGroup.getChildAt(1);
-
                 ViewGroup.LayoutParams layoutParams = mTextView.getLayoutParams();
-//                ToastUtils.showShort(layoutParams.width);
                 if (Math.abs(dX) <= layoutParams.width) {
-                    ToastUtils.showShort("-------" + mTextView.getText().toString());
+                    //ToastUtils.showShort("-------" + mTextView.getText().toString());
                     /**
                      * move {@link RecyclerView.ViewHolder} distance
                      */
@@ -169,14 +182,15 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
         }
 
         @Override
-        public void onChildDrawOver(@NonNull Canvas c, @NonNull RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-            super.onChildDrawOver(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-
-        }
-
-        @Override
-        public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
-            super.onSelectedChanged(viewHolder, actionState);
+        public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+            super.clearView(recyclerView, viewHolder);
+            viewHolder.itemView.findViewById(R.id.delete_message_Item_tv).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ToastUtils.showShort("01010101");
+                }
+            });
         }
     }
+
 }

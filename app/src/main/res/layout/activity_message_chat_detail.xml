@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".message.ui.MessageChatDetailActivity">
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/chat_message_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        app:title="正在与何先生聊天...."
+        tools:ignore="MissingConstraints"></com.hjq.bar.TitleBar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/chat_message_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_106"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:orientation="horizontal"
+            >
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                android:background="@color/qian_green"
+                android:gravity="center"
+                app:corner_radius="@dimen/dp_10"
+                android:text="投递记录"/>
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                android:background="@color/qian_green"
+                android:gravity="center"
+                app:corner_radius="@dimen/dp_10"
+                android:text="投简历"/>
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                android:background="@color/qian_green"
+                android:gravity="center"
+                app:corner_radius="@dimen/dp_10"
+                android:text="拨打电话"/>
+
+
+
+        </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
