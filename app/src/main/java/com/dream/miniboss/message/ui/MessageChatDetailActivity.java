@@ -41,6 +41,9 @@ public class MessageChatDetailActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        //
+        mRecyclerView.setPullRefreshEnabled(false);
+        //
         messageList=new ArrayList<>();
         mAdapter=new MessageChatDetailAdapter(messageList,this);
         mRecyclerView.setAdapter(mAdapter);
