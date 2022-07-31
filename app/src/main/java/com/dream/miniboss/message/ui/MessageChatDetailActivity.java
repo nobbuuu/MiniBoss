@@ -1,15 +1,19 @@
 package com.dream.miniboss.message.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseActivity;
 import com.dream.miniboss.message.adapter.MessageChatDetailAdapter;
 import com.dream.miniboss.message.bean.MessageChatDetailBean;
+import com.dream.miniboss.message.utils.RecyclerViewDivider;
 import com.hjq.bar.TitleBar;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.ruffian.library.widget.REditText;
@@ -41,8 +45,14 @@ public class MessageChatDetailActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        //
+        //设置是否下拉刷新
         mRecyclerView.setPullRefreshEnabled(false);
+        //设置分割线
+        //添加自定义分割线
+//添加自定义分割线
+        DividerItemDecoration divider = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
+        divider.setDrawable(ContextCompat.getDrawable(this,R.drawable.custom_divider));
+        mRecyclerView.addItemDecoration(divider);
         //
         messageList=new ArrayList<>();
         mAdapter=new MessageChatDetailAdapter(messageList,this);
@@ -78,6 +88,8 @@ public class MessageChatDetailActivity extends BaseActivity {
                     // 滑动列表定位到最后一行
                     mRecyclerView.scrollToPosition(messageList.size() - 1);
                     mChatMessageEt.setText("");
+                }else {
+                    ToastUtils.showShort("你输入的内容不能为空");
                 }
             }
         });
@@ -96,6 +108,9 @@ public class MessageChatDetailActivity extends BaseActivity {
                     mChatMessageEt.setText("");
                 }
 
+            else {
+                ToastUtils.showShort("你输入的内容不能为空");
+            }
             }
         });
     }
