@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="left"
-    android:layout_margin="@dimen/dp_10">
+    android:layout_gravity="left">
 
     <com.ruffian.library.widget.RImageView
         android:layout_width="@dimen/dp_40"
         android:layout_height="@dimen/dp_40"
         android:src="@mipmap/receiveicon"
-
+        android:layout_gravity="center"
         />
 
     <LinearLayout
