@@ -22,12 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessageChatDetailActivity extends BaseActivity {
-     TitleBar chatMessageTitle;
-     XRecyclerView mRecyclerView;
+    TitleBar chatMessageTitle;
+    XRecyclerView mRecyclerView;
     List<MessageChatDetailBean> messageList;
     MessageChatDetailAdapter mAdapter;
     REditText mChatMessageEt;
-    Button sendBtn,receiveBtn;
+    Button sendBtn, receiveBtn;
+
     @Override
     protected int initLayout() {
         return R.layout.activity_message_chat_detail;
@@ -35,33 +36,31 @@ public class MessageChatDetailActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        chatMessageTitle=fvbi(R.id.chat_message_title);
-        mRecyclerView=fvbi(R.id.chat_message_rv);
-        mChatMessageEt=fvbi(R.id.chat_message_input_et);
+        chatMessageTitle = fvbi(R.id.chat_message_title);
+        mRecyclerView = fvbi(R.id.chat_message_rv);
+        mChatMessageEt = fvbi(R.id.chat_message_input_et);
         //
-        sendBtn=fvbi(R.id.btn_send);
-        receiveBtn=fvbi(R.id.btn_receive);
+        sendBtn = fvbi(R.id.btn_send);
+        receiveBtn = fvbi(R.id.btn_receive);
     }
 
     @Override
     protected void initData() {
         //设置是否下拉刷新
         mRecyclerView.setPullRefreshEnabled(false);
-        //设置分割线
-        //添加自定义分割线
-//添加自定义分割线
-        DividerItemDecoration divider = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
-        divider.setDrawable(ContextCompat.getDrawable(this,R.drawable.custom_divider));
+      //添加自定义分割线
+        DividerItemDecoration divider = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        divider.setDrawable(ContextCompat.getDrawable(this, R.drawable.custom_divider));
         mRecyclerView.addItemDecoration(divider);
         //
-        messageList=new ArrayList<>();
-        mAdapter=new MessageChatDetailAdapter(messageList,this);
+        messageList = new ArrayList<>();
+        mAdapter = new MessageChatDetailAdapter(messageList, this);
         mRecyclerView.setAdapter(mAdapter);
-       event();
-       //增加数据
-        MessageChatDetailBean leftMessage = new MessageChatDetailBean("你好呀！", MessageChatDetailBean.TYPE_RECEIVED);
-        MessageChatDetailBean leftMessage1 = new MessageChatDetailBean("嗯嗯", MessageChatDetailBean.TYPE_SEND);
-        MessageChatDetailBean leftMessage2 = new MessageChatDetailBean("哈哈哈哈", MessageChatDetailBean.TYPE_RECEIVED);
+        event();
+        //增加数据
+        MessageChatDetailBean leftMessage = new MessageChatDetailBean("在吗？小姐姐，你好呀！", MessageChatDetailBean.TYPE_RECEIVED);
+        MessageChatDetailBean leftMessage1 = new MessageChatDetailBean("嗯嗯，还招人吗？我这边是本科毕业", MessageChatDetailBean.TYPE_SEND);
+        MessageChatDetailBean leftMessage2 = new MessageChatDetailBean("请把简历发一下", MessageChatDetailBean.TYPE_RECEIVED);
         messageList.add(leftMessage);
         messageList.add(leftMessage1);
         messageList.add(leftMessage2);
@@ -88,7 +87,7 @@ public class MessageChatDetailActivity extends BaseActivity {
                     // 滑动列表定位到最后一行
                     mRecyclerView.scrollToPosition(messageList.size() - 1);
                     mChatMessageEt.setText("");
-                }else {
+                } else {
                     ToastUtils.showShort("你输入的内容不能为空");
                 }
             }
@@ -106,11 +105,9 @@ public class MessageChatDetailActivity extends BaseActivity {
                     // 滑动列表定位到最后一行
                     mRecyclerView.scrollToPosition(messageList.size() - 1);
                     mChatMessageEt.setText("");
+                } else {
+                    ToastUtils.showShort("你输入的内容不能为空");
                 }
-
-            else {
-                ToastUtils.showShort("你输入的内容不能为空");
-            }
             }
         });
     }
