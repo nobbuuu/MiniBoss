@@ -12,6 +12,9 @@ import com.dream.miniboss.message.bean.MessageChatDetailBean;
 import java.util.List;
 
 public class MessageChatDetailAdapter extends RecyclerView.Adapter<MessageChatDetailAdapter.ViewHolder> {
+    private static final String SEND_MESSAGE_TYPE="SEND_MESSAGE_TYPE";
+    private static final String RECEIVE_MESSAGE_TYPE="RECEIVE_MESSAGE_TYPE";
+
     List<MessageChatDetailBean> messageList;
     Context mContext;
 
