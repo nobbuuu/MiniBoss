@@ -59,7 +59,7 @@ public class MessageChatDetailActivity extends BaseActivity {
         event();
         //增加数据
         MessageChatDetailBean leftMessage = new MessageChatDetailBean("在吗？小姐姐，你好呀！", MessageChatDetailBean.TYPE_RECEIVED);
-        MessageChatDetailBean leftMessage1 = new MessageChatDetailBean("嗯嗯，还招人吗？我这边是本科毕业", MessageChatDetailBean.TYPE_SEND);
+        MessageChatDetailBean leftMessage1 = new MessageChatDetailBean("嗯嗯，还招人吗？我本科毕业", MessageChatDetailBean.TYPE_SEND);
         MessageChatDetailBean leftMessage2 = new MessageChatDetailBean("请把简历发一下", MessageChatDetailBean.TYPE_RECEIVED);
         messageList.add(leftMessage);
         messageList.add(leftMessage1);
