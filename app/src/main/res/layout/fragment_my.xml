@@ -20,8 +20,9 @@
             android:background="#436DFF"
             android:gravity="center"
             android:text="我的"
+            android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/sp_25" />
+            android:textSize="@dimen/sp_18" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -290,6 +291,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/merit_record_ll"
                     android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_16"

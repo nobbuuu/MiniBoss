@@ -69,7 +69,7 @@ public class MyFragment extends BaseFragment {
     boolean temp=false;
 
     LinearLayout mLinearLayout, mSystemSetting, mAuthyName, recruitNameLayout, publishManageLayout,
-            resumeLayout, needPeopleLayput,aboutUsLayout;
+            resumeLayout, needPeopleLayput,aboutUsLayout,meritRecordLayout;
     Uri imageUri;
     Bitmap bitmap = null;
     private SharedPreferences mPreferences;
@@ -94,10 +94,12 @@ public class MyFragment extends BaseFragment {
         recruitNameLayout = fvbyid(R.id.name_recruit_ll);
         publishManageLayout = fvbyid(R.id.mange_publish_ll);
         aboutUsLayout=fvbyid(R.id.about_us_ll);
+        meritRecordLayout=fvbyid(R.id.merit_record_ll);
         //这是收简历，招聘 管理
         changeNameTv=fvbyid(R.id.name_change_tv);
         resumeLayout = fvbyid(R.id.resume_recruit_ll);
         needPeopleLayput = fvbyid(R.id.need_people_ll);
+
     }
 
     @Override
@@ -330,6 +332,14 @@ public class MyFragment extends BaseFragment {
                 startActivity(new Intent(getContext(), AuthNameActivity.class));
             }
         });
+        //记功记账
+        meritRecordLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),MeritRecordingActivity.class));
+            }
+        });
+
     }
 
 

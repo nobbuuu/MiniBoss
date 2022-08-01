@@ -32,7 +32,7 @@
             android:layout_marginTop="@dimen/dp_8"
             android:text="旦光工匠"
             android:textColor="@color/black"
-            android:textSize="@dimen/sp_16" />
+            android:textSize="@dimen/sp_18" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,6 +49,8 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/dp_16"
                 android:text="公司介绍"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_18" />
 
@@ -56,7 +58,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp_10"
-                android:text="    所属行业为专业技术服务业，经营范围包含：一般经营项目是：电子商务平台、互联网、物联网、人工智能、智能物流系统的技术开发、技术咨询、技术服务，信息电子技术服务，计算机网络平台的开发 ，应用软件、基础软件的开发，电子产品、数码产品的销售，国内贸易，经营进出口业务。，许可经营项目是：人才中介服务；经营性互联网信息服务。旦光技术有限公司目前的经营状态为存续（在营、开业、在册）。"/>
+                android:gravity="left"
+                android:text="     所属行业为专业技术服务业，经营范围包含：一般经营项目是：电子商务平台、互联网、物联网、人工智能、智能物流系统的技术开发、技术咨询、技术服务，信息电子技术服务，计算机网络平台的开发 ，应用软件、基础软件的开发，电子产品、数码产品的销售，国内贸易，经营进出口业务。，许可经营项目是：人才中介服务；经营性互联网信息服务。旦光技术有限公司目前的经营状态为存续（在营、开业、在册）。"/>
 
 
         </LinearLayout>
@@ -76,6 +79,8 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/dp_16"
                 android:text="公司资质"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_18" />
 

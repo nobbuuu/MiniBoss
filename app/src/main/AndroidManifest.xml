@@ -33,6 +33,9 @@
         android:theme="@style/Theme.CbgBase"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".mine.ui.MeritRecordingActivity"
+            android:exported="false" />
+        <activity
             android:name=".message.ui.MessageChatDetailActivity"
             android:exported="false" />
         <activity
