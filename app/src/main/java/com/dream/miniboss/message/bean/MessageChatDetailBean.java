@@ -9,12 +9,28 @@ public class MessageChatDetailBean {
         return message;
     }
 
+    @Override
+    public String toString() {
+        return "MessageChatDetailBean{" +
+                "message='" + message + '\'' +
+                ", type=" + type +
+                '}';
+    }
+
     public int getType() {
         return type;
     }
 
     private String message;
     private int type;
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 
     public MessageChatDetailBean(String message, int type) {
         this.message = message;

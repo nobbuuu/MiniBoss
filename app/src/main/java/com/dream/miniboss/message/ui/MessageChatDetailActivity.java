@@ -14,6 +14,7 @@ import com.dream.miniboss.base.BaseActivity;
 import com.dream.miniboss.message.adapter.MessageChatDetailAdapter;
 import com.dream.miniboss.message.bean.MessageChatDetailBean;
 import com.dream.miniboss.message.utils.RecyclerViewDivider;
+import com.dream.miniboss.utils.Preferences;
 import com.hjq.bar.TitleBar;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.ruffian.library.widget.REditText;
@@ -34,6 +35,7 @@ public class MessageChatDetailActivity extends BaseActivity {
         return R.layout.activity_message_chat_detail;
     }
 
+
     @Override
     protected void initView() {
         chatMessageTitle = fvbi(R.id.chat_message_title);
@@ -42,17 +44,19 @@ public class MessageChatDetailActivity extends BaseActivity {
         //
         sendBtn = fvbi(R.id.btn_send);
         receiveBtn = fvbi(R.id.btn_receive);
+        //
+
     }
 
     @Override
     protected void initData() {
         //设置是否下拉刷新
         mRecyclerView.setPullRefreshEnabled(false);
-      //添加自定义分割线
+        //添加自定义分割线
         DividerItemDecoration divider = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         divider.setDrawable(ContextCompat.getDrawable(this, R.drawable.custom_divider));
         mRecyclerView.addItemDecoration(divider);
-        //
+        //初始化数据
         messageList = new ArrayList<>();
         mAdapter = new MessageChatDetailAdapter(messageList, this);
         mRecyclerView.setAdapter(mAdapter);
@@ -64,6 +68,14 @@ public class MessageChatDetailActivity extends BaseActivity {
         messageList.add(leftMessage);
         messageList.add(leftMessage1);
         messageList.add(leftMessage2);
+        //
+//        for (MessageChatDetailBean chatDetailBean : messageList) {
+//            String receiveContent = Preferences.getPreferences().getString("receiveContent", "null");
+//            String sendContent = Preferences.getPreferences().getString("sendContent", "null");
+//            MessageChatDetailBean messageChatDetailBean = new MessageChatDetailBean(sendContent, MessageChatDetailBean.TYPE_SEND);
+//
+//            messageList.add(messageChatDetailBean);
+//        }
 
     }
 
@@ -86,6 +98,7 @@ public class MessageChatDetailActivity extends BaseActivity {
                     mAdapter.notifyItemInserted(messageList.size() - 1);
                     // 滑动列表定位到最后一行
                     mRecyclerView.scrollToPosition(messageList.size() - 1);
+                    Preferences.getPreferences().putString("sendContent", editText);
                     mChatMessageEt.setText("");
                 } else {
                     ToastUtils.showShort("你输入的内容不能为空");
@@ -104,6 +117,7 @@ public class MessageChatDetailActivity extends BaseActivity {
                     mAdapter.notifyItemInserted(messageList.size() - 1);
                     // 滑动列表定位到最后一行
                     mRecyclerView.scrollToPosition(messageList.size() - 1);
+                    Preferences.getPreferences().putString("receiveContent", editText);
                     mChatMessageEt.setText("");
                 } else {
                     ToastUtils.showShort("你输入的内容不能为空");

@@ -1,16 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#f7f7f7"
-    android:orientation="vertical"
-    tools:context=".mine.ui.AboutUsActivity">
+    android:layout_height="match_parent">
 
-    <com.hjq.bar.TitleBar
-        android:id="@+id/title_about_us"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_44"
-        app:title="关于我们" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:background="#f7f7f7"
+        android:orientation="vertical"
+        tools:context=".mine.ui.AboutUsActivity">
+
+        <com.hjq.bar.TitleBar
+            android:id="@+id/title_about_us"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            app:title="关于我们" />
+
+        <com.ruffian.library.widget.RImageView
+            android:layout_width="@dimen/dp_64"
+            android:layout_height="@dimen/dp_64"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_16"
+            android:src="@mipmap/logo" />
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="旦光工匠"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_8"
+            android:background="@drawable/lv_shape"
+            android:orientation="vertical">
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="公司介绍"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18" />
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_10"
+                android:text="    所属行业为专业技术服务业，经营范围包含：一般经营项目是：电子商务平台、互联网、物联网、人工智能、智能物流系统的技术开发、技术咨询、技术服务，信息电子技术服务，计算机网络平台的开发 ，应用软件、基础软件的开发，电子产品、数码产品的销售，国内贸易，经营进出口业务。，许可经营项目是：人才中介服务；经营性互联网信息服务。旦光技术有限公司目前的经营状态为存续（在营、开业、在册）。"/>
+
+
+        </LinearLayout>
+        <!--公司资质-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_8"
+            android:background="@drawable/lv_shape"
+            android:orientation="vertical">
+
+            <com.ruffian.library.widget.RTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="公司资质"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18" />
+
+            <com.ruffian.library.widget.RImageView
+                android:layout_width="@dimen/dp_240"
+                android:layout_height="@dimen/dp_180"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_8"
+                android:scaleType="fitXY"
+                android:src="@mipmap/zizhi" />
+
+            <com.ruffian.library.widget.RImageView
+                android:layout_width="@dimen/dp_240"
+                android:layout_height="@dimen/dp_180"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:scaleType="fitXY"
+                android:src="@mipmap/zizhi" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

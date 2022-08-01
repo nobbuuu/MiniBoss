@@ -47,7 +47,7 @@ public class MessagePersonFragment extends BaseFragment {
     @Override
     protected void initData() {
         mChatBeanList = new ArrayList<>();
-        for (int i = 0; i <2 ; i++) {
+        for (int i = 0; i <5 ; i++) {
             mChatBeanList.add(new MessageChatBean(R.mipmap.messageicon,"何先生","旦光人才服务有限公司","3月21日","工资没有什么问题明天就来上班吧"));
         }
         mChatAdapter = new MessageChatAdapter(mChatBeanList, MiniBossAppKt.getMApplication());
