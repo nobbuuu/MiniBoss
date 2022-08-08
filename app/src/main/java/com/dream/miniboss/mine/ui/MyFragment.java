@@ -37,7 +37,9 @@ import com.dream.miniboss.R;
 import com.dream.miniboss.base.BaseFragment;
 import com.dream.miniboss.login.LoginCodeActivity;
 import com.dream.miniboss.main.MainActivity;
+import com.dream.miniboss.message.MessageFragment;
 import com.dream.miniboss.utils.LoginUIHelper;
+import com.dream.miniboss.utils.Preferences;
 import com.ruffian.library.widget.RImageView;
 import com.ruffian.library.widget.RTextView;
 import com.tcl.tclzjpro.main.MainManagerKt;
@@ -99,7 +101,8 @@ public class MyFragment extends BaseFragment {
         changeNameTv=fvbyid(R.id.name_change_tv);
         resumeLayout = fvbyid(R.id.resume_recruit_ll);
         needPeopleLayput = fvbyid(R.id.need_people_ll);
-
+         //存储temp的初始值
+        Preferences.getPreferences().putBoolean("temp",temp);
     }
 
     @Override
@@ -166,20 +169,26 @@ public class MyFragment extends BaseFragment {
         mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (temp==false){
-                    changeNameTv.setText("切换成应聘端");
-                    recruitNameLayout.setVisibility(View.GONE);
-                    publishManageLayout.setVisibility(View.GONE);
-                    resumeLayout.setVisibility(View.VISIBLE);
-                    needPeopleLayput.setVisibility(View.VISIBLE);
-                    temp=true;
-                }else {
-                    changeNameTv.setText("切换成招聘端");
-                    recruitNameLayout.setVisibility(View.VISIBLE);
-                    publishManageLayout.setVisibility(View.VISIBLE);
-                    resumeLayout.setVisibility(View.GONE);
-                    needPeopleLayput.setVisibility(View.GONE);
-                    temp=false;
+
+                try {
+                    if (Preferences.getPreferences().getBoolean("temp")==false){
+                        changeNameTv.setText("切换成应聘端");
+                        recruitNameLayout.setVisibility(View.GONE);
+                        publishManageLayout.setVisibility(View.GONE);
+                        resumeLayout.setVisibility(View.VISIBLE);
+                        needPeopleLayput.setVisibility(View.VISIBLE);
+                       Preferences.getPreferences().putBoolean("temp",true);
+
+                    }else {
+                        changeNameTv.setText("切换成招聘端");
+                        recruitNameLayout.setVisibility(View.VISIBLE);
+                        publishManageLayout.setVisibility(View.VISIBLE);
+                        resumeLayout.setVisibility(View.GONE);
+                        needPeopleLayput.setVisibility(View.GONE);
+                        Preferences.getPreferences().putBoolean("temp",false);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
 //                Intent mIntent = new Intent();
@@ -200,10 +209,10 @@ public class MyFragment extends BaseFragment {
         onLineChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "onClick: " + "----------");
+//                Log.i(TAG, "onClick: " + "----------");
 //                Intent mIntent=new Intent();
 //                mIntent.setClass(v.getContext(), MessageFragment.class);
-//                v.getContext().startActivity(mIntent);
+                v.getContext().startActivity(new Intent(v.getContext(),MessageFragment.class));
             }
         });
         //点击头像进入手机号码一键登录
@@ -319,7 +328,7 @@ public class MyFragment extends BaseFragment {
                             ToastUtils.showShort("登陆成功");
                         } else {
                             ToastUtils.showShort("当前无法登陆，已转其他方式登陆");
-                            //startActivity(new Intent(getContext(),LoginCodeActivity.class));
+                            startActivity(new Intent(getContext(),LoginCodeActivity.class));
                         }
                     }
                 });
