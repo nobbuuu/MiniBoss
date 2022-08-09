@@ -8,6 +8,8 @@ import android.content.Intent
 import android.os.SystemClock
 import android.widget.RelativeLayout
 import android.widget.Toast
+import cn.finalteam.okhttpfinal.OkHttpFinal
+import cn.finalteam.okhttpfinal.OkHttpFinalConfiguration
 import cn.jiguang.verifysdk.api.*
 import cn.jiguang.verifysdk.api.JVerificationInterface.preLogin
 import com.blankj.utilcode.util.ToastUtils
@@ -35,10 +37,10 @@ lateinit var mApplication: Application
 class MiniBossApp : BaseApplication() {
 
     lateinit var browserJsActivityStack: MutableList<Activity>
-     private var context:Context?=null
+    private var context: Context? = null
     override fun onCreate() {
         super.onCreate()
-        context=this
+        context = this
         mApplication = this
         browserJsActivityStack = mutableListOf()
         TaskDispatcher.init(this)
@@ -59,12 +61,14 @@ class MiniBossApp : BaseApplication() {
 
         //初始化一键登陆
         JVerificationInterface.setDebugMode(true)
-      initVerification()
+        initVerification()
 
+        //初始化网络请求okhttp
+        var builder = OkHttpFinalConfiguration.Builder();
+        OkHttpFinal.getInstance().init(builder.build());
     }
 
-
-    fun getContext(): Context?{
+    fun getContext(): Context? {
         return context
     }
 
@@ -111,7 +115,8 @@ class MiniBossApp : BaseApplication() {
             .setPrivacyState(true)
             .setNavColor(R.color.blue_light)
             .addCustomView(mRTextView, true) { context, view ->
-                startActivity(Intent(this, LoginCodeActivity::class.java)
+                startActivity(
+                    Intent(this, LoginCodeActivity::class.java)
                 )
             } //.setLogoImgPath("ic_launcher_background")
             .setPrivacyNameAndUrlBeanList(list)
@@ -136,7 +141,6 @@ class MiniBossApp : BaseApplication() {
             }
         }
     }
-
 
 
 }

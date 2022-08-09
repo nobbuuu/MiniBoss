@@ -1,172 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/gray_bg"
-    android:orientation="vertical"
-    tools:context=".mine.ui.FeedbackActivity">
-
-    <com.hjq.bar.TitleBar
-        android:id="@+id/title_feed_back"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_44"
-        app:title="意见反馈" />
+        android:layout_height="match_parent"
+        android:background="@color/gray_bg"
+        android:orientation="vertical"
+        tools:context=".mine.ui.FeedbackActivity">
 
-    <com.ruffian.library.widget.RTextView
-        android:id="@+id/tv_roast"
-        android:layout_width="@dimen/dp_64"
-        android:layout_height="@dimen/dp_22"
-        android:layout_marginLeft="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_16"
-        android:text="吐槽一下"
-        android:textSize="@dimen/sp_16" />
-<!--<ImageView-->
-<!--    android:id="@+id/image_user"-->
-<!--    android:layout_width="wrap_content"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:src="@mipmap/usericon"/>-->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="284dp"
-        android:layout_marginLeft="@dimen/dp_8"
-        android:layout_marginTop="@dimen/dp_16"
-        android:layout_marginRight="@dimen/dp_8"
-        android:background="@drawable/lv_shape"
-        android:orientation="vertical">
-
-        <LinearLayout
+        <com.hjq.bar.TitleBar
+            android:id="@+id/title_feed_back"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="@dimen/dp_44"
+            app:title="意见反馈" />
 
-            <com.ruffian.library.widget.RTextView
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/tv_roast"
+            android:layout_width="@dimen/dp_64"
+            android:layout_height="@dimen/dp_22"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="吐槽一下"
+            android:textSize="@dimen/sp_16" />
+        <!--<ImageView-->
+        <!--    android:id="@+id/image_user"-->
+        <!--    android:layout_width="wrap_content"-->
+        <!--    android:layout_height="wrap_content"-->
+        <!--    android:src="@mipmap/usericon"/>-->
+
+        <RadioGroup
+            android:id="@+id/feed_back_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="284dp"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_8"
+            android:background="@drawable/lv_shape"
+            android:orientation="vertical">
+
+
+            <com.ruffian.library.widget.RRadioButton
                 android:id="@+id/rtv_soft_notUse"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_44"
                 android:layout_marginLeft="@dimen/dp_16"
                 android:layout_marginRight="@dimen/dp_16"
-                app:icon_pressed_right="@mipmap/selected"
+                android:button="@null"
                 android:gravity="center_vertical"
+                android:text="软件不好用"
                 android:textSize="@dimen/sp_16"
-                android:text="软件不好用" />
+                android:checked="false"
+                app:icon_normal_right="@mipmap/unselect"
+                app:icon_checked_right="@mipmap/selected" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <com.ruffian.library.widget.RTextView
+            <com.ruffian.library.widget.RRadioButton
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_44"
                 android:layout_marginLeft="@dimen/dp_16"
                 android:layout_marginRight="@dimen/dp_16"
-                app:icon_pressed_right="@mipmap/selected"
+                android:button="@null"
                 android:gravity="center_vertical"
+                android:text="功能太复杂"
                 android:textSize="@dimen/sp_16"
-                android:text="功能太复杂" />
+                android:checked="false"
+                app:icon_normal_right="@mipmap/unselect"
+                app:icon_checked_right="@mipmap/selected" />
 
-        </LinearLayout>  <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+
+            <com.ruffian.library.widget.RRadioButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:button="@null"
+                android:gravity="center_vertical"
+                android:text="界面不好看"
+                android:textSize="@dimen/sp_16"
+                android:checked="false"
+                app:icon_normal_right="@mipmap/unselect"
+                app:icon_checked_right="@mipmap/selected" />
+
+
+            <com.ruffian.library.widget.RRadioButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:button="@null"
+                android:gravity="center_vertical"
+                android:text="岗位/求职者太少"
+                android:textSize="@dimen/sp_16"
+                android:checked="false"
+                app:icon_normal_right="@mipmap/unselect"
+                app:icon_checked_right="@mipmap/selected" />
+
+
+            <com.ruffian.library.widget.RRadioButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:button="@null"
+                android:gravity="center_vertical"
+                android:text="职位不真实"
+                android:textSize="@dimen/sp_16"
+                android:checked="false"
+                app:icon_normal_right="@mipmap/unselect"
+                app:icon_checked_right="@mipmap/selected" />
+
+
+            <com.ruffian.library.widget.RRadioButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:button="@null"
+                android:gravity="center_vertical"
+                android:text="其他问题"
+                android:textSize="@dimen/sp_16"
+                android:checked="false"
+                app:icon_normal_right="@mipmap/unselect"
+                app:icon_checked_right="@mipmap/selected" />
+
+
+        </RadioGroup>
 
         <com.ruffian.library.widget.RTextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_44"
+            android:id="@+id/tv_detail"
+            android:layout_width="@dimen/dp_64"
+            android:layout_height="@dimen/dp_22"
             android:layout_marginLeft="@dimen/dp_16"
-            android:layout_marginRight="@dimen/dp_16"
-            app:icon_pressed_right="@mipmap/selected"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/sp_16"
-            android:text="界面不好看" />
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="详细描述"
+            android:textSize="@dimen/sp_16" />
 
-    </LinearLayout>  <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <com.ruffian.library.widget.RTextView
+        <EditText
+            android:id="@+id/edittext_feed_back"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_44"
-            android:layout_marginLeft="@dimen/dp_16"
-            android:layout_marginRight="@dimen/dp_16"
-            app:icon_pressed_right="@mipmap/selected"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/sp_16"
-            android:text="岗位/求职者太少" />
+            android:layout_height="@dimen/dp_144"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_8"
+            android:background="@color/white"
+            android:gravity="start"
+            android:hint="描述一下您在使用过程中遇到的问题"
+            android:inputType="textMultiLine"
+            app:text_color_normal="@color/grey_dark" />
 
-    </LinearLayout>  <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <com.ruffian.library.widget.RTextView
+        <Button
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_44"
-            android:layout_marginLeft="@dimen/dp_16"
-            android:layout_marginRight="@dimen/dp_16"
-            app:icon_pressed_right="@mipmap/selected"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/sp_16"
-            android:text="职位不真实" />
-
-    </LinearLayout>  <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <com.ruffian.library.widget.RTextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_44"
-            android:layout_marginLeft="@dimen/dp_16"
-            android:layout_marginRight="@dimen/dp_16"
-            app:icon_pressed_right="@mipmap/selected"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/sp_16"
-            android:text="其他问题" />
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_32"
+            android:layout_marginRight="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:background="@drawable/shap_button_radius"
+            android:text="确定"
+            android:textColor="@color/white" />
 
     </LinearLayout>
-    </LinearLayout>
-    <com.ruffian.library.widget.RTextView
-        android:id="@+id/tv_detail"
-        android:layout_width="@dimen/dp_64"
-        android:layout_height="@dimen/dp_22"
-        android:layout_marginLeft="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_24"
-        android:text="详细描述"
-        android:textSize="@dimen/sp_16" />
-    <EditText
-        android:id="@+id/edittext_feed_back"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_144"
-        android:background="@color/white"
-        android:hint="描述一下您在使用过程中遇到的问题"
-        android:gravity="start"
-        android:inputType="textMultiLine"
-        android:layout_marginTop="@dimen/dp_16"
-        android:layout_marginRight="@dimen/dp_8"
-        android:layout_marginLeft="@dimen/dp_8"
-        app:text_color_normal="@color/grey_dark"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_48"
-        android:text="确定"
-        android:layout_marginLeft="@dimen/dp_8"
-        android:layout_marginRight="@dimen/dp_8"
-        android:layout_marginTop="@dimen/dp_32"
-        android:layout_marginBottom="@dimen/dp_16"
-        android:textColor="@color/white"
-        android:background="@drawable/shap_button_radius"
-       />
-
-</LinearLayout>
 </ScrollView>

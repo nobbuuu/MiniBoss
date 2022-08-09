@@ -136,6 +136,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.yanzhenjie.recyclerview:x:1.3.2'
+    implementation 'cn.finalteam:okhttpfinal:2.0.7'
     //极光认证
     implementation 'cn.jiguang.sdk:jverification:2.9.0' // 此处以2.7.1 版本为例。
     implementation 'cn.jiguang.sdk:jcore:3.2.4'

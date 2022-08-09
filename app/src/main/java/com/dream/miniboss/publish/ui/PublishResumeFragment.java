@@ -93,7 +93,7 @@ public class PublishResumeFragment extends BaseFragment {
                     if (mRadioButton.isChecked()) {
 
                         ToastUtils.showShort(mRadioButton.getText().toString());
-                       workTimeSelectGroupOne.clearCheck();
+                          workTimeSelectGroupOne.clearCheck();
                     }
                 }
             }
