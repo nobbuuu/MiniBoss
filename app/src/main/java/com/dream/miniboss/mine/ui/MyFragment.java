@@ -104,12 +104,10 @@ public class MyFragment extends BaseFragment {
          //存储temp的初始值
         Preferences.getPreferences().putBoolean("temp",temp);
     }
-
     @Override
     public void onResume() {
         super.onResume();
         //将存储的图片显示在头像上面
-
         try {
             File outputImage = new File(getContext().getExternalCacheDir(), "user_images.jpg");
             imageUri = FileProvider.getUriForFile(getContext(), "com.dream.miniboss.FileProvider", outputImage);
@@ -169,7 +167,6 @@ public class MyFragment extends BaseFragment {
         mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 try {
                     if (Preferences.getPreferences().getBoolean("temp")==false){
                         changeNameTv.setText("切换成应聘端");
